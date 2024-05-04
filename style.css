@@ -1,40 +1,64 @@
 /*__MAIN__*/
-nav{
+.sect-1{
+	padding: 100px 20px 30px 20px;
 	transition: 0.25s;
-	background-image: linear-gradient(45deg, black, transparent);
-	background-position: bottom;
-	background-size: auto;
-	color: white;
 	display: flex;
-	flex-direction: row;
 	align-items: center;
-	font-size: 2rem;
-	padding: 0px 10%;
-	justify-content: space-between;
-	height: auto;
+	justify-content: center;
+	background-image: url("img/blend_ui.png");
+	background-size: cover;
+	background-position: center;
+	text-align: center;
+ 
 }
 
-nav a{
-	text-decoration: none;
+.sect-1:hover{
+	background-image: url("img/blend_ui.png");
+	background-size: cover;
+	background-position: center;
 }
 
-nav img{
-	margin-right: 575px;
-	width: 5rem;
-	filter: invert(95%);
+.nav-bar {
 	transition: 0.25s;
-	height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 5%;
+    background: rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 20px black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
 }
 
-nav img:hover{
-	filter: invert(100%);
+.nav-bar ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-bar li {
+    margin-right: 20px;
+}
+
+.nav-bar img {
+    height: auto;
+    max-width: 50px;
+    filter: invert(100%);
+}
+
+.nav-bar.scrolled {
+    background: rgba(0, 0, 0, 1); /* Full opacity */
 }
 
 body{
 	background: #0e0e0e;
 	color: #ffffff;
-	margin-left: 20px;
-	margin-right: 20px;
+	margin: 0px;
 	font-family: Gilroy;
 }
 
@@ -71,6 +95,8 @@ button:active{
 	border-color: transparent;
 	margin: 20px;
 	padding: 20px;
+	margin-left: 20%;
+	margin-right: 20%;
 	transition: 0.25s;
 	display: flex;
 	flex-direction: column;
@@ -90,8 +116,8 @@ button:active{
 }
 
 .recc button{
-	margin-left: 500px;
-	margin-right: 500px;
+	margin-left:  30%;
+	margin-right: 30%;
 }
 
 .rec-round{
@@ -105,9 +131,13 @@ button:active{
 }
 
 section{
-	background: #1A1A1A;
-	padding: 5px 20px 5px 20px;
 	transition: 0.25s;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+section:hover{
+	background: rgba(0, 0, 0, 1.0);
 }
 
 section h2{
@@ -116,17 +146,12 @@ section h2{
 	margin-top: 6px;
 }
 
-section:hover{
-	background: transparent;
-}
-
-.sect-1{
-	padding: 20px;
-}
-
 .sect-1 h1{
 	font-size: 3em;
 	margin: 0px;
+}
+
+.sect-2{
 }
 
 .sect-3_p{

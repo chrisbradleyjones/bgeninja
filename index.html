@@ -11,13 +11,15 @@
 	<title>BGENinja - Home</title>
 </head>
 <body>
-	<nav>
-		<img src="img\bgeninja.svg" alt="Blender Game Engine Ninja Logo" title="logo design by me lol">
-		<a href="index.html"><h5>Home</h5></a>
-		<a href="brotips.html"><h5>BroTips</h5></a>
-		<a href="about.html"><h5>About</h5></a>
-	</nav>
 	<section class="sect-1" id="home">
+		<nav class="nav-bar">
+		    <ul>
+		        <li><img src="img/bgeninja.svg" alt="Logo"></li>
+		        <li><a href="index.html">Home</a></li>
+		        <li><a href="brotips.html">BroTips</a></li>
+		        <li><a href="about.html">About</a></li>
+		    </ul>
+		</nav>
 		<div class="heading">
 			<h1>BGENinja</h1>
 			<h3>Open BGE Tutorials</h3>
@@ -76,5 +78,15 @@
 			</div>
 		</div>
 	</section>
+<script>
+    window.addEventListener('scroll', function() {
+        var navBar = document.querySelector('.nav-bar');
+        if (window.scrollY > 0) {
+            navBar.classList.add('scrolled');
+        } else {
+            navBar.classList.remove('scrolled');
+        }
+    });
+</script>
 </body>
 </html>
