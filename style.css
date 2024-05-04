@@ -1,0 +1,163 @@
+/*__MAIN__*/
+nav{
+	transition: 0.25s;
+	background-image: linear-gradient(45deg, black, transparent);
+	background-position: bottom;
+	background-size: auto;
+	color: white;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	font-size: 2rem;
+	padding: 0px 10%;
+	justify-content: space-between;
+	height: auto;
+}
+
+nav a{
+	text-decoration: none;
+}
+
+nav img{
+	margin-right: 575px;
+	width: 5rem;
+	filter: invert(95%);
+	transition: 0.25s;
+	height: auto;
+}
+
+nav img:hover{
+	filter: invert(100%);
+}
+
+body{
+	background: #0e0e0e;
+	color: #ffffff;
+	margin-left: 20px;
+	margin-right: 20px;
+	font-family: Gilroy;
+}
+
+a{
+	color: #0096FF;
+	transition: 0.25s;
+	text-decoration-color: rgba(0,150,255, 1.0);
+}
+
+a:hover{
+	text-decoration: none;
+	text-shadow: 0px 0px 5px;
+	text-decoration-color: transparent;
+}
+
+button{
+	color: black;
+	background: rgba(241, 196, 15, 1.0);
+	padding: 10px;
+}
+
+button:hover{
+	color: black;
+	background: rgba(241, 196, 15, 0.75);
+}
+
+button:active{
+	color: rgba(241, 196, 15, 1.0);
+	background: black;
+}
+
+.recc{
+	border-style: solid;
+	border-color: transparent;
+	margin: 20px;
+	padding: 20px;
+	transition: 0.25s;
+	display: flex;
+	flex-direction: column;
+	border-radius: 20px;
+	line-height: 3px;
+}
+
+.recc h3{
+	font-size: 2em;
+	margin: 30px 0 20px 0px;
+}
+
+.recc:hover{
+	border-radius: 20px;
+	border-style: solid;
+	border-color: white;
+}
+
+.recc button{
+	margin-left: 500px;
+	margin-right: 500px;
+}
+
+.rec-round{
+	background: orange;
+	border: clamp(0, 0, 0);
+	border-color: orangered;
+	border-style: solid;
+	border-radius: 100px;
+	margin-right: auto;
+	padding: 10px;
+}
+
+section{
+	background: #1A1A1A;
+	padding: 5px 20px 5px 20px;
+	transition: 0.25s;
+}
+
+section h2{
+	text-align: center;
+	font-size: 2rem;
+	margin-top: 6px;
+}
+
+section:hover{
+	background: transparent;
+}
+
+.sect-1{
+	padding: 20px;
+}
+
+.sect-1 h1{
+	font-size: 3em;
+	margin: 0px;
+}
+
+.sect-3_p{
+	text-align: center;
+	margin-right: 10rem;
+	margin-left: 10rem;
+}
+
+.join-discord{
+	display: flex;
+	justify-content: center;
+}
+
+.upbge-discord, .range-discord{
+	margin-right: 10px;
+	margin-left: 10px;
+	padding: 20px;
+	border-style: solid;
+	border-radius: 10px;
+	border-width: 2px;
+	display: flex;
+	flex-direction: column;
+	max-width: 25%;
+}
+
+.upbge-discord, .range-discord img{
+	justify-content: center;
+	max-width: 10rem;
+}
+
+.upbge-discord, .range-discord h5{
+	font-size: 1.25rem;
+	text-align: center;
+}
