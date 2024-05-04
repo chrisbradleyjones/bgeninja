@@ -60,6 +60,7 @@ body{
 	color: #ffffff;
 	margin: 0px;
 	font-family: Gilroy;
+	overflow-x: hidden;
 }
 
 a{
@@ -137,7 +138,7 @@ section{
 }
 
 section:hover{
-	background: rgba(0, 0, 0, 1.0);
+	background: rgba(10, 10, 15, 1.0);
 }
 
 section h2{
@@ -185,4 +186,40 @@ section h2{
 .upbge-discord, .range-discord h5{
 	font-size: 1.25rem;
 	text-align: center;
+}
+
+
+/*makes site RESPONISVE*/
+@media (max-width: 768px){
+	.recc{
+		margin: 20px;
+		padding: 20px;
+		margin-left: 7%;
+		margin-right: 7%;
+	}
+	.recc p{
+		line-height: 1.5rem;
+	}
+	.sect-3_p{
+		margin-right: 1.25rem;
+		margin-left: 1.25rem;
+	}
+	.join-discord{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.upbge-discord, .range-discord{
+		margin-right: 20px;
+		margin-left: 20px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.upbge-discord, .range-discord img{
+		justify-content: center;
+		max-width: 5.5em;
+	}
+	body{
+		width: auto;
+	}
 }
