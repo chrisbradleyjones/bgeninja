@@ -161,6 +161,16 @@ section h2{
 	margin-left: 10rem;
 }
 
+/*.sect-4{
+	background-image: radial-gradient(#0B0B13 0%, #ffff 100%);
+	background-attachment: fixed;
+}*/
+
+.sect-4:hover{
+	background-image: none;
+}
+
+
 .join-discord{
 	display: flex;
 	justify-content: center;

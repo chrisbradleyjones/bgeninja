@@ -16,7 +16,8 @@
 		    <ul>
 		        <li><img src="img/bgeninja.svg" alt="Logo"></li>
 		        <li><a href="index.html">Home</a></li>
-		        <li><a href="brotips.html">BroTips</a></li>
+		        <li><a href="#courses">Courses</a></li>
+		        <li><a href="brotips.html" target="https">BroTips</a></li>
 		        <li><a href="about.html">About</a></li>
 		    </ul>
 		</nav>
@@ -29,13 +30,13 @@
 			</div>
 		</div>
 	</section>
-	<section class="sect-2">
+	<section class="sect-2" id="courses">
 		<h2>Where do I start?</h2>
 		<div class="recc">
 			<div class="rec-round">1</div>
 			<h3>BGE Basics</h3>
-			<p>Learn the basics. This is recommended.</p>
-			<button>Learn BGE Basics</button>
+			<p>Learn the basics and the logic bricks.</p>
+			<button onclick="goto('/courses/logic-bricks/intro.html')">Learn BGE Basics</button>
 		</div>
 		<div class="recc">
 			<div class="rec-round">2</div>
@@ -79,6 +80,31 @@
 		</div>
 	</section>
 <script>
+	function goto(relativePath) {
+	  var basePath = window.location.pathname;
+	  var newPath = basePath.substring(0, basePath.lastIndexOf('/')) + '/' + relativePath;
+	  window.location.href = newPath;
+	}
+	function scrollToSection(sectionId) {
+	  const section = document.getElementById(sectionId);
+	  if (section) {
+	    window.scrollTo({
+	      behavior: 'smooth',
+	      top: section.offsetTop
+	    });
+	  }
+	}
+	document.querySelectorAll('nav a').forEach(link => {
+	  link.addEventListener('click', function(e) {
+		const href = this.getAttribute('href');
+	// Check if the link is internal or external
+		if (href.startsWith('#')) {
+		  e.preventDefault();
+		  const sectionId = href.slice(1);
+		  scrollToSection(sectionId);
+	}
+	});
+});
     window.addEventListener('scroll', function() {
         var navBar = document.querySelector('.nav-bar');
         if (window.scrollY > 0) {
