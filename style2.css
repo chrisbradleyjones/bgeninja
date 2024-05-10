@@ -10,6 +10,10 @@ body{
 	margin: 0px;
 }
 
+*::selection{
+	background-color: dodgerblue;
+}
+
 section{
 	padding: 10px 20px 10px 20px;
 	background: #111;
@@ -99,9 +103,10 @@ span{
 
 /*When focusing the contents*/
 .ccl:focus {
-  	outline: 2px solid dodgerblue;
+  	outline: 2px solid orange;
   	outline-offset: -2px;
   	animation: focusing 0.5s infinite alternate;
+  	box-shadow: 0px 0px 10px orange;
 }
 
 .sect-1{
@@ -153,6 +158,6 @@ span{
 		outline: 2px solid transparent;
 	}
 	100%{
-		outline: 3px solid dodgerblue;
+		outline: 3px solid orange;
 	}
 }

@@ -1,0 +1,43 @@
+@font-face{
+	font-family: Figtree;
+	src: url('"Figtree-VariableFont_wght.ttf"') format('truetype');
+}
+
+body{
+	background: #333;
+	font-family: 'Figtree', sans-serif;
+	color: whitesmoke;
+	margin: 0px;
+}
+
+figure{
+	display: flex;
+	flex-direction: column;
+	max-width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid;
+/*	margin-top: auto;*/
+/*	margin: auto;*/
+}
+
+figure img{
+	border-radius: 0px;
+}
+
+figcaption{
+	background: black;
+	color: whitesmoke;
+	padding: 2px;
+	text-align: center;
+}
+
+pre{
+	background: whitesmoke;
+	font-size: 1rem;
+	display: flex;
+	overflow-x: scroll;
+	border-radius: 5px;
+	margin-left: 20%;
+	margin-right: 20%;
+}
