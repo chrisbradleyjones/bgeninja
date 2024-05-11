@@ -1,11 +1,11 @@
 @font-face{
-	font-family: Figtree;
-	src: url('"Figtree-VariableFont_wght.ttf"') format('truetype');
+	font-family: merri;
+	src: url('MerriweatherSans-VariableFont_wght.ttf') format('truetype');
 }
 
 body{
-	background: #333;
-	font-family: 'Figtree', sans-serif;
+	background: #121212;
+	font-family: 'merri', sans-serif;
 	color: whitesmoke;
 	margin: 0px;
 }
@@ -41,3 +41,22 @@ pre{
 	margin-left: 20%;
 	margin-right: 20%;
 }
+
+h3{
+	font-size: 2rem;
+}
+
+h5{
+	text-transform: uppercase;
+	color: #03dac6;
+}
+
+p, h3, h5{
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+p{
+	line-height: 1.2rem;
+}
+
