@@ -162,6 +162,23 @@ span{
 	}
 }
 
+.bargo li {
+	position: relative;
+	list-style: none;
+	font-size: 1.25rem;
+}
+
+.bargo li::before {
+	content: '';
+	display: inline-block;
+	width:  30px;
+	height: 30px;
+	margin-top: 2px;
+	background-image: url('img/omg.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
 /*Make site responsive*/
 @media only screen and (width <= 2561px){
 	.container-cl a{

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+	<title>Logic Bricks - 5</title>
+</head>
+<body>
+	<h1>5 - Playing Sounds</h1>
+	<h3>Getting a sound from the Internet</h3>
+	<p>making stuff when i get internet lol</p>
+	<h3>Playing it in the game</h3>
+	<p>
+		Open the logic editor, add a <span class="mono">Mouse</span> sensor.
+		The default type of event that is set in the <span class="mono">Mouse Event</span> is <span class="mono">Left Button</span>.
+		Then add a <span class="mono">Sound</span> actuator and choose the file you want to play.
+	</p>
+	<figure>
+		<img src="../../img/choose-sound.jpg" loading="lazy" alt="Sound actuator asking to choose a file to play">
+		<figcaption>Sound actuator asking to choose a file to play</figcaption>		
+	</figure>
+	<p>
+		After choosing it, you'll be shown with settings like this.
+	</p>
+	<figure>
+		<img src="../../img/sound-actuator.jpg" loading="lazy" alt="Sound actuator with settings" title="If you're wondering, I made that music lol">
+		<figcaption>Sound actuator with settings</figcaption>		
+	</figure>
+	<p>
+		Run the game and you'll... wait. When you click with your left button, the audio plays for an instance.
+		Like...for 0.5ms. To avoid that, choose the <span class="mono">Play Mode</span> from <span class="mono">Play Stop</span> to <span class="mono">Play End</span>.
+		Now run the game and your sound play.
+	</p>
+	<h5>Play Stop</h5>
+	<p>Play Stop plays the audio file until the sensor is triggered.</p>
+	<h5>Play End</h5>
+	<p>Play End plays the audio file once when the sensor is triggered.</p>
+	<h5>Back to our stuff</h5>
+	<p>If you know what the above two does, then you must be knowing what <span class="mono">Loop Stop</span> and <span class="mono">Loop End</span> does.</p>
+	<h3>How this can be used</h3>
+	<p>This mechanism is used in many ways like when</p>
+	<ul>
+		<li>objects hit</li>
+		<li>the player jumps</li>
+		<li>mouse is hovered in menu buttons</li>
+		<li>vehicles run</li>
+		<li>characters speak</li>
+		<li>etc</li>
+	</ul>
+</body>
+</html>

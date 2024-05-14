@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+	<title>Logic Bricks - 2</title>
+</head>
+<body>
+	<h1>2 - Move and rotate objects</h1>
+	<p>
+		Previously we saw (if you saw) how logic bricks works and I hope you gave some tries with it.
+		Now we're going to move an object with logic bricks when a key (any key you want) in the keyboard is pressed.
+	</p>
+	<h5>Position</h5>
+	<p>
+		<u>Select the object on which you want the mechanism to happen</u> and add a keyboard sensor (i selected the default Blender cube and added a sensor coz i wanted the cube to move),
+		press the empty field near the <span class="mono">Key:</span> you'll see it gets highlight in blue color (depends on what theme you're using.
+		I'm using the default <span title="UPBGE 2.6.009">UPBGE 2.6+</span> theme) saying <span class="mono">Press a key</span>.
+		It's waiting for the user to press a key so whenever the user presses that certain key, this keyboard sensors is triggered.
+		Press a key now if you haven't yet lol. And it should something like this.
+	</p>
+	<figure>
+		<img src="../../img/w.gif" loading="lazy" alt="W key pressed in a Keyboard sensor">
+		<figcaption>W key pressed in a Keyboard sensor</figcaption>
+	</figure>
+	<p>Add an <b>And</b> controller and connect the sensor you added previously with the controller you just added. Now added a <b>Motion</b> actuator and connect it to the controller. On <span class="mono">Loc:</span> (which means Location) you'll be seeing <span class="mono">X: 0.00 | Y: 0.00 | Z: 0.00</span> Click on Y (you can click on whatever axis you like, for now I'm sticking with Y as W is used to move a character on Y axis i.e., front) and change value to 0.20 or something you want.</p>
+	<p>Press <b>P</b> the game engine runs. Press W and the object moves!</p>
+	<figure>
+		<img src="../../img/l1-cube-moves.gif" loading="lazy">
+		<figcaption>Cube moving when pressing W</figcaption>
+	</figure>
+	<h5>Orientation</h5>
+	<p>Now change values on <span class="mono">Rot:</span> (which means Rotation) and Press P to run the game. Your object now moves and rotates.</p>
+	<figure>
+		<img src="../../img/l1_cube_L.gif" loading="lazy" alt="Cube moving in local orientation and position">
+		<figcaption>Cube moving in local orientation and position</figcaption>
+	</figure>
+	<p>
+		If you don't like the way the object moves and rotates, Press the <b>L</b> to deactivate it. And now try running the game.
+		This happens when the object moves in local axis. When the cube is rotated 45deg in X axis,
+		the cube moves in the axis it is faced on the Y axis when it is moved in that axis.
+	</p>
+	<figure>
+		<img src="../../img/l1_cube_noL.gif" loading="lazy" alt="Cube moving in world orientation and position">
+		<figcaption>Cube moving in world orientation and position</figcaption>
+	</figure>
+</body>
+</html>

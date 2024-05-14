@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Logic Bricks - 4</title>
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+</head>
+<body>
+	<h1>4 - Playing Animations</h1>
+	<h3>Animating an Object</h3>
+	<p>
+		Let's play animations inside the game engine. Add an object,
+		make sure it has enough faces if you're animating with bones so it doesn't look worse than PS1 graphics lol.
+		Now, animate it. If you don't know to animate it, no problem.
+	</p>
+	<p>
+		Set the editor type to <span class="mono">Timeline</span>
+		and bring your timeline bar to <b>frame 1</b>. Move it or rotate it and keyframe the Location or Rotation by pressing <b>I</b> keeping your cursor on the 3D workspace.
+		Let's stick with Location for now. You'll brought down with list of keying sets, click on Location.
+		Now bring your timeline bar to <b>frame 60</b> and then keyframe it again.
+	</p>
+	<p>
+		If your framerate of the timeline is set to <b>60</b> then <u>you're having an animated object that lasts for a second</u>!
+		Before moving to logic editor, Set the editor type to <span class="mono">Dope Sheet</span>.
+		Now set the editing context from Dope Sheet to <span class="mono">Action Editor</span>
+	</p>
+	<figure>
+		<img src="../../img/dope-sheet-editing-context.gif" loading="lazy" alt="Dope sheep editing context">
+		<figcaption>Dope sheep editing context</figcaption>
+	</figure>
+	<p>
+		Now you'll see your object name and <b>Action</b> named next to it.
+		If your object name is <span class="mono">Cube</span> you'll have the animation named as <span class="mono">CubeAction</span>
+	</p>
+	<h3>Playing the animation in the game</h3>
+	<p>
+		Now you have an animated object or if you already have one that's cool! Ok so...Go to logic editor and add an <span class="mono">Always</span> sensor.
+		Before adding a controller, add an <span class="mono">Action</span> actuator. Click on the empty field with the dope sheet icon on it and select your animation.
+		It looks something like this.
+	</p>
+	<!-- Screw GIF formats, using JPG images from now on for static images -->
+	<figure>
+		<img src="../../img/cubeaction.jpg" loading="lazy" alt="List of F-Curve Actions">
+		<figcaption>List of F-Curve Actions</figcaption>
+	</figure>
+	<p>
+		Now connect that always sensor to your action actuator and boom! The <span class="mono">And</span> controller shows up and connects automatically.
+		We made the animation lasting for a second which was 60 frames. Set end frame on the action actuator to 60 and it sets to 60.0 as its floating point integer.
+		It doesn't matter for now what floating point integer means xd.
+	</p>
+	<p>Press P and there you're animation is playing!</p>
+	<h5>Playing animation is different modes</h5>
+	<p>
+		You might wonder "Why the heck isn't my animation playing always??" No worries, just set the action playback type from <span class="mono">Play</span> to <span class="mono">Loop End</span>
+		And run the game, your animation is playing in a loop!
+	</p>
+	<p>
+		Now try setting the playback type from <span class="mono">Loop End</span> to <span class="mono">Ping Pong</span>. Now your animation should be playing in normal and reverse direction like below.
+	</p>
+	<figure>
+		<img src="../../img/cubeactionpingpong.gif" loading="lazy" alt="Dope sheep editing context">
+		<figcaption>Dope sheep editing context</figcaption>
+	</figure>
+	<p>
+		Ah, I don't think your animation is playing, because the data from always sensor is triggered only once.
+		Turn on <b>TRUE level triggering</b> in the always sensor. This sends the data instantly and always until the sensor isn't triggered, which causes the action to play in ping pong mode.
+	</p>
+	<figure>
+		<img src="../../img/truelvltriggering.jpg" loading="lazy" alt="True Level Triggering in blender game engine">
+		<figcaption>True Level Triggering</figcaption>
+	</figure>
+	<p>Now run the game, is it playing?</p>
+</body>
+</html>
