@@ -57,12 +57,17 @@
     filter: invert(100%);
 }
 
+.nav-bar a{
+	text-decoration: none;
+	color: whitesmoke;
+}
+
 .nav-bar.scrolled {
     background: rgba(0, 0, 0, 1); /* Full opacity */
 }
 
 body{
-	background: #0e0e0e;
+	background: #121212;
 	color: #ffffff;
 	margin: 0px;
 	font-family: merri, sans-serif;
@@ -84,22 +89,22 @@ a:hover{
 button{
 	transition: 0.25s;
 	font-size: 1.25rem;
-	color: whitesmoke;
-	background: #DB1D3C;
+	color: black;
+	background: #F19237;
 	padding: 10px;
 	border-radius: 10px;
 	border: solid transparent;
 }
 
 button:hover{
-	background: #DB1D3C;
-	box-shadow: 0px 0px 15px #DB1D3C;
+	background: #F19237;
+	box-shadow: 0px 0px 5px black;
 }
 
 button:active{
 	transition: 0s;
-	color: whitesmoke;
-	background: #E0004B;
+	color: black;
+	background: #DBfD8C;
 }
 
 .recc{
@@ -114,6 +119,7 @@ button:active{
 	flex-direction: column;
 	border-radius: 20px;
 	line-height: 3px;
+	background: transparent;
 }
 
 .recc h3{
@@ -146,10 +152,6 @@ section{
 	transition: 0.25s;
 	padding-top: 10px;
 	padding-bottom: 10px;
-}
-
-section:hover{
-	background: rgba(10, 10, 15, 1.0);
 }
 
 section h2{
@@ -258,6 +260,166 @@ section h2{
 
 p{
 	line-height: 1.5rem;
+}
+
+pre{
+	padding: 10px;
+	color: black;
+	background: whitesmoke;
+	display: flex;
+	margin-right: 20%;
+	margin-left: 20%;
+	overflow-x: scroll;
+	font-size: 1rem;
+	border: 2px solid orange;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 20px;
+}
+
+.howtocontr{
+	padding: 10px;
+}
+
+.howtocontr h3, p{
+	margin-right: 2.5%;
+	margin-left: 2.5%;
+}
+
+.howtocontr p{
+	margin-top: -10px;
+}
+
+.howtocontr h3{
+	position: relative;
+
+}
+
+.howtocontr h3::after{
+	margin-left: 20px;
+	content: '';
+	border-left: 20px solid transparent;
+	transition: 0.25s;
+}
+
+.howtocontr h3:hover::after{
+	border-left: 20px solid;
+}
+
+.sect-1_contr h1, h3, ul{
+	margin-right: 2.5%;
+	margin-left: 2.5%;
+	position: relative;
+}
+
+.sect-1_contr ul{
+	list-style: decimal;
+
+}
+
+.dingus{
+	transition: 0.25s;
+	font-family: monospace;
+	color: transparent;
+}
+
+.dingus:hover{
+	color: whitesmoke;
+	text-shadow: 0px 0px 20px azure;
+}
+
+#logic-bricks, #python, #glsl, #source-code, #tutorials{
+	background-size: cover;
+	transition: 0.25s;
+	position: relative;
+	text-shadow: 0px 0px 20px darkred;
+}
+
+#logic-bricks:hover::before, #python:hover::before, #glsl:hover::before, #source-code:hover::before, #tutorials:hover::before{
+	filter: blur(2px) saturate(0%);
+}
+
+#logic-bricks::before{
+	background-image: url(img/lgcbrcks.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    z-index: -1;
+    transition: 0.25s;
+}
+
+#python::before{
+	background-image: url(img/2.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    z-index: -1;
+    transition: 0.25s;
+}
+
+#glsl::before{
+	background-image: url(img/glsl.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    z-index: -1;
+    transition: 0.25s;
+}
+
+#source-code::before{
+	background-image: url(img/src-code.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 1;
+	content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    border-radius: 20px;
+    z-index: -1;
+    transition: 0.25s;
+}
+
+#tutorials::before{
+	background-image: url(img/3.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 1;
+	content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    border-radius: 20px;
+    z-index: -1;
+    transition: 0.25s;
 }
 
 /*makes site RESPONISVE*/

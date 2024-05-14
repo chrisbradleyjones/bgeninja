@@ -16,7 +16,8 @@ figure{
 	max-width: 50%;
 	margin-left: auto;
 	margin-right: auto;
-	border: 2px solid;
+	border: 1px solid;
+	padding: 5px;
 /*	margin-top: auto;*/
 /*	margin: auto;*/
 }
@@ -40,23 +41,57 @@ pre{
 	border-radius: 5px;
 	margin-left: 20%;
 	margin-right: 20%;
+	padding: 20px;
+	color: black;
+}
+
+h1{
+	position: relative;
+	font-size: 3rem;
 }
 
 h3{
 	font-size: 2rem;
+	margin-bottom: -10px;
 }
 
 h5{
+	padding-top: 20px;
+	margin-bottom: -5px;
 	text-transform: uppercase;
 	color: #03dac6;
 }
 
-p, h3, h5{
+h1, h3, h5, p, ul{
 	margin-left: 10%;
 	margin-right: 10%;
 }
 
 p{
-	line-height: 1.2rem;
+	line-height: 1.5rem;
 }
 
+em{
+	padding-right: 3px;
+}
+
+u:hover, em:hover{
+	text-shadow: 0px 0px 10px coral;
+}
+
+u::selection, em::selection{
+	background-color: #03dac6;
+	color: black;
+}
+
+.mono{
+	color: whitesmoke;
+	font-family: monospace;
+	font-size: 1rem;
+	border-radius: 5px;
+	border: 1px solid gray;
+	padding-left: 5px;
+	padding-right: 5px;
+	background: #363636;
+	margin-right: 2px;
+}
