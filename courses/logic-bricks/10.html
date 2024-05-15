@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
+	<title>Logic Bricks - 10</title>
+</head>
+<body>
+	<h1>10 - Changing Cameras</h1>
+	<h3>Making it</h3>
+	<p>
+		Changing cameras can be used in creating cutscens, changing views, <span title="i really dont know what examples to put lmao">etc</span>.
+		First things first, fire up <span title="what ever bge fork you have it doesn't really matter.">BGE</span> and open up logic editor.
+	</p>
+	<h5>Creating cameras in the scene</h5>
+	<p>
+		Having the 3D viewport opened (its open by default lol), add some cameras like 2 - 3.
+		Don't forget to rename your camera to whatver name you want so you know that it is the main one.
+		I'll 3 cameras and keep them in different positions and angles. Something like this.
+	</p>
+	<figure>
+		<img src="../../img/l10-cam-3.jpg" loading="lazy">
+		<figcaption>3 Cameras in the scene</figcaption>
+	</figure>
+	<h5>Creating the logic</h5>
+	<p>
+		Now dive into logic editor and select your main camera if you haven't selected.
+		Add 3 Keyboard sensors and 3 <span class="mono">Scene</span> actuators.
+		Press 1,2 and 3 for the three keyboard sensors respectively.
+		Change the <span class="mono">Mode</span> of all <span class="mono">Scene</span> actuators,
+		from <span class="mono">Restart</span> to <span class="mono">Set Camera</span> so that we can switch between cameras by pressing the 1,2,3 keys on the keyboard.
+	</p>
+	<p>
+		Connect the sensors to the actuators, 1st sensor to 1st actuator, 2nd one to 2nd, and 3rd one to 3rd like this.		
+	</p>
+	<figure>
+		<img src="../../img/l10-cam-sw-setup.jpg" loading="lazy">
+		<figcaption>Example setup of camera switching</figcaption>
+	</figure>
+	<p>
+		Run the game and nice if it works.
+		Doesn't work, continue to read to find solutions.
+	</p>
+	<p>Download the <a href="https://drive.google.com/file/d/10Nqf5ps3NQ-mg7wGduKRmnIPRfJh9SaY/view?usp=sharing" target="_blank">project file</a>.</p>
+	<h3>Common problems and fixes</h3>
+	<h5>for Laptop Users</h5>
+	<p>
+		If you are a laptop user and don't have <span class="mono">Numpad</span> on your keyboard,
+		you'll find a red colored <span class="mono">Fn</span> key on it. And on your <b>QWERTY</b> keys,
+		you'll find some red colored numbers, special characters on it and some icons on <b>Function Keys</b>.
+	</p>
+	<figure>
+		<img src="https://techwelkin.com/wp-content/uploads/2014/04/laptop-keyboard-numpad.jpg" loading="lazy">
+		<figcaption>Numpad numbers in laptop keyboard</figcaption>
+	</figure>
+	<p>
+		Press the <span class="mono">Fn</span> key and press the letters which has numbers on it. That should work.
+		This happens when users who don't have numpad on their keyboard may have <span class="mono">Emulate Numpad</span> turned on in <b>Blender User Preferences</b>.
+	</p>
+	<figure>
+		<img src="https://i.stack.imgur.com/rLjUy.png" loading="lazy">
+		<figcaption>Emulate Numpad option turned on</figcaption>
+	</figure>
+	<p>Happy learning!</p>
+</body>
+</html>

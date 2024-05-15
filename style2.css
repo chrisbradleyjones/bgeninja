@@ -39,7 +39,7 @@ section{
 	min-width: 0px;
 	max-width: 200px;
 	border: solid 2px;
-	border-radius: 20px;
+	border-radius: 10px;
 	transition: 0.25s;
 	box-shadow: 0px 0px 5px black;
 }
@@ -93,12 +93,18 @@ section{
 	transform: scaleX(.2);
 }
 
+/*Numer thing*/
 span{
 	margin-right: 5px;
-  	background: -webkit-linear-gradient(#eee, #011ccc);
+  	background: -webkit-linear-gradient(#fff700 0%, #fffa6e 35%, #9e9900 50%, #fff700 55%, #fff700 100%);
   	-webkit-background-clip: text;
   	-webkit-text-fill-color: transparent;
   	font-size: 20px;
+  	transition: 0.25s;
+}
+
+span:hover{
+	text-shadow: 0px 0px 20px yellow;
 }
 
 /*When focusing the contents*/
@@ -190,7 +196,7 @@ span{
 		min-width: 0px;
 		max-width: 300px;
 		border: solid 2px;
-		border-radius: 20px;
+/*		border-radius: 20px;*/
 		transition: 0.25s;
 		box-shadow: 0px 0px 5px black;
 	}
@@ -215,7 +221,7 @@ span{
 		min-width: 0px;
 		max-width: 300px;
 		border: solid 2px;
-		border-radius: 20px;
+/*		border-radius: 20px;*/
 		transition: 0.25s;
 		box-shadow: 0px 0px 5px black;
 	}
@@ -257,7 +263,7 @@ span{
 		min-width: 0px;
 		max-width: 250px;
 		border: solid 2px;
-		border-radius: 20px;
+/*		border-radius: 20px;*/
 		transition: 0.25s;
 		box-shadow: 0px 0px 5px black;
 	}
@@ -301,7 +307,7 @@ span{
 		min-width: 0px;
 		max-width: 250px;
 		border: solid 2px;
-		border-radius: 20px;
+/*		border-radius: 20px;*/
 		transition: 0.25s;
 		box-shadow: 0px 0px 5px black;
 	}
@@ -325,7 +331,7 @@ span{
 		min-width: 0px;
 		max-width: 250px;
 		border: solid 2px;
-		border-radius: 20px;
+/*		border-radius: 20px;*/
 		transition: 0.25s;
 		box-shadow: 0px 0px 5px black;
 	}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+	<title>Logic Bricks - 6</title>
+</head>
+<body>
+	<h1>6 - Spawn Objects</h1>
+	<h3>Setting Up</h3>
+	<h5>Read before you proceed</h5>
+	<p>
+		When you are spawning objects, the object which spawns it must be on active layer.
+		And the object that is going to be spawned must be on invisible layer. In simple words,
+		if you are spawning an enemy
+		keep it on an invisible layer and keep the the spawner on active layer like this.
+	</p>
+	<figure>
+		<img src="../../img/l6-where-is-bro.jpg" loading="lazy">
+		<figcaption>Spawning object example setup</figcaption>
+	</figure>
+	<p>
+		Spawning objects are easy lol. Ok first things first,
+		add an <span class="mono">Empty</span> by pressing <span class="mono">Shift+A</span>.
+		You can add any empties, I'll stick with <span class="mono">Plain Axes</span>.
+	</p>
+	<figure>
+		<img src="../../img/l6-add-empty.jpg" loading="lazy">
+		<figcaption>List of available empties</figcaption>
+	</figure>
+	<p>
+		Place the empty wherever you want, I'll move the empty to <b>3</b> on <b>Z</b> axis.
+	</p>
+	<h5>Add Logic Bricks</h5>
+	<p>
+		Now added a sensor, I'll added a keyboard sensor and press a key.
+		Add <span class="mono">Edit Object</span> actuator and on the <span class="mono">Object</span>,
+		set the object you want to spawn. If you want your object to last forever (until the game runs or until some other object destroys it),
+		Leave the <span class="mono">Time: 0.00</span> as it is. Don't forget to connect the actuator to the sensor, only then it works 😊.
+	</p>
+	<p>
+		Now run the game and trigger the keyboard by pressing the key u set previously.
+	</p>
+	<h5>Linear and Angular Velocity</h5>
+	<p>
+		If you're wonder what those <span class="mono">Linear Velocity: X: 0.00 | Y: 0.00 | Z: 0.00</span> and <span class="mono">Angular Velocity: X: 0.00 | Y: 0.00 | Z: 0.00</span> does...
+		It's just nothing but velocity created upon creation of that spawned object.
+		When you spawn the object which was in the invisible layer, it just pushes/spins for an instance when spawned.
+	</p>
+	<figure>
+		<img src="../../img/l6-spawn-velocity.gif" loading="lazy">
+		<figcaption>Linear and angualar velocity upon a created object for an instance</figcaption>
+	</figure>
+	<p>
+		Here the monkey object's <span class="mono">Physics Type</span> is set to <span class="mono">Rigid Body</span>. And btw download the project file here <a href="https://shorturl.at/mo049" target="_blank" title="Discord, Mirror Link 1">project file</a>,
+		<a href="https://drive.google.com/file/d/1JxLxczRmPsCv_I1k6U03tCtXbOHCkmKg/view?usp=sharing" target="_blank" title="google drive link, i guess i stays active as long as i dont keep my hands on it...">Mirror Link 2</a>
+	</p>
+	<h3>How it can be used</h3>
+	<p>This can be used when</p>
+	<ul>
+		<li>spawning enemies</li>
+		<li>spawning charecters</li>
+		<li>spawning allies</li>
+		<li>spawning vehicles</li>
+		<li>spawning resources</li>
+		<li>spawning weapons</li>
+		<li>creating particle system</li>
+		<li>firing bullets</li>
+	</ul>
+</body>
+</html>

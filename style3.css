@@ -95,3 +95,12 @@ u::selection, em::selection{
 	background: #363636;
 	margin-right: 2px;
 }
+
+a{
+	color: springgreen;
+	transition: 0.25s;
+}
+
+a:hover{
+	text-shadow: 0px 0px 15px springgreen;
+}
