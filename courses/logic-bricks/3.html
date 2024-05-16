@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+	<title>Logic Bricks - 3</title>
+</head>
+<body>
+	<h1>3 - Enemy Stuff</h1>
+	<h5>Building the level</h5>
+	<p>
+		Add a plane and add some cubes intersecting the plane something like this.
+	</p>
+	<figure>
+		<img src="../../img/l3-level.jpg" loading="lazy">
+		<figcaption>Example setup of ground for enemy path finding</figcaption>
+	</figure>
+	<p>
+		And then we must create a <b>Navmesh</b> to make the enemies follow our character.
+		Let's create a navmesh by selecting the ground and press <span class="mono">Spacebar</span>
+		search for <u>navigation</u> and select <span class="mono">Mesh: Create Navigation Mesh</span>.
+		And it must look something like this.		
+	</p>
+	<figure>
+		<img src="../../img/l3-nav-ex.jpg" loading="lazy">
+		<figcaption>Example setup of ground for enemy path finding</figcaption>
+	</figure>
+	<figure>
+		<img src="../../img/l3-nav-undesirable.jpg" loading="lazy">
+		<figcaption>Example setup of ground for enemy path finding</figcaption>
+	</figure>
+	<h5>Getting a model from the intenet</h5>
+	<p>
+		So you want to make an enemy follow your character, let's do it. Make a player setup or get one from <a href="" target="_blank">here.</a>
+		Now add an object or import a 3D model if you want it to be as an enemy. Select it and dive into the logic editor.
+	</p>
+	<h5>Path following logic</h5>
+	<p>
+		Add an always sensor and add a <span class="mono">Steering</span> actuator
+	</p>
+
+</body>
+</html>

@@ -433,6 +433,9 @@ pre{
 	.recc p{
 		line-height: 1.5rem;
 	}
+	.recc h3{
+		line-height: 2.5rem;
+	}
 	.sect-3_p{
 		margin-right: 1.25rem;
 		margin-left: 1.25rem;
@@ -454,5 +457,9 @@ pre{
 	}
 	body{
 		width: auto;
+	}
+	.nav-bar{
+		width: 100%;
+		font-size: 0.7rem;
 	}
 }
