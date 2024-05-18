@@ -15,7 +15,66 @@
 	</p>
 	<h5>What we'll be making</h5>
 	<p>
-		We'll be making... idk
+		We'll be doing this: when the charecter picks up a coin, a sound plays (you know what sound it is).
+	</p>
+	<h5>Getting Sounds Ready</h5>
+	<p>
+		Take a model from the internet, one of the cool asset site is <a href="https://opengameart.org/" target="_blank" title="fr fr">OpenGameArt</a>,
+		it got lot of cool stuff like textures, sounds, characters, <span title="idk what else to put lol">and more</span>! Okay now back to our business,
+		take a sound from that website and fire up <span title="again, you can use UPBGE or Range nobody gives a shit. its up to you.">the engine</span>.
+	</p>
+	<h5>*gets a coin*</h5>
+	<p>
+		Yes, we want our player to get the coin and play that sound.
+		So, make a player setup with which you can move and <span title="you know what i mean...">do stuff</span> or you can get one from <a href="https://drive.google.com/file/d/12IZYkjg5OLtjz3cevIwKNmmIxTIiUb8j/view?usp=sharing" target="_blank">here</a>.
+		And then we'll be making a coin that disappears when the player hits it and plays the coin sound.
+	</p>
+	<p>
+		Add an object that represents the coin (or you can model a very simple one by adding a circle, filling the circle with a face and extruding)
+		and keep the coin selected.
+	</p>
+	<h5>The Logic</h5>
+	<p>
+		We can detect this collision stuff by either by material or property. Let's get our hands dirty with property.
+		Add a property to our player by opening up properties panel or that side thing that shows up when you press <span class="mono">N</span>
+	</p>
+	<figure>
+		<img src="https://cdn.discordapp.com/attachments/915212337995186236/1241236048290386101/coinne.gif?ex=664976a6&is=66482526&hm=1f1018dd0fc2e7b78c45be74a10c59671342df11b26bd7d634b4f68a1fc9bb32&" loading="lazy">
+		<figcaption>Adding a property "coin"</figcaption>
+	</figure>
+	<p>
+		You can set it as <span class="mono" title="floating point integer, got decimals">float</span>,
+		<span class="mono" title="interger, positive and negative numbers">int</span>,
+		<span class="mono" title="timer, usual timer thing">timer</span>,
+		<span class="mono" title="boolean, true or false stuff">bool</span> or <span class="mono", title="string, usual text data">str</span>.
+		Leaving as it is recommended (which is float by default).
+	</p>
+	<p>
+		Select the player, add a <span class="mono">Collision</span> sensor.
+		Add a sound actuator, connect them both and select the sound which you want to play.
+		In the <span class="mono">Property</span> field, type the name of the property of the object that represents coin (we renamed it as <span class="mono">coin</span>).
+		Just in case if the audio doesn't play fully, in the sound actuator that plays the coin sound, set the <span class="mono">Play Mode</span> to <b>Play End</b>.
+	</p>
+	<p>
+		Let's run the game to see if that really worked lmao
+	</p>
+	<figure>
+		<video src="https://cdn.discordapp.com/attachments/915212337995186236/1241234281968304200/coin_works.mp4?ex=66497501&is=66482381&hm=d7839ab5ca21eff2b4f68bba282866126d4c389b6377a000e73cdd768313b34b&" controls preload="none" poster="https://wallpapers.com/images/hd/troll-face-alaprykufdrn7tdo.jpg"></video>
+		<figcaption>Testing the collision stuff which is almost complete</figcaption>
+	</figure>
+	<p>
+		mmm... the sound plays but we forgot one thing. Which is to make the coin disappear! Let's select the coin, turn on <span class="mono">Ghost</span> in the <span class="mono">Objects Physics</span>.
+		This actually makes the coin like ghost, which can clip into objects not reacting to collisions but <u>can detect collision</u>.
+		Almost ready, make sure you have the coin selected <span title="coz i've been giving too much intructions">(sorry lol)</span> and add a collision sensor.
+		Click on the <span class="mono">M/P</span> which toggles the mode that looks for a certain material. Click on that field and select your player's material.
+		Add an <span class="mono">Edit Object</span> actuator, set the <span class="mono">Edit Object</span> to <span class="mono">End Object</span>.
+	</p>
+	<p>
+		This means, the coin looks for an object that has that player material and if that object collides, the coin ends it life.
+		Don't forget to connect them, only then it works. Now run the game!
+	</p>
+	<p>
+		<a href="https://drive.google.com/file/d/1sEMpGx4vC5w-icPPGDzgXaLGfjy1NYDI/view?usp=drive_link" target="_blank">Here is the project file</a>.
 	</p>
 </body>
 </html>

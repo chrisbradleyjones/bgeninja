@@ -94,6 +94,7 @@ u::selection, em::selection{
 	padding-right: 5px;
 	background: #363636;
 	margin-right: 2px;
+	white-space: nowrap;
 }
 
 a{
@@ -103,4 +104,49 @@ a{
 
 a:hover{
 	text-shadow: 0px 0px 15px springgreen;
+}
+
+/*Making the site more responsive almost on any device*/
+@media only screen and (width >= 2560px){
+	body{
+		font-size: 1.5rem;
+	}
+	P{
+		line-height: 2.5rem;
+	}
+	figure{
+		max-width: 50%;
+		border-radius: 5px;
+	}
+	a{
+		color: lime;
+	}
+	.mono{
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+
+@media only screen and (width <= 1920px){
+	figure{
+		max-width: 75%;
+	}
+}
+
+@media only screen and (width <= 1440px){
+	figure{
+		max-width: 50%;
+		border-radius: 5px;
+	}
+}
+
+@media only screen and (width <= 1024px){
+	figure{
+		max-width: 50%;
+	}
+	a{
+		color: lime;
+	}
 }
