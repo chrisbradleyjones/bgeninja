@@ -9,8 +9,63 @@
 </head>
 <body>
 	<h1>3 - Object Mass</h1>
+	<h3>Requirements</h3>
 	<p>
-		We'll be setting an object's mass using <span class="mono">mass</span>
+		<a href="https://rangeengine.tech/" target="_blank">Range Engine</a> or <a href="https://upbge.org/" target="_blank">UPBGE 2.5b</a><a href="https://kitsuystudio.itch.io/upbge-026" target="_blank">+</a> is recommended, you can use any version.
+	</p>
+
+	<h3>The code</h3>
+	<p>
+		We'll be getting and setting an object's mass using the game engine function <span class="mono">mass</span>.
+	</p>
+	<p>
+		Fire up <span title="or UPBGE">Range</span> and open up text editor.
+		Create a new python script and rename it as whatever you want, I'll be renaming it as <span class="mono">code.py</span>
+		just to keep it easy to remember lol.
+	</p>
+	<p>
+		Import the module, define the owner and get an object's mass.
+		We'll be getting the default cube's mass and setting it to <span title="30 blender units">30 units</span>,
+		if the mass was not 2. So the code looks like this.
+	</p>
+	<pre class="prettyprint">
+		<code class="language-python">
+import Range
+own = Range.logic.getCurrentController().owner
+if own.mass != 2:
+	own.mass = 2
+		</code>
+	</pre>
+	<p>
+		Duplicate the cube, now your scene must be having two cubes in opposite direction.
+		Like <span class="mono">Cube</span> in <span class="mono">X: 2.00</span> and
+		<span class="mono">Cube 2</span> in <span class="mono">X: -2.00</span>.
+		Add a plane under both cubes like a see-saw like this.
+	</p>
+	<figure>
+		<img src="https://cdn.discordapp.com/attachments/915212337995186236/1241761989550804992/Screenshot_633.png?ex=664b6079&is=664a0ef9&hm=25516ce2bfe4a416aa3b7879959744f99b09a4930ba9b205781ab2ec253a962b&" loading="lazy">
+		<figcaption>2 Cubes above the plane</figcaption>
+	</figure>
+	<p>
+		Select the <span title="which was Cube">first cube</span>
+		and go to logic editor, add a mouse sensor and add a python controller.
+		Select our <span class="mono" title="or whatever you renamed it as">code.py</span> script
+		and connect the logic bricks.
+	</p>
+	<p>
+		Now run the game. If your plane which has two cubes above it has freezed after 2-4 seconds,
+		go to physics setting and turn on <span class="mono">No Sleeping</span>.
+		This prevents the object which has phyics running from deactivating the simulation.
+	</p>
+	<p>
+		Try running the game again. It should look something like this and if it runs as expected that's cool!
+	</p>
+	<figure>
+		<video src="https://cdn.discordapp.com/attachments/915212337995186236/1241757491298308209/messing_with_object_mass.mp4?ex=664b5c48&is=664a0ac8&hm=1ce1ee29f394d89fbe534f782aeabc78302eb5f614b86b3425d539aaf4be8771&" poster=""></video>
+		<figcaption>Having fun with object's mass</figcaption>
+	</figure>
+	<p>
+		<a href="https://drive.google.com/file/d/1y4CHGzqyChV0EkXI0gtz46NfX8h9aALD/view?usp=sharing" target="_blank">Here</a> is the project file, was written with Range 1.5a 
 	</p>
 </body>
 </html>

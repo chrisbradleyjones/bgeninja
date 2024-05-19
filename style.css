@@ -120,17 +120,15 @@ button:active{
 	border-radius: 20px;
 	line-height: 3px;
 	background: transparent;
+	border: 2px;
+	border-color: white;
+	border-radius: 20px;
+	border-style: ridge;
 }
 
 .recc h3{
 	font-size: 2em;
 	margin: 30px 0 20px 0px;
-}
-
-.recc:hover{
-	border-radius: 20px;
-	border-style: solid;
-	border-color: white;
 }
 
 .recc button{
@@ -271,9 +269,32 @@ pre{
 	margin-left: 20%;
 	overflow-x: scroll;
 	font-size: 1rem;
-	border: 2px solid orange;
+	border: 2px solid forestgreen;
 	border-top-right-radius: 20px;
 	border-top-left-radius: 20px;
+	box-shadow: inset 0px 0px 20px black;
+	transition: 0.25s;
+}
+
+pre:hover{
+	box-shadow: none;
+	border-color: transparent;
+}
+
+pre::-webkit-scrollbar{
+	height: .5rem;
+}
+
+pre::-webkit-scrollbar-thumb{
+	border-radius: 5px;
+}
+
+pre:hover::-webkit-scrollbar-thumb{
+	background: forestgreen;
+}
+
+pre::-webkit-scrollbar-track{
+	color: transparent;
 }
 
 .howtocontr{
@@ -332,10 +353,6 @@ pre{
 	transition: 0.25s;
 	position: relative;
 	text-shadow: 0px 0px 20px darkred;
-}
-
-#logic-bricks:hover::before, #python:hover::before, #glsl:hover::before, #source-code:hover::before, #tutorials:hover::before{
-	filter: blur(2px) saturate(0%);
 }
 
 #logic-bricks::before{

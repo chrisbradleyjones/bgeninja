@@ -10,6 +10,16 @@ body{
 	margin: 0px;
 }
 
+
+body::-webkit-scrollbar{
+	width: 1rem;
+}
+
+body::-webkit-scrollbar-thumb{
+	background: aqua;
+	border-radius: 5px;
+}
+
 *::selection{
 	background-color: dodgerblue;
 }
