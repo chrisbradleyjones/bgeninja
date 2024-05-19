@@ -11,34 +11,65 @@
 	<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 	<h1>Lesson 1 of BGE Python</h1>
 	<h3>Intro</h3>
-	<p>Sup gangzz we're gonna take a look into some cool stuff</p>
-	<figure>
-		<video src="../../img/xd.mp4" controls></video>
-		<!-- <img src="../../img/pls-wait.png" loading="lazy"> -->
-		<figcaption>some video goes here bro</figcaption>
-	</figure>
-	<pre class="prettyprint">
-		<code class="language-python">
-import bge
-cont = bge.logic.getCurrentController()
-
-def main(cont):
-	cont.activate(#some controller)
-	#this is some long ass comment yoooooooooooooooooooooooooooooooooooooooooooooooooooooooooo ok
-		</code>
-	</pre>
-	<h3>This is some large ass heading</h3>
-	<h5>This is a sub heading for all my homies</h5>
 	<p>
-	We makin out of hood with this one AAAAAAAAAAAAAAAAAAAAAAAA you are my sunshine only sunshine you make me happy when the skies are gay Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet augue non dui sodales ornare. Vestibulum volutpat nunc nec erat efficitur, ut vulputate sem dignissim. Sed rutrum risus ac arcu mattis lobortis. Aenean tortor arcu, fringilla non faucibus quis, porta sed est. Pellentesque vel nunc hendrerit, pellentesque leo sit amet, hendrerit quam. Fusce faucibus lobortis neque quis facilisis. Donec tincidunt enim at faucibus viverra. Nam eu odio eget mi viverra tristique eu ut odio. Curabitur ex tortor, aliquet et auctor eget, mattis et erat.
-	Phasellus vitae aliquet est. Ut consectetur consectetur nisi non aliquet. Integer a rhoncus sapien, sed iaculis lorem. Aliquam in ornare quam, et ultricies libero. Fusce quis rutrum felis. Nulla sed augue mi. Sed ullamcorper dolor eros, ut sodales ligula imperdiet et. Cras vitae justo mauris
-	Quisque efficitur gravida dolor ac pretium. 
-	<h5>Another heading for my homies</h5>
+		If you want to survive, learn <a href="https://python.org" target="_blank">Python</a>.
+		If you dont't know Python, this can be very difficult to understand.
+		You have to learn at least the basics.
+	</p>
+	<h5>Things to know before learning the API</h5>
+	<ul>
+		<li>Grasping the basics of python properly will improve your workflow speed.</li>
+		<li>You can't do 100% python, ex. you need logic bricks to setup python.</li>
+		<li>You can not learn this within a day, it takes a lot of practice.</li>
+	</ul>
+	<!-- <figure>
+		<video src="../../img/xd.mp4" controls preload="none"></video>
+		<img src="../../img/pls-wait.png" loading="lazy">
+		<figcaption>some video goes here bro</figcaption>
+	</figure> -->
+	<h3>The code</h3>
+	<p>
+		This is an example of a simple python script used to activate an actuator.
+	</p>
+	<pre class="prettyprint">
+		<code class="language-python">import Range # for blender game engine -> import bge
+cont = Range.logic.getCurrentController() # again, for bge -> bge.logic.getCurrentController()
+own = cont.owner
+
+def yourFunc(cont):
+	if own.sensors["your_sensor"].positive:
+		cont.activate(own.actuators['your_actuator'])</code>
+	</pre>
+	<h5>What the heck is hapening in this code</h5>
+	<p>
+		<u title="or 'import bge'">import Range</u> is importing the Range module.
+		If you know about true level triggering, importing a module again and again in a loop can affect performance.
+		If you are a guy who's concerned about performance, this is for you.
 	</p>
 	<p>
-	Donec tristique lectus in venenatis congue. Mauris auctor tellus eleifend, luctus nunc sed, tristique lectus. Curabitur tristique urna erat, quis aliquam ipsum auctor non. Mauris id dui nunc. Mauris posuere blandit imperdiet. Quisque bibendum dui vitae mi imperdiet faucibus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla pellentesque vulputate est, et convallis augue egestas ac. Vivamus bibendum commodo diam in egestas. Quisque et fringilla ex. Curabitur nibh ante, fermentum sit amet nisl id, volutpat laoreet metus. Mauris faucibus eu nisl viverra elementum. Maecenas pulvinar, risus ut pretium eleifend, lacus arcu vestibulum magna, at posuere odio tellus id massa.
-	Aliquam porta augue nec sem euismod, at condimentum nulla dignissim. Aenean nisl ex, commodo eu sollicitudin id, fringilla vitae ipsum. Vestibulum a libero in tortor molestie ultricies. Nunc sit amet mattis dolor. Quisque eu nisi id libero imperdiet euismod nec sit amet justo. Integer placerat, dui sed suscipit vestibulum, ipsum libero ornare risus, vitae maximus felis tortor quis dolor. Fusce quis lacus odio. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent ullamcorper metus non nisl consectetur, quis mattis quam luctus. Vestibulum vel libero pulvinar, consectetur sapien sed, pulvinar mi. Pellentesque ornare lectus at erat eleifend, id consequat metus malesuada. <u>This is some nice underlineing for important stuff yo</u>
-	Phasellus feugiat ut massa sed varius. <em>ill spray with an ak</em> Praesent eros justo, suscipit eget venenatis vitae, sollicitudin molestie leo. Integer elementum nec elit nec auctor. Integer id lacus sit amet velit dapibus euismod. Donec luctus orci quis nibh molestie dictum. Praesent pellentesque nulla a porttitor convallis. Duis eu diam vel lorem gravida volutpat non ac metus. Morbi id magna pellentesque, feugiat mauris eu, ultricies felis. Maecenas eu cursus felis, vitae congue augue.
+		<u title="or 'bge.logic.getCurrentController()'">cont = Range.logic.getCurrentController()</u>
+		Defining <span class="mono">cont</span> as <span class="mono">Range.logic.getCurrentController()</span>.
+		This means you are getting the Python controller associated with our python code.
+	</p>
+	<p>
+		<u>cont.owner</u> Getting the cont's owner helps you to get all data and put inside an object.
+		If you're getting camera data, you'll be connecting the logic brick to the camera.
+		If you're getting light object's data, you'll be connecting the logic brick to light.
+		Or you'll be facing some issues.
+	</p>
+	<p>
+		<u>def yourFunc(cont):</u> As I mentioned earlier, importing the Range module or the bge module is not good.
+		So we get the data from the imported module once and do all the stuff inside the function in a looped manner.
+		The <span class="mono">cont</span> inside <span class="mono">yourFunc</span>
+	</p>
+	<p>
+		<u>if own.sensors["your_sensor"].positive:</u> This line says that
+		if that certain object and that object's sensor which is in the list <span class="mono">sensors</span> is positive,
+		which is <span class="mono">your_sensor</span> then we do our stuff.
+	</p>
+	<p>
+		<u>cont.activate(own.actuators['your_actuator'])</u> Here we are activating our actuator <span class="mono">your_actuator</span>
+		which is in the <span class="mono">actuators</span> list.
 	</p>
 </body>
 </html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
+	<title>Python - 2</title>
+</head>
+<body>
+	<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+	<h1>2 - Transforming Object</h1>
+	<h3>Intro</h3>
+	<p>
+		Using python you can do more advanced stuff.
+		We'll looking at the game engine's transforming functions.
+	</p>
+	<h3>Requirements</h3>
+	<p>
+		<a href="https://rangeengine.tech/" target="_blank">Range Engine 1.2+</a> or <a href="https://upbge.org/" target="_blank">UPBGE 2.5b</a><a href="https://kitsuystudio.itch.io/upbge-026" target="_blank">+</a>
+	</p>
+
+	<!-- explantions -->
+	<h3>Diving into code</h3>
+	<h5>Local</h5>
+	<p>
+		<span class="mono">localPosition</span>, <span class="mono">localOrientation</span> and <span class="mono">localScale</span>
+	</p>
+	<h5>World</h5>
+	<p>
+		<span class="mono">worldPosition</span>, <span class="mono">worldOrientation</span> and <span class="mono">worldScale</span>
+	</p>
+	<h5>What were those above</h5>
+	<p>
+		If you're wondering what were those <u>localPosition, worldOrientation</u>, etc, they are noting but functions used to transform the objects using python.
+		With this you can have control of objects and move, rotate and scale them in <span title="or local">global</span> and local axis.
+	</p>
+	<h5>What the heck is local and world</h5>
+	<p>
+		#explanation goes here for world
+	</p>
+	<figure>
+		<video src="https://cdn.discordapp.com/attachments/915212337995186236/1241707724950077522/world.mp4?ex=664b2def&is=6649dc6f&hm=7808ac09e9d272ed2017ccb2c5a4749b8e91cba2fde46610b2cab10bd5e95851&" preload="none" controls></video>
+		<figcaption>The default cube being moved in world axis</figcaption>
+	</figure>
+	<p>
+		exp for local
+	</p>
+	<figure>
+		<video src="https://cdn.discordapp.com/attachments/915212337995186236/1241707725491146803/local.mp4?ex=664b2def&is=6649dc6f&hm=b838744fe1ba674c1fd16a00e17da4463a71fd8153b4a3ef4d9133a1c8d77a00&" preload="none" controls></video>
+		<figcaption>The default cube being moved in local axis</figcaption>
+	</figure>
+	<!-- moving objects -->
+	<h3>Moving objects with python</h3>
+	<h5>In world axis</h5>
+	<p>
+		I hope you understood what local and world axis mean, now let's jump to python code.
+		Open up the <span class="mono">Text Editor</span> (which is opened be default in Range and UPBGE).
+		If it's not there, change the editor type to Text Editor.
+		We'll be now changing the position of our default cube in world axis.
+		let's import the <span class="mono">Range</span> module and get our python controller and owner like so.
+	</p>
+	<pre class="prettyprint">
+		<code class="language-python">import Range
+own = Range.logic.getCurrentController()</code>
+	</pre>
+	<p>
+		And then we bring the function <span>worldPosition</span>, and set the values to <span class="mono">[3,5,9]</span> something like this: <span class="mono">worldPosition = [3,5,9]</span>.
+		So the full code looks like this
+	</p>
+	<pre class="prettyprint">
+		<code class="language-python">import Range
+own = Range.logic.getCurrentController()
+own.worldPosition = [3,5,9]</code>
+	</pre>
+	<p>
+		Remeber, you gotta put <span class="mono">own</span> before almost any functions so the game engine know
+		which object to move, or it won't move any objects.
+	</p>
+	<h5>Connecting with logic bricks</h5>
+	<p>
+		Bring a keyboard sensor and a <span class="mono">Python</span> controller.
+		Select the script where we did all those moving the cube thing.
+	</p>
+	<figure>
+		<video src="https://cdn.discordapp.com/attachments/915212337995186236/1241707724631441479/l1-worldPositoin.mp4?ex=664b2def&is=6649dc6f&hm=b428c3609941c758e46fe6556888fcc1d4b4b4093a9fe1ed9fb82c1e84f97765&" controls preload="none"></video>
+		<figcaption>Connecting the bricks and selecting the script</figcaption>
+	</figure>
+	<p>
+		Connect the bricks and run the game.
+		Press the key which you assigned for the keyboard sensor and then the cube moves!
+	</p>
+	<figure>
+		<video src="file:///C:/Users/Jeba/Desktop/l1-worldPositoin.mp4" preload="none" controls></video>
+		<figcaption>Changing cube's position with python</figcaption>
+	</figure>
+	<h5>in local axis</h5>
+	<p>
+		Now, let's try moving the cube in local axis. Rotate the cube in any degrees and replace the <span class="mono">worldPosition</span> with <span class="mono">localPosition</span>.
+		wait why isnt my local position changing wtf
+	</p>
+</body>
+</html>
