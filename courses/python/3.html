@@ -29,14 +29,10 @@
 		We'll be getting the default cube's mass and setting it to <span title="30 blender units">30 units</span>,
 		if the mass was not 2. So the code looks like this.
 	</p>
-	<pre class="prettyprint">
-		<code class="language-python">
-import Range
+	<pre class="prettyprint"><code class="language-python">import Range
 own = Range.logic.getCurrentController().owner
 if own.mass != 2:
-	own.mass = 2
-		</code>
-	</pre>
+	own.mass = 2</code></pre>
 	<p>
 		Duplicate the cube, now your scene must be having two cubes in opposite direction.
 		Like <span class="mono">Cube</span> in <span class="mono">X: 2.00</span> and

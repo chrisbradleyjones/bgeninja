@@ -78,7 +78,7 @@ section{
 	font-size: 20px;
 }
 
-.course-list h3{
+h3{
 	cursor: default;
 	text-align: center;
 	font-size: 2rem;
@@ -87,7 +87,7 @@ section{
 	position: relative;
 }
 
-.course-list h3::after {
+h3::after {
     content: '';
     transition: 0.25s;
     position: absolute;
@@ -99,8 +99,13 @@ section{
     background-color: whitesmoke;
 }
 
-.course-list h3:hover::after{
+h3:hover::after{
 	transform: scaleX(.2);
+}
+
+h4{
+	font-size: 1.7rem;
+	margin-left: 50px;
 }
 
 /*Numer thing*/
@@ -178,8 +183,14 @@ span:hover{
 	}
 }
 
+.bargo{
+	margin: -20px;
+	padding-bottom: 3%;
+}
+
 .bargo li {
 	position: relative;
+	padding: 5px;
 	list-style: none;
 	font-size: 1.25rem;
 }
@@ -187,9 +198,8 @@ span:hover{
 .bargo li::before {
 	content: '';
 	display: inline-block;
-	width:  30px;
-	height: 30px;
-	margin-top: 2px;
+	width:  20px;
+	height: 20px;
 	background-image: url('img/omg.png');
 	background-size: cover;
 	background-repeat: no-repeat;

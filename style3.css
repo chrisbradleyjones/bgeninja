@@ -68,14 +68,15 @@ pre{
 	border-radius: 5px;
 	margin-left: 20%;
 	margin-right: 20%;
-	padding: 20px;
+	padding: 2rem;
 	color: black;
 	box-shadow: 0px 0px 10px inset;
 }
 
 pre.prettyprint{
 	border: 0px;
-	padding: 0px;
+	padding: 2rem !important;
+
 }
 
 pre::-webkit-scrollbar{
@@ -153,6 +154,62 @@ a{
 
 a:hover{
 	text-shadow: 0px 0px 15px springgreen;
+}
+
+.range{
+	text-decoration: underline;
+	text-decoration-color: #E02323;
+	position: relative;
+	text-shadow: 0px 0px 20px #E02323;
+}
+
+.range::before{
+	content: '';
+	display: inline-block;
+	background-image: url("img/range.svg");
+    background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+    padding: 10px;
+    align-items: center;
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    right: 7rem;
+    z-index: 1;
+}
+
+.range::selection{
+	background: #E02323;
+}
+
+.upbge{
+	text-decoration: underline;
+	text-decoration-color: #F19237;
+	position: relative;
+	text-shadow: 0px 0px 20px #F19237;
+	cursor: default;
+}
+
+.upbge::before{
+	content: '';
+	display: inline-block;
+	background-image: url("img/upbge.svg");
+    background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+    padding: 10px;
+    align-items: center;
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    right: 4rem;
+    z-index: 1;
+}
+
+.upbge::selection{
+	background: #F19237;
+	color: black;
 }
 
 /*Making the site more responsive almost on any device*/

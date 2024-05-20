@@ -74,6 +74,23 @@ body{
 	overflow-x: hidden;
 }
 
+body::-webkit-scrollbar{
+	width: 0.5rem;
+}
+
+body::-webkit-scrollbar-thumb{
+	background: #E02529;
+	border-radius: 5px;
+}
+
+body:hover::-webkit-scrollbar-thumb{
+	background: #F19237;
+	border-radius: 5px;
+}
+
+body::-webkit-scrollbar-track{
+	background: rgb(.1, .1, .1	, 1.0);
+}
 a{
 	color: #0096FF;
 	transition: 0.25s;
@@ -437,6 +454,24 @@ pre::-webkit-scrollbar-track{
     border-radius: 20px;
     z-index: -1;
     transition: 0.25s;
+}
+
+.dawg-serious h1, h3, p, ul{
+	margin-left: 5rem;
+	margin-right: 5rem;
+}
+
+.dawg-serious a{
+	text-decoration-color: navajowhite;
+	color: navajowhite;
+}
+
+.divide{
+	margin-top: 30px;
+	border: 1px solid darkgray;
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /*makes site RESPONISVE*/

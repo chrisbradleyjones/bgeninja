@@ -7,7 +7,7 @@
 	<link rel="icon" type="image/x-icon" href="img/bgeninja.ico">
 	<meta property="og:title" content="BGENinja">
   	<meta property="og:description" content="This fly website's got some sick tuts for UPBGE and Range, yo!">
-  	<meta property="og:image" content="https://chrisbradleyjones.github.io/bgeninja/img/bgeninja.ico">
+  	<meta property="og:image" content="img/bgeninja.ico">
   	<meta property="og:url" content="https://chrisbradleyjones.github.io/bgeninja/">
 	<title>BGENinja - Home</title>
 </head>
@@ -25,7 +25,7 @@
 		</nav>
 		<div class="heading">
 			<h1>BGENinja</h1>
-			<h3>Open BGE Tutorials</h3>
+			<h3>Open tutorials for Range & UPBGE</h3>
 			<div class="landing-text">
 			This website will help you to discover what
 			<a href="https://kitsuystudio.itch.io/upbge-026" target="_blank" style="color: #F19237; text-decoration: none;">UPBGE</a> and <a href="https://rangeengine.tech/" target="_blank" style="color: #E02323; text-decoration: none;">Range Engine</a> can do.
@@ -36,13 +36,13 @@
 		<h2>Where do I start?</h2>
 		<div class="recc" id="logic-bricks">
 			<div class="rec-round">1</div>
-			<h3>BGE Basics and Logic Bricks</h3>
+			<h3>Game Engine basics and Logic Bricks</h3>
 			<p>Learn the basics and the logic bricks.</p>
-			<button onclick="goto('/courses/logic-bricks/intro.html')">Learn BGE Basics</button>
+			<button onclick="goto('/courses/logic-bricks/intro.html')">Learn Basics</button>
 		</div>
 		<div class="recc" id="python">
 			<div class="rec-round">2</div>
-			<h3>BGE + Python</h3>
+			<h3>Python</h3>
 			<p>You'll learn to do stuff that can be done without logic bricks and have more control over your projects.</p>
 			<button onclick="goto('/courses/python/intro.html')">Learn Python</button>
 		</div>
@@ -52,17 +52,17 @@
 			<p>You'll learn to make shaders!</p>
 			<button onclick="goto('/courses/glsl/intro.html')">Learn GLSL</button>
 		</div>
-		<div class="recc" id="source-code">
+		<div class="recc" id="tutorials">
 			<div class="rec-round">4</div>
+			<h3>Tutorials for game engine</h3>
+			<p>Game Engine tutorials with project files!</p>
+			<button onclick="goto('/courses/tutorials/intro.html')">Get Tutorials</button>
+		</div>
+		<div class="recc" id="source-code">
+			<div class="rec-round">5</div>
 			<h3>Advanced Stuff</h3>
 			<p>Advanced programming and understanding what the game engine source code does too!</p>
 			<button onclick="goto('/courses/advanced/intro.html')">Learn Source Code</button>
-		</div>
-		<div class="recc" id="tutorials">
-			<div class="rec-round">5</div>
-			<h3>BGE Tutorials</h3>
-			<p>Blender Game Engine tutorials with project files!</p>
-			<button onclick="goto('/courses/tutorials/intro.html')">Get Tutorials</button>
 		</div>
 	</section>
 	<section class="sect-3">
@@ -87,40 +87,7 @@
 			</div>
 		</div>
 	</section>
-<script>
-	function goto(relativePath) {
-	  var basePath = window.location.pathname;
-	  var newPath = basePath.substring(0, basePath.lastIndexOf('/')) +  relativePath;
-	  window.location.href = newPath;
-	}
-	function scrollToSection(sectionId) {
-	  const section = document.getElementById(sectionId);
-	  if (section) {
-	    window.scrollTo({
-	      behavior: 'smooth',
-	      top: section.offsetTop
-	    });
-	  }
-	}
-	document.querySelectorAll('nav a').forEach(link => {
-	  link.addEventListener('click', function(e) {
-		const href = this.getAttribute('href');
-	// Check if the link is internal or external
-		if (href.startsWith('#')) {
-		  e.preventDefault();
-		  const sectionId = href.slice(1);
-		  scrollToSection(sectionId);
-	}
-	});
-	});
-    window.addEventListener('scroll', function() {
-        var navBar = document.querySelector('.nav-bar');
-        if (window.scrollY > 0) {
-            navBar.classList.add('scrolled');
-        } else {
-            navBar.classList.remove('scrolled');
-        }
-    });
-</script>
+	<!-- javascript stuff -->
+	<script src="code/index.js"></script>
 </body>
 </html>

@@ -60,19 +60,15 @@
 		We'll be now changing the position of our default cube in world axis.
 		let's import the <span class="mono">Range</span> module and get our python controller and owner like so.
 	</p>
-	<pre class="prettyprint">
-		<code class="language-python">import Range
-own = Range.logic.getCurrentController()</code>
-	</pre>
+	<pre class="prettyprint"><code class="language-python">import Range
+own = Range.logic.getCurrentController()</code></pre>
 	<p>
 		And then we bring the function <span>worldPosition</span>, and set the values to <span class="mono">[3,5,9]</span> something like this: <span class="mono">worldPosition = [3,5,9]</span>.
 		So the full code looks like this
 	</p>
-	<pre class="prettyprint">
-		<code class="language-python">import Range
+	<pre class="prettyprint"><code class="language-python">import Range
 own = Range.logic.getCurrentController()
-own.worldPosition = [3,5,9]</code>
-	</pre>
+own.worldPosition = [3,5,9]</code></pre>
 	<p>
 		Remeber, you gotta put <span class="mono">own</span> before almost any functions so the game engine know
 		which object to move, or it won't move any objects.
@@ -91,7 +87,7 @@ own.worldPosition = [3,5,9]</code>
 		Press the key which you assigned for the keyboard sensor and then the cube moves!
 	</p>
 	<figure>
-		<video src="file:///C:/Users/Jeba/Desktop/l1-worldPositoin.mp4" preload="none" controls poster="https://rangeengine.tech/img/range15splash.png"></video>
+		<video src="https://cdn.discordapp.com/attachments/915212337995186236/1241707724631441479/l1-worldPositoin.mp4?ex=664c7f6f&is=664b2def&hm=832d2aea5e4ede74c4ca59f8ad0d6f9393549ec0c605bb8f2ea5e0836c56198e&" preload="none" controls poster="https://rangeengine.tech/img/range15splash.png"></video>
 		<figcaption>Changing cube's position with python</figcaption>
 	</figure>
 	<h5>in local axis</h5>
@@ -115,11 +111,9 @@ own.worldPosition = [3,5,9]</code>
 		You can also use <span class="mono">applyMovement</span> with an always sensor having true level triggering turned off.
 		So the code looks like this.
 	</p>
-	<pre class="prettyprint">
-		<code class="language-python">import Range
+	<pre class="prettyprint"><code class="language-python">import Range
 own = Range.logic.getCurrentController()
-own.applyMovement([3,5,9], True)</code>
-	</pre>
+own.applyMovement([3,5,9], True)</code></pre>
 	<p>
 		We're applying movement to a certain vector in local axis. You can use <span class="mono">0,1</span> instead of <span class="mono">True, False</span>.
 		<u>0 = False</u>, <u>and 1 = True</u>. Btw <a href="https://drive.google.com/file/d/1_co8rOhQdkpLjgG__rOc3fT1G1qxpV3F/view?usp=sharing" target="_blank">here</a> is the project file.

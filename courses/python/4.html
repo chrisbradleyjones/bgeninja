@@ -16,7 +16,7 @@
 	<h3>The plan</h3>
 	<p>
 		We'll be activating a sound a changing it's pitch with python.
-		The sound will be played using logic bricks and the pitch will be changed with python.
+		The sound will be played using logic bricks and the pitch will be changed and reset with python.
 	</p>
 	<h3>The code</h3>
 	<p>
@@ -30,6 +30,7 @@
 		<audio src="https://cdn.discordapp.com/attachments/1054503120211808336/1236638698867789914/menu.ogg?ex=664bdac9&is=664a8949&hm=cbca0ee38dbb9859763bc3cfc711d404f2cd05fb272c68c5d06904f4040ad56f&" controls preload="none"></audio>
 		<figcaption>Example Audio</figcaption>
 	</figure>
+	<h5>Defining Stuff</h5>
 	<p>
 		We are getting our keyboard sensor renamed as <span class="mono">start</span> from the list
 		<span class="mono">actuators</span> that belongs to our <span class="mono">playa</span> object.
@@ -42,7 +43,179 @@
 	</p>
 	<pre class="prettyprint"><code class="language-python">da_sound = own.actuators['da_sound']</code></pre>
 	<p>
-		W
+		So the full code looks like this.
 	</p>
+	<pre class="prettyprint"><code class="language-python">import Range
+cont = Range.logic.getCurrentController()
+own = cont.owner
+
+#sensors
+start = own.sensors['start']
+
+#actuators
+da_sound = own.actuators['da_sound']</code></pre>
+	<h3>The logic</h3>
+	<p>
+		Now we add a keyboard sensors for increasing and decreasing the pitch and volume.
+		Oh we also have to reset out pitch and volume.
+		So we add another five keyboard sensor and connect them with the python controller.
+		So the setup looks like this.
+	</p>
+	<figure>
+		<img src="https://cdn.discordapp.com/attachments/915212337995186236/1242144394568798369/py-l4-keyboard-setup.JPG?ex=664cc49d&is=664b731d&hm=22ffc6d141e0f9fcc24dd240d74d243023ab432fa77ea2fa8880a65096ec24d1&" loading="lazy">
+		<figcaption>Setup for changing volume and pitch</figcaption>
+	</figure>
+	<p>
+		Values I've set for the keyboard sensors are
+		<span class="mono">PgUp</span> and <span class="mono">PgUn</span> for changing the pitch.
+		<span class="mono">Numpad +</span> and <span class="mono">Numpad -</span> for changing the volume.
+		<span class="mono">Left Shift</span> for resetting the pitch and volume.
+	</p>
+	<p>
+		We define the sensors and actuators like this...
+	</p>
+	<pre class="prettyprint"><code class="language-python">#sensors
+start = own.sensors['start']
+pitch_up = own.sensors['pitch+']
+pitch_down = own.sensors['pitch-']
+vol_up = own.sensors['vol+']
+vol_down = own.sensors['vol-']
+reset = own.sensors['reset']
+
+#actuators
+da_sound = own.actuators['da_sound']</code></pre>
+	<p>
+		...and we write the logic.
+	</p>
+	<h5>Writing The Logic</h5>
+	<p>
+		If the user pressed the keyboard to increase the pitch which is <span class="mono">PgUp</span>,
+		then we increase the pitch of our sound actuator <span class="mono">da_sound</span>.
+		We access that actuator's sound by using the function <span class="mono">sound</span>
+		that belongs to <span class="mono">KX_SoundActuator</span> class. <u>KX_SoundActuator</u>
+		is nothing but name of our <u><b>sound</b> actuator</u>.
+	</p>
+	<p>
+		 If we're using it's function which looks like <span class="mono">KX_SoundActuator.volume</span>
+		 then when we're using our sound actuator, it looks like this.
+	</p>
+	<pre class="prettyprint"><code class="language-python">#logic here
+if pitch_up.positive: #If user pressed that keyboard sensor
+        da_sound.pitch += 1 #increase the pitch of our sound actuator</code></pre>
+    <p>
+    	Lets see the logic part fully.
+    </p>
+    <pre class="prettyprint"><code class="language-python">if pitch_up.positive:
+    da_sound.pitch += 1 #increase the pitch
+if pitch_down.positive:
+    da_sound.pitch -= 1 #decrease the pitch
+if vol_up.positive:
+    da_sound.volume += 0.25 #increase the volume
+if vol_down.positive:
+    da_sound.volume -= 0.25 #decrease the volume
+if reset.positive:
+    da_sound.volume = 1 #reset the volume
+    da_sound.pitch = 1 #reset the pitch</code></pre>
+    <p>
+    	Oh also, we should check if the actuator is playing. Each actuators have their own way of checking their state.
+    	So for <span>KX_SoundActuator</span> we have:
+    </p>
+    <ul>
+<li>Range.logic.KX_SOUNDACT_PLAYSTOP
+<u>Value: 1</u></li>
+
+<li>Range.logic.KX_SOUNDACT_PLAYEND
+<u>Value: 2</u></li>
+
+<li>Range.logic.KX_SOUNDACT_LOOPSTOP
+<u>Value: 3</u></li>
+
+<li>Range.logic.KX_SOUNDACT_LOOPEND
+<u>Value: 4</u></li>
+
+<li>Range.logic.KX_SOUNDACT_LOOPBIDIRECTIONAL
+<u>Value: 5</u></li>
+
+<li>Range.logic.KX_SOUNDACT_LOOPBIDIRECTIONAL_STOP
+<u>Value: 6</u></li>
+    </ul>
+    <p>
+    	If you want to check the if the sound actuator is playing, you do something like this.
+    </p>
+    <pre class="prettyprint"><code class="language-python">if da_sound == >Range.logic.KX_SOUNDACT_PLAYSTOP: #if bge then use bge.logic.KX_SOUNDACT_PLAYSTOP
+   	# do something useful</code></pre>
+   	<p>
+   		(or)
+   	</p>
+   	<pre class="prettyprint"><code class="language-python">if da_sound == 1:
+   	# do something useful</code></pre>
+   	<p>
+   		So for checking if is playing whether in a loop or just once, we do:
+   	</p>
+	<pre class="prettyprint"><code class="language-python">if da_sound == 1 or 2 or 3 or 4:
+    if pitch_up.positive:
+        da_sound.pitch += 1
+    if pitch_down.positive:
+        da_sound.pitch -= 1
+    if vol_up.positive:
+        da_sound.volume += 0.25
+    if vol_down.positive:
+        da_sound.volume -= 0.25
+    if reset.positive:
+        da_sound.volume = 1
+        da_sound.pitch = 1</code></pre>
+    <p>
+    	And then do all those pitch and volume changing stuff.
+    	This can improve performance by at least 5%.
+    	Every single stuff that can be optimized are to be optimized.
+    	You can even make this run on a shitty machine too.
+    	Some times optimizing your game can get it to next level (if you're lucky lol).
+    </p>
+    <p>
+    	Back to our stuff, we now write the logic for all keys so the full code looks like this.
+    </p>
+    <pre class="prettyprint"><code class="language-python">import Range
+cont = Range.logic.getCurrentController()
+own = cont.owner
+
+#sensors
+start = own.sensors['start']
+pitch_up = own.sensors['pitch+']
+pitch_down = own.sensors['pitch-']
+vol_up = own.sensors['vol+']
+vol_down = own.sensors['vol-']
+reset = own.sensors['reset']
+
+#actuators
+da_sound = own.actuators['da_sound']
+
+#logic here
+if start.positive:
+    cont.activate(da_sound)
+if da_sound == 1 or 2 or 3 or 4:
+    if pitch_up.positive:
+        da_sound.pitch += 1
+    if pitch_down.positive:
+        da_sound.pitch -= 1
+    if vol_up.positive:
+        da_sound.volume += 0.25
+    if vol_down.positive:
+        da_sound.volume -= 0.25
+    if reset.positive:
+        da_sound.volume = 1
+        da_sound.pitch = 1</code></pre>
+    <p>
+    	Add an always sensor turn on true level triggering for it and
+    	make sure to turn on <span class="mono">Tap</span> on all keyboard sensors, or adding <b>1</b>
+    	everysingle can make the game nonsense.
+    	Like increasing the pitch or the volume to a very high values within 0.2 milliseconds doesn't make sense at all.
+    </p>
+    <figure>
+    	<img src="https://cdn.discordapp.com/attachments/915212337995186236/1242144394811936900/py-l4-2nd-kbrd-setup.JPG?ex=664cc49d&is=664b731d&hm=6554751a1ae0a6e44aac7194be170def4cc447b0ca5876644e92f62f49535db1&" loading="lazy">
+    	<figcaption>Tap turned on on every keyboard sensors</figcaption>
+    </figure>
+    <p>
+    	And btw <a href="https://drive.google.com/file/d/1hyHbiRJLvOD02ZlmDX73dP0PnPBrEtwh/view?usp=sharing" target="_blank">here is the project file</a>. Have a nice day!
+    </p>
 </body>
 </html>
