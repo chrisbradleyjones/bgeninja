@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -8,7 +8,7 @@
 	<title>Python - 2</title>
 </head>
 <body>
-	<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+	<script src="../../code/run_prettify.js"></script>
 	<h1>2 - Transforming Object</h1>
 	<h3>Intro</h3>
 	<p>
@@ -97,7 +97,32 @@ own.worldPosition = [3,5,9]</code>
 	<h5>in local axis</h5>
 	<p>
 		Now, let's try moving the cube in local axis. Rotate the cube in any degrees and replace the <span class="mono">worldPosition</span> with <span class="mono">localPosition</span>.
-		wait why isnt my local position changing wtf
+	</p>
+	<p>
+		You may wonder "wait why isnt my local position changing?" The problem with that is... your object's rotation needs to be relative to the parent object.
+		Like if your parent object's orientation is <span class="mono">[23,45,90]</span> and if you use <span class="mono">localPosition</span> on your child object whose rotation is <span class="mono">[23,45,90]</span> too,
+		the changed location will be in local axis.
+	</p>
+	<figure>
+		<video src="https://cdn.discordapp.com/attachments/915212337995186236/1242035492472619040/localPosition.mp4?ex=664c5f31&is=664b0db1&hm=05ccb3c934a585ce6f822f459ef5cfe58a4760985c5c9f05a73e718012c47af7&" preload="none" controls poster="https://rangeengine.tech/img/range15splash.png"></video>
+		<figcaption>How "localPosition" works</figcaption>
+	</figure>
+	<p>
+		The bricks was setup like this: <span class="mono">Always sensor with default settings <---------> Python controller</span>.
+	</p>
+	<h5>Alternative setup for localPosition</h5>
+	<p>
+		You can also use <span class="mono">applyMovement</span> with an always sensor having true level triggering turned off.
+		So the code looks like this.
+	</p>
+	<pre class="prettyprint">
+		<code class="language-python">import Range
+own = Range.logic.getCurrentController()
+own.applyMovement([3,5,9], True)</code>
+	</pre>
+	<p>
+		We're applying movement to a certain vector in local axis. You can use <span class="mono">0,1</span> instead of <span class="mono">True, False</span>.
+		<u>0 = False</u>, <u>and 1 = True</u>. Btw <a href="https://drive.google.com/file/d/1_co8rOhQdkpLjgG__rOc3fT1G1qxpV3F/view?usp=sharing" target="_blank">here</a> is the project file.
 	</p>
 </body>
 </html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
+	<title>Python - 4</title>
+</head>
+<body>
+	<script src="../../code/run_prettify.js"></script>
+	<h1>4 - Activating Actuators</h1>
+	<p>
+		Ever thought we can activate and change actuator's value using python. Let's dive.
+	</p>
+	<h3>The plan</h3>
+	<p>
+		We'll be activating a sound a changing it's pitch with python.
+		The sound will be played using logic bricks and the pitch will be changed with python.
+	</p>
+	<h3>The code</h3>
+	<p>
+		We import the module, define all those controllers, owners, whatever needs to be done.
+		Now, read carefully, let's define the actuator and sensors.
+		Our object's name will be <span class="mono">playa</span>.
+		Add a keyboard sensor and add a python controller with our script selected.
+		Add a sound actuator and select a audio.
+	</p>
+	<figure>
+		<audio src="https://cdn.discordapp.com/attachments/1054503120211808336/1236638698867789914/menu.ogg?ex=664bdac9&is=664a8949&hm=cbca0ee38dbb9859763bc3cfc711d404f2cd05fb272c68c5d06904f4040ad56f&" controls preload="none"></audio>
+		<figcaption>Example Audio</figcaption>
+	</figure>
+	<p>
+		We are getting our keyboard sensor renamed as <span class="mono">start</span> from the list
+		<span class="mono">actuators</span> that belongs to our <span class="mono">playa</span> object.
+		This is how we get that sensor like so:
+	</p>
+	<pre class="prettyprint"><code class="language-python">start = own.sensors['start']</code></pre>
+	<p>
+		And we get our sound actuator renamed as <span class="mono">da_sound</span> which is in the list
+		<span class="mono">actuators</span> that belongs to the object <span class="mono">playa</span>.
+	</p>
+	<pre class="prettyprint"><code class="language-python">da_sound = own.actuators['da_sound']</code></pre>
+	<p>
+		W
+	</p>
+</body>
+</html>
