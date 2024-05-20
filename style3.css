@@ -24,6 +24,7 @@ body::-webkit-scrollbar-track{
 }
 
 figure{
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	max-width: 50%;
@@ -37,6 +38,19 @@ figure{
 
 figure img{
 	border-radius: 0px;
+}
+
+figure audio{
+	display: flex;
+	flex-wrap: nowrap;
+	align-self: center;
+}
+
+audio{
+	display: block;
+	margin: 10px;
+	box-shadow: forestgreen;
+	-webkit-backdrop-filter: blur(5px);
 }
 
 figcaption{
@@ -61,6 +75,7 @@ pre{
 
 pre.prettyprint{
 	border: 0px;
+	padding: 0px;
 }
 
 pre::-webkit-scrollbar{
