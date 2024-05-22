@@ -48,6 +48,61 @@
 					Don't use <span class="mono">Occlusion Culling</span>, it wastes your CPU.
 				</p>
 			</li>
+			<li>
+				<h3>Brotip #6</h3>
+				<p>
+					Don't create 9999+ files for python stuff, it's cancer.
+					Instead put all the stuff that runs in a loop inside a looping function
+					and put stuff the runs once in a function that runs once as a <b>single file</b> like this.
+				</p>
+				<pre class="prettyprint"><code class="language-python">def init(cont):
+    if "init" not in own or own["init"] != True: #If init property exists or if it's not true
+    	own["init"] = True
+    	#your stuff that must be added once goes here
+
+def loop(cont):
+	if own.sensors["forward"].positive:
+		own.applyMovement((0,1,0), 1)
+		#code that must run in a loop goes here</code></pre>
+				<p>
+					Or you can run the whole code in a loop and put the stuff that runs once under an <span class="mono">if</span> condition like this.
+				</p>
+				<pre class="prettyprint"><code class="language-python">def loop(cont):
+	if "init" not in own or own["init"] == False:
+		#put stuff that runs once, intend for if condition.
+	#put stuff that runs in a loop here, intend for function.</code></pre>
+			</li>
+			<li>
+				<h3>Brotip #7</h3>
+				<p>
+					When you're trying to change the material color with python,
+					turn off <span class="mono">Material</span> under <span class="mono">Contstant Values</span>
+					in <b>Material</b> settings. Or else your material values won't change.
+				</p>
+				<figure style="width:40%;">
+					<img src="https://cdn.discordapp.com/attachments/915212337995186236/1242823457935200256/turn_off_material_constant_value.JPG?ex=664f3d0a&is=664deb8a&hm=874aa1dda8eb96b98da2db7c75784b48bc2bb2c95f752b1db57bd4dc3089ecc2&" loading="lazy">
+					<figcaption>Constant value for Material is turned off for python accessing</figcaption>
+				</figure>
+			</li>
+			<li>
+				<h3>Brotip #8</h3>
+				<p>
+					When converting <span class="mono">Text</span> object to <span class="mono">Mesh</span>,
+					add a <span class="mono">Decimate Modifier</span> to reduce the face count of the mesh.
+					Because having an optimized geometry can improve the performance, homie!
+				</p>
+				<figure>
+					<img src="https://cdn.discordapp.com/attachments/915212337995186236/1242827103163121695/Screenshot_645.png?ex=664f4070&is=664deef0&hm=b298cff1c8f3636f2b4b4b07a3a3191acd77fc886fabe24c5c290224f43ed33b&" loading="lazy">
+					<figcaption>Before Decimate</figcaption>
+				</figure>
+				<figure>
+					<img src="https://cdn.discordapp.com/attachments/915212337995186236/1242827102865199184/Screenshot_646.png?ex=664f406f&is=664deeef&hm=07bc36edfd9c508357f38db0e98a04772bc74eab931bbb08db769fcee31ca149&" loading="lazy">
+					<figcaption>After Decimate</figcaption>
+				</figure>
+				<p>
+					Set the Decimate mode to <span class="mono">Planar</span>
+				</p>
+			</li>
 		</ul>
 	</section>
 	<script type="text/javascript" src="code/randomize_list.js"></script>
