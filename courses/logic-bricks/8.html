@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
+	<title>Logic Bricks - 8</title>
+</head>
+<body>
+	<h1>8 - Raycast</h1>
+	<h3>Uses of raycast method</h3>
+	<ul>
+		<li>Firing bullets</li>
+		<li>Check object's name</li>
+		<li>Detecting height</li>
+		<li>Look for object's behind walls in a certain direction</li>
+	</ul>
+	<h3>The plan</h3>
+	<p>
+		We'll be checking if the object the ray is cast upon is a "good" or "bad" character.
+		The ray touches the charecter and if the character is "good", we won't be able to shoot it.
+		If "bad", we'll kick its ass.
+	</p>
+	<h3>Setting up</h3>
+	<h5>Player Setup</h5>
+	<p>
+		We're going to setup up a simple <span title="FPS">First Person Shooter</span> type player setup.
+		If you know how to make the FPS setup you can skip this part or go on.
+		Fire up the engine, select the cube or add one if it's not there and scale it's local Z axis to 3.
+		Ayo also turn on snapping if you want the position/rotation/scale to be in perfect transformation instead of <span class="mono">3.42495</span> blah blah.
+		Also set the snapping type to <span class="mono">Increment</span>.
+	</p>
+	<figure>
+		<img src="https://cdn.discordapp.com/attachments/915212337995186236/1243488855395401788/image.png?ex=6651a8be&is=6650573e&hm=a369a0d14bed08f3215709016e5368caaae9ca9505ea6be22c346fa60d0e08af&" loading="lazy">
+		<figcaption>Snapping in Range Engine</figcaption>
+	</figure>
+	<figure>
+		<img src="https://cdn.discordapp.com/attachments/915212337995186236/1243489036849516564/image.png?ex=6651a8e9&is=66505769&hm=821f6cb6d6376194f30daa24ccb4452786008ca094dc9f6c26405c28a3083edf&" loading="lazy">
+		<figcaption>Snapping in UPBGE</figcaption>
+	</figure>
+	<p>
+		After setting the scale to 3, apply the scale by pressing <span class="mono">Ctrl+A</span> and choose <span class="mono">Scale</span>.
+		Now the scale must be back to <b>1</b>. This can avoid some problems with <span title="i forgor 💀">scaling</span>.
+		Now jump to logic editor and make the character move. Oh since our character is a <span class="mono">Character</span>,
+		we must set the phyiscs type to <span class="mono">Character</span>. And set the Collision shape to <span class="mono">Capsule</span>.
+		Almost every FPS game has this type of setup for collision.
+	</p>
+	<p>
+		Now for the camera view, you need to have your character and the camera like this.
+	</p>
+	<figure>
+		<img src="https://cdn.discordapp.com/attachments/826703026886017044/1243497226874130523/image.png?ex=6651b089&is=66505f09&hm=b0dd9a5bb46e1ec67066181fbfd333d2a9430ff975dfdf56ffaa14025595a173&" loading="lazy">
+		<figcaption>Camera Setup</figcaption>
+	</figure>
+	<p>
+		The camera works this way: <u>When you move your mouse left and right, you character turns left and right.
+		When you move your mouse up the down, your camera goes up and down.</u> This is how most of the FPS games work.
+	</p>
+	<p>
+		For the character, add a <span class="mono">Mouse</span> <b>sensor</b> and set the <span class="mono">Mouse Event</span> to <span class="mono">Movement</span>
+		Turn on true level triggering, only then the camera move every frame you move your mouse or it won't work as expected.
+		Add a <span class="mono">Mouse</span> <b>actuator</b>, yes an actuator and change it's <span class="mono">Mode</span> to <span class="mono">Look</span>.
+	</p>
+	<figure>
+		<img src="https://cdn.discordapp.com/attachments/915212337995186236/1243499597767114762/image.png?ex=6651b2bf&is=6650613f&hm=ab823daea8fe77b425b0612351249ac641ef0a3d7084fd3f3e2e4fa8f5381b29&" loading="lazy">
+		<figcaption>Mouse actuator settings</figcaption>
+	</figure>
+	<p>
+		This actuator tells that if the user moves the mouse on the <b>X axis</b> then the rotation of the object's axis will be <b>Z axis</b>.
+		If the user moves the mouse on the <b>Y axis</b> then the rotation of the object's axis will be <b>X axis</b>.
+		And yeah you can disable them too. Since this actuator is for the character, disable <span class="mono">Use Y axis</span> <u>or you character will be looking up and down like this</u> lol.
+	</p>
+	<figure>
+		<img src="https://cdn.discordapp.com/attachments/915212337995186236/1243502524254650449/image.png?ex=6651b578&is=665063f8&hm=29e64272c877e5afec8fa801dc01bbeed36e9500276b8379bd382c6f6da71a69&" loading="lazy">
+		<figcaption>Player's body looking up controlled by mouse</figcaption>
+	</figure>
+	<p>
+		Now for the camera, wait wait. Instead of adding the logic bricks manually, you can copy them.
+		Select the camera and then the character, in the <span class="mono">3D View</span> go to <span class="mono">Object -> Game -> Copy Logic Bricks</span>.
+		Alternatively you can press the spacebar and type <span class="mono">Copy Logic Bricks to Selected</span>.
+		Nice.
+	</p>
+	<p>
+		Ay the mouse is annoying, right? Uncheck the <span class="mono">Mouse Cursor</span> by going to <span class="mono">Render -> Display -> Mouse Cursor</span>.
+	</p>
+	<figure>
+		<img src="https://cdn.discordapp.com/attachments/915212337995186236/1243505032851099741/image.png?ex=6651b7cf&is=6650664f&hm=2022cb40b7cc720f8792291379f04920c752e4bd9a2d8ae8098ba4eec8c9134b&" loading="lazy">
+		<figcaption>Visiblity of the mouse cursor is turned off</figcaption>
+	</figure>
+	<p>
+		Yea you can also set custom cursor image from <u>Range Engine 1.5a</u>!
+		Now that our player setup is over let's move to good boi bad boi setup.
+	</p>
+	<h5>NPCs Setup</h5>
+	<p>
+		Add a cube, create a property and name it as <b>good</b>.
+		Duplicate it by pressing <span class="mono">Shift+D</span>, yes you gotta keep the object seperate and rename its property as <b>bad</b>.
+		Okay rename the objects as good and bad too. Property with <b>good</b> will be renamed as <b>good</b> and vice versa for <b>bad</b>.
+		This is just to keep them organized. You can set the phyiscs type to <b>Character</b> or leave it as it is. Not a problem.
+	</p>
+	<h3>The logic</h3>
+	<p>
+		For the raycasting logic select the <b>camera</b>, add <span class="mono">Ray</span> sensor and set the <span class="mono">Range</span> between 10 or 20 for now.
+		In the <span class="mono">🎮 Property</span> field, type <b>bad</b> and add a <span class="mono">Message</span> actuator.
+		In the <span class="mono">Subject</span> field of <u>that message</u>, type <b>bad_die</b>.
+		If you know what I'm doing that's good or lemme explain: <u>If the ray sensor detects an object with that "bad" property, well send a message to that "bad" object as "bad_die".
+		And that if that bad object recieves a message as "bad_die" the object ends itself.</u>
+	</p>
+	<p>
+		Now select the bad object, add a message sensor type <span class="mono">bad_die</span> add a <span class="mono">Edit Object</span> actuator,
+		set the <b>Edit Object</b> to <span class="mono">End Object</span>. Yea connect them and run the game. Btw <a href="https://drive.google.com/file/d/1I3nLQzG_gY1x8e3MeTYlcKEh65cfbqIg/view?usp=sharing" target="_blank">download the project file here</a> yo!
+	</p>
+	<h5>Common problem(s)</h5>
+	<p>
+		If "bad" object doesn't disappear but when you move the camera around the it does,
+		the reason behind the quite tricky.
+		<u>The orientation of the camera is faced downward when it's <b>X axis is 0</b></u>.
+	</p>
+	<figure>
+		<img src="https://cdn.discordapp.com/attachments/915212337995186236/1243537210733760553/camera-000.jpg?ex=6651d5c6&is=66508446&hm=edfb232a2ef6fe8a098a68b836b840be61bb09956d47cf83eb9f21615bcd2041&" loading="lazy">
+		<figcaption>Camera's default orientation, X: 0</figcaption>
+	</figure>
+	<p>
+		And when you rotate the camera to face forward by setting it's <b>X axis to 90</b>,
+		the ray goes upward as the camera's local positive Y axis is facing up.
+	</p>
+	<figure>
+		<img src="https://cdn.discordapp.com/attachments/915212337995186236/1243537210989608973/camera-010.jpg?ex=6651d5c6&is=66508446&hm=9609c61af3f5c0510896e02207105a30248e98833ed3f51240a5958caa73f43d&" loading="lazy">
+		<figcaption>Camera's ray when it's direction is +Y axis, X: 90</figcaption>
+	</figure>
+	<p>
+		By default ray goes in <b>positive Y axis</b>.
+		So the solution is to set the axis of the camera's ray to <span class="mono">-Z axis</span>.
+		And it should work like it should.
+	</p>
+	<p>
+		Have a nice day bruh!
+	</p>
+</body>
+</html>
