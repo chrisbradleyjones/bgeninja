@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
+	<title>Logic Bricks - 12</title>
+</head>
+<body>
+	<h1>Logic Controllers</h1>
+	<p>
+		Logic Controllers are <span title="not really, python is better lol">useful</span> when you want
+		to do some complex operations. Here are some list of controllers available in the engine.
+	</p>
+	<ul>
+		<li>AND Controller</li>
+		<li>Or Controller</li>
+		<li>NAND Controller</li>
+		<li>NOR Controller</li>
+		<li>XOR Controller</li>
+		<li>XNOR Controller</li>
+		<li>Expression Controller</li>
+		<li>Python Controller</li>
+	</ul>
+	<h3>AND Controller</h3>
+	<p>
+		Controller is activated when every sensor is triggered that is connected to that controller.
+	</p>
+	<h3>Or Controller</h3>
+	<p>
+		Activated when one of the sensor is triggered that is connected to that controller.
+		Yes, any one.
+	</p>	
+	<h3>NAND Controller</h3>
+	<p>
+		Activated when every sensor is not triggered that is connected to that controller.
+		Can be used for hover button effect.
+	</p>
+	<h3>NOR Controller</h3>
+	<p>
+		Same as above, activated when every sensor is de-activated.
+	</p>
+	<h3>XOR Controller</h3>
+	<p>
+		Activated when the sensors has mixed input, deactives when every sensor that is connected to
+		the controller is turned on/off.
+	</p>
+	<h3>XNOR Controller</h3>
+	<p>
+		Activated when the sensor has the same input whether it is on/off.
+	</p>
+	<h3>Expression Controller</h3>
+	<p>
+		Can be used for stuff like <span class="mono">Conditional Statements</span> in python.
+		Something like this: <u>If the property <b>coins</b> has value equal to or greater than 5,
+		rotate the cube.</u> <a href="https://drive.google.com/file/d/1nnZAUnj7sSeEmBoYmTpaUGcjWhEbilbu/view?usp=sharing" target="_blank">Here is the project file</a>.
+	</p>
+	<p>
+		Also you can do stuff like toggling. <a href="https://drive.google.com/file/d/1NWrSdWy87KN5WrINK1wsgHnHUIInFsEc/view?usp=sharing" target="_blank">Here is the project file</a>.
+	</p>
+	<h3>Python Controller</h3>
+	<p>
+		Used for running code, you'll soon learn about this in the comming python lessons.
+		I'll explain the basics: <u>You can either run a full code or a certain part of the code called modules.</u>
+	</p>
+	<h5>Scripts</h5>
+	<p>
+		This is used the run the whole file. The performance can decrease as the module <span class="mono">Range</span> or <span class="mono">bge</span>
+		is imported again and again in a loop manner. This slows your game performance down. Use it wisely.
+	</p>
+	<h5>Module</h5>
+	<p>
+		Used to run a part of the file called <b>modules</b>. The field must be written like this: <span class="mono">your_file.your_module</span>.
+		Your file must have the <span class="mono">.py</span> extension or it may return errors.
+	</p>
+	<figure>
+		<img src="https://rangeengine.tech/api/15/html/_images/logic-controllers-types-python-node.jpg" loading="lazy">
+		<figcaption>Python Controller</figcaption>
+	</figure>
+	<ul style="list-style: binary;">
+		<li>Specifies whether it is a module or entire file.</li>
+		<li>The name of the file to be loaded.</li>
+		<li>Continuously reloads the file.</li>
+	</ul>
+	<p>
+		<a href="https://rangeengine.tech/api/15/html/manual/logic/controllers/types/python.html" target="_blank">List taken from the API docs</a>.
+		And here is the project file <a href="https://drive.google.com/file/d/1xrd6iuerRdyKr6aGbvBCYVmFZx2aQUx3/view?usp=sharing">for python controller</a>.
+	</p>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
+	<title>Logic Bricks - 9</title>
+</head>
+<body>
+	<h1>Keyboard, Mouse, Joystick</h1>
+	<p>
+		In this lesson, we'll be taking control of object using our keyboard, mouse and joystick.
+		And I'm not going to cover everything about those sensors and the actuators cuz you'll come to know what each event does.
+	</p>
+	<h3>Keyboard Sensor</h3>
+	<figure>
+		<img src="https://rangeengine.tech/api/15/html/_images/logic-sensors-types-keyboard-node.png" loading="lazy">
+		<figcaption>Keyboard sensor</figcaption>
+	</figure>
+	<p>
+		From previous lessons, you've learned how the basics of how to use the keyboard.
+		If not lemme tell how you: add a keyboard sensor, press the field near <span class="mono">Key</span>
+		you'll be asked to press a key, do it and connect a sensor.
+		Now your actuator must be activated that is connected by the keyboard sensor when u trigger the keyboard sensor.
+	</p>
+	<h5>All Keys</h5>
+	<p>
+		If you select <span class="mono">All Keys</span>, the actuator gets triggered whenever you press any button on your keyboard.
+	</p>
+	<h5>First Modifier</h5>
+	<p>
+		Used for making key combinations, let's say if you have <u>Key: Left Shift</u> and <u>First Modifier: Left Ctrl</u>,
+		The actuator is triggered when you press <span class="mono">Left Shift+Left Ctrl</span>.
+	</p>
+	<h5>Second Modifier</h5>
+	<p>
+		Same as <span class="mono">First Modifier</span> but creates addition key combination.
+		Let's say if you keep the <b>Second Modifier</b> as <span class="mono">Left Alt</span>
+		your actuator is triggered when you press <span class="mono">Left Shift+Left Ctrl+Left Alt</span>.
+		Comes in handy <span title="for real">fr</span>.
+	</p>
+	<h5>Log Toggle</h5>
+	<p>
+		Decides whether you want your keystrokes to be logged in a property.
+		Setting your property to <span class="mono">True</span> allows you to log them and vice versa for <span class="mono">False</span>.
+	</p>
+	<h5>Target</h5>
+	<p>
+		Asks on which property you want the keystrokes to be logged. This can be used to create cheats like thing for your game.
+		still confused af? <a href="https://drive.google.com/file/d/1nqRrQOibiLPFDh65A0XqjKuIvkrR62UF/view?usp=sharing" target="_blank">Download the project file</a> and examine it or ask in the <a href="https://discord.gg/AvxGydpEDE" target="_blank">discord server</a>.
+		Oh you can refer the <a href="https://rangeengine.tech/api/15/html/manual/logic/sensors/types/keyboard.html#keyboard-sensor" target="_blank">docs</a> too.
+	</p>
+	<h3>Mouse Sensor</h3>
+	<figure>
+		<img src="https://rangeengine.tech/api/15/html/_images/logic-sensors-types-mouse-node.jpg" loading="lazy">
+		<figcaption>Mouse Sensor</figcaption>
+	</figure>
+	<h5>Left Button</h5>
+	<p>
+		Triggered when you press left mouse button.
+	</p>
+	<h5>Right Button</h5>
+	<p>
+		Triggered when you press right mouse button.
+	</p>
+	<h5>Middle Button</h5>
+	<p>
+		Triggered when you press right middle button which is used for scrolling.
+	</p>
+	<h5>Wheel Up</h5>
+	<p>
+		Triggered when you scroll you scrolling wheel up.
+	</p>
+	<h5>Wheel Down</h5>
+	<p>
+		<span title="ah you know what wheel down does if you know what wheel up does lol">Triggered when you scroll you scrolling wheel down.</span>
+	</p>
+	<h5>Movement</h5>
+	<p>
+		Used to detect the movement of the mouse. Can use this event to do FPS setup.
+	</p>
+	<h5>Mouse Over</h5>
+	<p>
+		Triggered when you hover your mouse cursor on the object which has the mouse sensor.
+	</p>
+	<h5>Mouse Over Any</h5>
+	<p>
+		Triggered when you hover your mouse cursor on object that has that specified property or a material.
+		Enabling <span class="mono">X-Ray</span> helps you to see through objects.
+		Masking helps you to mask the collision objects. Here, <a href="https://drive.google.com/file/d/1Dr5oQ_eW32HSSP_iN3B7uzAWgoy1o644/view?usp=drive_link" target="_blank">download the project file</a> bro.
+	</p>
+	<h5>Extra buttons</h5>
+	<p>
+		Events like <span class="mono">Button 6</span>, <span class="mono">Button 7</span>, <span class="mono">Right Thumb Button</span> and <span class="mono">Left Thumb Button</span>
+		is for mouses that have extra buttons like the one below.
+	</p>
+	<figure>
+		<img src="https://lh3.googleusercontent.com/proxy/083Vx-2iPgknsQs2U2asXnd7GNW08cLE4ReBFkCBoc_kGz205DR0_E1iSfWBUP_3GK4q2tQP1C78D2okkIXumcH6TzYrbpDsKX5LT6HQfJiR6TEm9lkm9IY8sd8ny47Ty93VhO1pAoTRcbtnGr9iDnnqFqTxkltLWCF-TK-NjOQkY4qtK7jWnxEy-PGpQEIDyqHj3kiYazNPW54R0Q" loading="lazy">
+		<figcaption>Extra mouse buttons</figcaption>
+	</figure>
+	<h3 title="tested with RPM Euro Games joystick">Joystick Sensor</h3>
+	<figure>
+		<img src="https://rangeengine.tech/api/15/html/_images/logic-sensors-types-joystick-button.jpg" loading="lazy">
+		<figcaption>Joystick sensor</figcaption>
+	</figure>
+	<p>
+		<span class="mono">Joystick Index</span> can be used with multiple joysticks.
+		<span title="source: trust me bro"><b>Index 0</b> stands for joystick one</span>.
+		<span class="mono">Threshold</span> minimum when the stick is moved.
+		The more the threshold is, the less chances an event is triggered when the stick is moved.
+	</p>
+	<h5>Buttons</h5>
+	<p>
+		These are used for the buttons like, <span class="mono">A</span>, <span class="mono">B</span>, <span class="mono">X</span>, <span class="mono">Y</span>, etc. for Xbox.
+		You can also use the playstation controllers too.
+	</p>
+	<figure>
+		<img src="https://u.cubeupload.com/ropap66508/Untitled.jpg" loading="lazy">
+		<figcaption>Information printed in a Windows Console about joystick</figcaption>
+	</figure>
+	<h5>Shoulder Triggers</h5>
+	<p>
+		This the button we press with our middle finger, decides whether the trigger should be left or right.
+	</p>
+	<h5>Stick Axis</h5>
+	<p>
+		Trigger an event when the stick goes in horizontal or vertical axis.
+		It can be the left stick or the right stick.
+	</p>
+	<h5>Stick Direction</h5>
+	<p>
+		Trigger an event when the stick goes in a certain direction.
+		It can be the left stick or the right stick.
+	</p>
+	<p>
+		<a href="https://drive.google.com/file/d/1Gxc6aVMg9_UzFpMOPzzcyAtsPHCk6ohs/view?usp=sharing" target="_blank">Download the project file.</a>
+	</p>
+	<h3>Mouse Actuator</h3>
+	<figure>
+		<img src="https://rangeengine.tech/api/15/html/_images/logic-actuators-types-mouse-visibility.png" loading="lazy">
+		<figcaption>Mouse Actuator</figcaption>
+	</figure>
+	<p>
+		<span class="mono">Mode</span> has two modes. Visibility and Look.
+	</p>
+	<h5>Visibility</h5>
+	<p>
+		Sets the visibility of the mouse cursor. When the button is highlighted,
+		the cursor is visible when the game runs. Vice versa when the button is grayed out.
+	</p>
+	<h5>Look</h5>
+	<p>
+		Makes the object look around accordingly when you move the mouse cursor.
+		Well explained <a href="8.html#from_l9">here</a>.
+	</p>
+	<h3 title="yes this is related to the joystick">Vibration Actuator</h3>
+	<!-- <figure>
+		<img src="https://rangeengine.tech/api/15/html/_images/logic-actuators-types-mouse-visibility.png" loading="lazy">
+		<figcaption>Mouse Actuator</figcaption>
+	</figure> -->
+	<p>
+		<!-- <span class="mono">Vibration Mode</span> --> *testing*
+	</p>
+</body>
+</html>
