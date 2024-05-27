@@ -31,15 +31,13 @@
 	<p>
 		This is an example of a simple python script used to activate an actuator.
 	</p>
-	<pre class="prettyprint">
-		<code class="language-python">import Range # for blender game engine -> import bge
+	<pre class="prettyprint"><code class="language-python">import Range # for blender game engine -> import bge
 cont = Range.logic.getCurrentController() # again, for bge -> bge.logic.getCurrentController()
 own = cont.owner
 
 def yourFunc(cont):
 	if own.sensors["your_sensor"].positive:
-		cont.activate(own.actuators['your_actuator'])</code>
-	</pre>
+		cont.activate(own.actuators['your_actuator'])</code></pre>
 	<h5>What the heck is hapening in this code</h5>
 	<p>
 		<u title="or 'import bge'">import Range</u> is importing the Range module.
