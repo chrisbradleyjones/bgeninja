@@ -16,6 +16,11 @@ body::-webkit-scrollbar{
 }
 
 body::-webkit-scrollbar-thumb{
+	background: azure;
+	border-radius: 5px;
+}
+
+body:hover::-webkit-scrollbar-thumb{
 	background: aqua;
 	border-radius: 5px;
 }
@@ -256,7 +261,7 @@ span:hover{
 		transform: scaleX(1);
 	}
 }
-@media only screen and (width <= 912px){
+@media only screen and (width <= 1000px){
 	.sect-1 h1{
 		font-size: 2.45rem;
 	}
@@ -281,11 +286,7 @@ span:hover{
 		flex-direction: column;
 		padding: 20px;
 		min-width: 0px;
-		max-width: 250px;
-		border: solid 2px;
-/*		border-radius: 20px;*/
-		transition: 0.25s;
-		box-shadow: 0px 0px 5px black;
+		max-width: 275px;
 	}
 	.container-cl{
 		display: grid;
@@ -325,7 +326,7 @@ span:hover{
 		flex-direction: column;
 		padding: 20px;
 		min-width: 0px;
-		max-width: 250px;
+		max-width: 90%;
 		border: solid 2px;
 /*		border-radius: 20px;*/
 		transition: 0.25s;
@@ -333,7 +334,7 @@ span:hover{
 	}
 	.container-cl{
 		display: grid;
-		grid-template-columns: auto auto;
+		grid-template-columns: auto;
 		justify-content: center;
 		align-content: center;
 		grid-gap: 50px;

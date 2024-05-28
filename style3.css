@@ -134,6 +134,10 @@ u::selection, em::selection{
 	color: black;
 }
 
+b::selection{
+	background: darkslateblue;
+}
+
 .mono{
 	color: whitesmoke;
 	font-family: monospace;
@@ -161,6 +165,7 @@ a:hover{
 	text-decoration-color: #E02323;
 	position: relative;
 	text-shadow: 0px 0px 20px #E02323;
+	cursor: default;
 }
 
 .range::before{
@@ -212,6 +217,27 @@ a:hover{
 	color: black;
 }
 
+.note{
+	display: flex;
+	flex-flow: column;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+	border: 2px solid white;
+	border-radius: 5px;
+}
+
+.note .what{
+	background: midnightblue;
+}
+
+.note p{
+	margin: 0px;
+	padding: 10px;
+}
+
+
+
 /*Making the site more responsive almost on any device*/
 @media only screen and (width >= 2560px){
 	body{
@@ -254,5 +280,8 @@ a:hover{
 	}
 	a{
 		color: lime;
+	}
+	.note{
+		width: 70%;
 	}
 }
