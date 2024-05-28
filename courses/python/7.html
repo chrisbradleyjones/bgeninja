@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
+	<title>Python - 7</title>
+</head>
+<body>
+	<h1>7 - Getting Game FPS</h1>
+	<p>
+		We'll be getting the game's frame rate (and changing the text's color).
+	</p>
+	<h3>Setting Up</h3>
+	<p>
+		Add a text object, add a text property, add an always sensor and a python controller,
+		connect them, create a text file and connect them. Yes those bricks belong to the text object.
+	</p>
+	<h3>The code</h3>
+	<p>
+		To get the game framerate we should importing the game engine's logic function
+		<span class="mono">Range.logic.getAverageFrameRate()</span> whose return type is a <b>float</b>.
+		And then the code looks like this.
+	</p>
+	<pre class="prettyprint"><code class="language-python">import Range
+cont = Range.logic.getCurrentController()
+own = cont.owner
+
+FPS = Range.logic.getAverageFrameRate()</code></pre>
+	<p>
+		Here we've defined <b>FPS</b> as that <span title="which is Range.logic.getAverageFrameRate()">function</span>.
+		Now to get the fps and put it on the text, the code looks like this.
+	</p>
+	<pre class="prettyprint"><code class="language-python">import Range
+cont = Range.logic.getCurrentController()
+own = cont.owner
+
+FPS = Range.logic.getAverageFrameRate()
+own["Text"] = str(FPS)</code></pre>
+	<p>
+		Now run the game. If you see our text object is not getting the framerate but stays
+		at <b>0.0</b>, the reason is: <u>Getting a game's frame is happening everyframe</u>,
+		and since our always logic brick is triggered once, it stays at zero.
+		So go ahead and turn on true level triggering. Now it should work.
+	</p>
+	<p>
+		Don't worry if you have a lenghty going numbers like this.
+	</p>
+	<figure>
+		<img src="https://i.ibb.co/djtj5wz/long-ass-numerals.jpg" loading="lazy">
+		<figcaption>Long ass numbers</figcaption>
+	</figure>
+	<p>
+		There's an in-built python function called <span class="mono">substring</span>
+		which is used to show a part of the string. On the line <u>own["Text"] = str(FPS)</u>
+		put <span class="mono">[:5]</span>. The code looks like this.
+	</p>
+	<pre class="prettyprint"><code class="language-python">import Range
+cont = Range.logic.getCurrentController()
+own = cont.owner
+
+FPS = Range.logic.getAverageFrameRate()
+own["Text"] = str(FPS)[:5]</code></pre>
+	<p>
+		This means the text object only display <b>5 characters</b>.
+		Now let's change the color of the text using the function <span class="mono">color</span>,
+		which belongs to the class <span class="mono">KX_GameObject</span>.
+		Our text object belongs to the class <span class="mono">KX_FontObject</span> which
+		is a subclass of <b>KX_GameObject</b>.
+	</p>
+	<p>
+		The code looks like this.
+	</p>
+<pre class="prettyprint"><code class="language-python">a = 1
+if FPS <= 60.1:
+    own.color = 0,1,0,a
+elif FPS <= 30:
+    own.color = 1,1,0,a
+elif FPS <= 20:
+    own.color = 1,0,0,a
+else:
+    own.color = 0,0,1,a</code></pre>
+    <p>
+    	What is actually happening here?
+    	Well, we are making our text object to turn green when the framerate is at or below 60.
+    	Turn yellow when the framerate is at or below 30 and turn red when the framerate is at
+    	or below 20. If its not anything specified turn blue.
+    </p>
+    <p>
+    	<span class="mono">color</span> accepts 4 arguments which are <u>red, green, blue and alpha</u>.
+    	Values range from 0 and 1. <span class="mono">a</span> means alpha channel, I'll leave alpha as 1.
+    </p>
+	<ul>
+		<li> <u>0,1,0,a</u> is <b>green</b> </li>
+		<li> <u>1,1,0,a</u> is <b>yellow</b> </li>
+		<li> <u>1,0,0,a</u> is <b>red</b> </li>
+		<li> <u>0,0,1,a</u> is <b>blue</b> </li>
+	</ul>
+	<p>
+    	If you still don't understand you can play with the Blender's built-in color picker.
+    </p>
+    <figure>
+    	<img src="https://i.ibb.co/8bxjx4r/blender-clr-pickr.jpg" loading="lazy">
+    	<figcaption>Blender's built-in color picker</figcaption>
+    </figure>
+    <p>
+    	Back to our stuff, the full code looks like this.
+    </p>
+<pre class="prettyprint"><code class="language-python">import Range
+cont = Range.logic.getCurrentController()
+own = cont.owner
+
+FPS = Range.logic.getAverageFrameRate()
+
+own["Text"] = str(FPS)[:5]
+
+a = 1
+
+if FPS <= 60.1:
+    own.color = 0,1,0,a
+elif FPS <= 30:
+    own.color = 1,1,0,a
+elif FPS <= 20:
+    own.color = 1,0,0,a
+else:
+    own.color = 0,0,1,a</code></pre>
+    <p>
+    	Download the project file. <a href="" target="_blank">l7-python.blend</a>
+    </p>
+</head>
+<body>
