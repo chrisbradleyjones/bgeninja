@@ -515,3 +515,14 @@ pre::-webkit-scrollbar-track{
 		font-size: 0.7rem;
 	}
 }
+
+@media (max-width: 412px){
+	.recc button{
+		margin-left:  10%;
+		margin-right: 10%;
+	}
+	.recc p, h3{
+		margin-right: 7%;
+		margin-left: 7%;
+	}
+}
