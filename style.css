@@ -91,6 +91,11 @@ body:hover::-webkit-scrollbar-thumb{
 body::-webkit-scrollbar-track{
 	background: rgb(.1, .1, .1	, 1.0);
 }
+
+h1{
+	font-size: 3rem;
+}
+
 a{
 	color: #0096FF;
 	transition: 0.25s;
@@ -516,7 +521,31 @@ pre::-webkit-scrollbar-track{
 	}
 }
 
-@media (max-width: 412px){
+@media (width <= 412px){
+	body{
+		margin: 0px;
+	}
+	.nav-bar{
+		font-size: 1rem;
+		overflow-x: scroll;
+	}
+	.nav-bar ul{
+		margin-right: 25px;
+	}
+	.nav-bar.scrolled{
+		background: rgba(20, 20, 20, 1.0);
+	}
+	h1{
+		margin-left: 20px !important;
+		margin-right: 20px !important;
+		font-size: 2rem;
+	}
+	ul{
+		margin: 2px;
+	}
+	p{
+		margin: 10px;
+	}
 	.recc button{
 		margin-left:  10%;
 		margin-right: 10%;
@@ -524,5 +553,18 @@ pre::-webkit-scrollbar-track{
 	.recc p, h3{
 		margin-right: 7%;
 		margin-left: 7%;
+	}
+	pre{
+		margin-right: 10px;
+		margin-left: 10px;
+		box-shadow: 0px 0px 0px black;
+		border-color: transparent;
+	}
+	pre::-webkit-scrollbar-thumb{
+		background: forestgreen;
+		margin: 20px;
+	}
+	.dingus{
+		color: whitesmoke;
 	}
 }
