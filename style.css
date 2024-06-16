@@ -365,7 +365,7 @@ pre::-webkit-scrollbar-track{
 	color: transparent;
 }
 
-.dingus:hover{
+.dingus:active{
 	color: whitesmoke;
 	text-shadow: 0px 0px 20px azure;
 }
@@ -477,6 +477,22 @@ pre::-webkit-scrollbar-track{
 	width: 500px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+:target {
+   animation: target_ 2s;
+}
+
+@keyframes target_{
+	0%{
+		background: transparent;
+	}
+	50%{
+		background: darkslateblue;
+	}
+	100%{
+		background: transparent;
+	}
 }
 
 /*makes site RESPONISVE*/
