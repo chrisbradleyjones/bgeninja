@@ -40,6 +40,10 @@ figure img{
 	border-radius: 0px;
 }
 
+figure .smol{
+	max-width: 25%;
+}
+
 figure audio{
 	display: flex;
 	flex-wrap: nowrap;
@@ -127,12 +131,20 @@ em{
 }
 
 u:hover, em:hover{
-	text-shadow: 0px 0px 10px coral;
+	text-shadow: 0px 0px 10px rgba(240, 240, 240, 0.5);
+}
+
+u:hover{
+	text-underline-offset: 2px;
 }
 
 u::selection, em::selection{
 	background-color: #03dac6;
 	color: black;
+}
+
+b{
+	font-weight: 900;
 }
 
 b::selection{

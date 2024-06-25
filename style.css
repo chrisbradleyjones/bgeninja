@@ -188,7 +188,11 @@ section h2{
 .sect-2{
 }
 
-.sect-3_p{
+.sect-3{
+	background-image: radial-gradient(#702f00 10%, #321200 100%);
+}
+
+.sect-3 p{
 	text-align: center;
 	margin-right: 10rem;
 	margin-left: 10rem;
@@ -240,43 +244,6 @@ section h2{
 	box-shadow: 0px 0px 20px coral;
 }
 
-.nah{
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	text-align: center;
-	align-items: center;
-	color: whitesmoke;
-	background: #222;
-	padding: 0px;
-	-webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.nah a{
-	text-decoration-color: none;
-	text-decoration: none;
-	color: whitesmoke;
-	cursor: default;
-}
-
-.nah span{
-	cursor: no-drop;
-}
-
-.nah h1{
-	margin: 0px;
-	transition: 1s;
-	text-shadow: 0px 0px 5px black;
-	font-weight: bolder;
-	font-size: 5rem;
-}
-
-.nah h1:hover{
-	text-shadow: 0px 0px 10px azure;
-}
 
 p{
 	line-height: 1.5rem;
