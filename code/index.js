@@ -23,11 +23,19 @@ function goto(relativePath) {
 	}
 	});
 	});
-    window.addEventListener('scroll', function() {
-        var navBar = document.querySelector('.nav-bar');
-        if (window.scrollY > 50) {
-            navBar.classList.add('scrolled');
-        } else {
-            navBar.classList.remove('scrolled');
-        }
+    // window.addEventListener('scroll', function() {
+    //     var navBar = document.querySelector('.nav-bar');
+    //     if (window.scrollY > 50) {
+    //         navBar.classList.add('scrolled');
+    //     } else {
+    //         navBar.classList.remove('scrolled');
+    //     }
+    // });
+    document.addEventListener('DOMContentLoaded', (event) => {
+    const navBar = document.getElementById('nav-bar');
+    const toggleButton = document.getElementById('toggle-nav');
+
+    toggleButton.addEventListener('click', () => {
+        navBar.classList.toggle('visible');
     });
+	});
