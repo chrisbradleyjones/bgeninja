@@ -290,43 +290,10 @@ section h2{
 	background-image: none;
 }
 
-
-.join-discord{
-	display: flex;
-	justify-content: center;
+.kitsuy{
+	text-decoration: none;	
+	color: skyblue;
 }
-
-.upbge-discord, .range-discord{
-	margin-right: 10px;
-	margin-left: 10px;
-	padding: 20px;
-	border-style: solid;
-	border-radius: 10px;
-	border-width: 2px;
-	display: flex;
-	flex-direction: column;
-	max-width: 25%;
-	transition: 0.25s;
-}
-
-.upbge-discord, .range-discord img{
-	justify-content: center;
-	max-width: 10rem;
-}
-
-.upbge-discord, .range-discord h5{
-	font-size: 1.25rem;
-	text-align: center;
-}
-
-.upbge-discord:hover, .range-discord:hover{
-	transform: translateY(-10px);
-}
-
-.upbge-discord:active, .range-discord:active{
-	box-shadow: 0px 0px 20px coral;
-}
-
 
 p{
 	line-height: 1.5rem;
@@ -533,6 +500,33 @@ pre::-webkit-scrollbar-track{
    animation: target_ 2s;
 }
 
+#join-discord{
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+#join-discord div{
+	box-shadow: 0px 2.5px 7.5px black;
+	border-radius: 20px;
+	padding: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+}
+
+#join-discord p{
+	margin: 0px;
+}
+
+#join-discord img{
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-user-select: none;
+	width: 12.5vw;
+}
+
 @keyframes target_{
 	0%{
 		background: transparent;
@@ -563,21 +557,6 @@ pre::-webkit-scrollbar-track{
 		margin-right: 1.25rem;
 		margin-left: 1.25rem;
 	}
-	.join-discord{
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-	}
-	.upbge-discord, .range-discord{
-		margin-right: 20px;
-		margin-left: 20px;
-		margin-top: 10px;
-		margin-bottom: 10px;
-	}
-	.upbge-discord, .range-discord img{
-		justify-content: center;
-		max-width: 5.5em;
-	}
 	body{
 		width: auto;
 	}
@@ -589,12 +568,13 @@ pre::-webkit-scrollbar-track{
 	}
 	.sect-1{
 		padding-top: 75px;
+		padding-bottom: 30px;
 	}
 	.sect-1 .landing-text{
 		line-height: 1.75rem;
 	}
 	.sect-1 h1{
-		font-size: 4rem;
+		font-size: 3rem;
 		margin: 0px;
 	}
 	#nav-bar{
@@ -662,5 +642,12 @@ pre::-webkit-scrollbar-track{
 	}
 	.dingus{
 		color: whitesmoke;
+	}
+	.sect-3 h2{
+		margin-right: 10%;
+		margin-left: 10%;
+	}
+	.sect-3 p{
+		text-align: left;
 	}
 }
