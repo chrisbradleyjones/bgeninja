@@ -94,6 +94,10 @@ body::-webkit-scrollbar-track{
 	text-align: center;
 }
 
+.sect-2 h3{
+	line-height: 2rem;
+}
+
 h1{
 	font-size: 3rem;
 }
@@ -288,6 +292,11 @@ section h2{
 
 .sect-4:hover{
 	background-image: none;
+}
+
+.sect-4 h2{
+	margin-right: 10%;
+	margin-left: 10%;
 }
 
 .kitsuy{
@@ -540,12 +549,20 @@ pre::-webkit-scrollbar-track{
 }
 
 /*makes site RESPONISVE*/
-@media (max-width: 768px){
+@media screen and (orientation: portrait) and (max-width: 1080px){
 	.recc{
 		margin: 20px;
 		padding: 20px;
 		margin-left: 7%;
 		margin-right: 7%;
+	}
+	.recc button{
+		margin-left:  10%;
+		margin-right: 10%;
+	}
+	.recc p, h3{
+		margin-right: 7%;
+		margin-left: 7%;
 	}
 	.recc p{
 		line-height: 1.5rem;
@@ -553,22 +570,21 @@ pre::-webkit-scrollbar-track{
 	.recc h3{
 		line-height: 2.5rem;
 	}
-	.sect-3 p{
-		margin-right: 1.25rem;
-		margin-left: 1.25rem;
-	}
-	body{
-		width: auto;
-	}
-}
-
-@media (width <= 412px){
-	body{
-		margin: 0px;
-	}
 	.sect-1{
 		padding-top: 75px;
 		padding-bottom: 30px;
+	}
+	.sect-3 h2{
+		margin-right: 10%;
+		margin-left: 10%;
+	}
+	.sect-3 p{
+		margin-right: 1.25rem;
+		margin-left: 1.25rem;
+		text-align: left;
+	}
+	body{
+		width: auto;
 	}
 	.sect-1 .landing-text{
 		line-height: 1.75rem;
@@ -622,14 +638,7 @@ pre::-webkit-scrollbar-track{
 	p{
 		margin: 10px;
 	}
-	.recc button{
-		margin-left:  10%;
-		margin-right: 10%;
-	}
-	.recc p, h3{
-		margin-right: 7%;
-		margin-left: 7%;
-	}
+	
 	pre{
 		margin-right: 10px;
 		margin-left: 10px;
@@ -642,12 +651,5 @@ pre::-webkit-scrollbar-track{
 	}
 	.dingus{
 		color: whitesmoke;
-	}
-	.sect-3 h2{
-		margin-right: 10%;
-		margin-left: 10%;
-	}
-	.sect-3 p{
-		text-align: left;
 	}
 }
