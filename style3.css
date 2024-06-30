@@ -230,7 +230,8 @@ a:hover{
 	color: black;
 }
 
-.note{
+/*  that warning boxes  */
+.know, .note, .warning{
 	display: flex;
 	flex-flow: column;
 	margin-left: auto;
@@ -238,18 +239,40 @@ a:hover{
 	width: 40%;
 	border: 2px solid white;
 	border-radius: 5px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
-.note .what{
-	background: midnightblue;
-}
-
-.note p{
+.know p, .note p, .warning p{
 	margin: 0px;
 	padding: 10px;
 }
+.know ul, .note ul, .warning ul{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	line-height: 2rem;
+}
 
+.know .what{
+	background: linear-gradient(to right, forestgreen, darkgreen);
+}
+.know .what::before{
+	content: "❓ ";
+}
 
+.note .what{
+	background: linear-gradient(to right, midnightblue, royalblue);
+}
+.note .what::before{
+	content: "📝 ";
+}
+
+.warning .what{
+	background: orangered;
+}
+.warning .what::before{
+	content: "❗ ";
+}
 
 /*Making the site more responsive almost on any device*/
 @media only screen and (width >= 2560px){

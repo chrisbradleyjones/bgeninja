@@ -45,6 +45,13 @@ section{
 /*	flex-wrap: wrap;*/
 }
 
+.container-cl img{
+	display: flex;
+	padding: 0px;
+	margin: 0px;
+	width: -webkit-fill-available;
+}
+
 .container-cl a{
 	list-style: none;
 	flex: 1;
