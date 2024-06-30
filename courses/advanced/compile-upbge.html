@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+	<title>Compile UPBGE for Windows</title>
+</head>
+<body>
+	<h1>Compile UPBGE (Windows only)</h1>
+	<h3>Requirements</h3>
+	<ul>
+		<li>A computer that can run Visual Studio 2019</li>
+		<li>CMake</li>
+		<li>Libraries dependencies</li>
+	</ul>
+	<h3>Setting Up</h3>
+	<p>
+		Okay first things first,
+		<a href="https://files01.tchspt.com/down/vs_Community2019.exe" target="_blank">download Visual Studio 2019 installer</a>.
+		This is the link I used to download it, going to Microsoft's website
+		and downloading it is not going to be straightforward.
+		After opening the installer it looks like this.
+	</p>
+	<figure>
+		<img src="https://www.intel.com/content/dam/developer/articles/guide/installing-microsoft-visual-studio-2019-for-use-with-intel-compilers/vs-workload-807573.png" loading="lazy">
+		<figcaption>Visual Studio 2019 Installer</figcaption>
+	</figure>
+	<p>
+		<b>Uncheck everything.</b> Yes, do it and check
+		<span class="mono">Desktop Development with C++</span> because that's what
+		we're going to need to compile the engine.
+		On the left side where the <b>Installation Details</b> is, uncheck
+		<span class="mono">Test Adapter for Boost Test</span> and
+		<span class="mono">Test Adapter for Google Test</span>. We don't
+		really need them. Installations can take a while depending on your internet's speed
+		and computer specs.
+	</p>
+	<p>
+		After the installation has been completed, Open Visual Studio.
+		To make sure everything is working, we need some smol c++ code.
+	</p>
+	<!-- <pre class="prettyprint"><code class="language-python">#include <windows.h>
+#include <iostream>
+int main()
+{
+	std::cout << "BGENinja\n";
+	return 0;
+}</code></pre> -->
+	<p>
+		If it worked, you are good to go! If not open up the VSInstaller uncheck and check
+		<span class="mono">Desktop Development with C++</span>, click on "Modify".
+		It must be working. Now you need to install CMake for making a .sln file.
+	</p>
+	<div class="know">
+		<p class="what">.sln or solution file</p>
+		<p>
+			A solution is a structure for organizing projects in Visual Studio.
+			The solution maintains the state information for projects in two files:
+			<ul>
+				<li><span class="mono">.sln</span> file (text-based, shared)</li>
+				<li><span class="mono">.suo</span> file (binary, user-specific solution options)</li>
+			</ul>
+		</p>
+	</div>
+	<p>
+		Go to <a href="https://cmake.org/" target="_blank">cmake.org</a> and download
+		the latest CMake version. When installing it, you may be asked with some options
+		like below.
+	</p>
+	<figure>
+		<img src="https://miro.medium.com/v2/resize:fit:1006/0*tx1TEG8TJn2IghyA.png" loading="lazy">
+		<figcaption>CMake asking to add itself it to PATH</figcaption>
+	</figure>
+	<p>
+		As highlighted, it is recommended to add it to PATH for all users. 
+	</p>
+	<div class="know">
+		<p class="what">PATH</p>
+		<p>
+			PATH is an environment variable on Unix-like operating systems,
+			DOS, OS/2, and Microsoft Windows, specifying a set of directories
+			where executable programs are located.
+			In general, each executing process or user session has its own PATH setting.
+		</p>
+	</div>
+	<p>
+		After installing CMake, we need libraries to compile them.
+		Thankfully the UPBGE developers has linked them.
+		Go to <a href="https://mega.nz/folder/k9MW1KiZ#UOKzjh3IQ0GEgjQ6GUc7ug/folder/QsVFVIRb" target="_blank">mega.nz</a>,
+		look for <span class="mono">win64_vc14</span> and download it. The size is <b>2GB</b>.
+		After downloading the libraries, we need to create folders for UPBGE builds to
+		keep them organized.
+	</p>
+	<p>
+		Create a folder named "upbge" and put the
+		<a id="src" href="https://kitsuystudio.itch.io/upbge-026" target="_blank">source code<img src="https://u.cubeupload.com/ropap66508/WF9wpi.png"></a>
+		there, we dont really need this folder that much,
+		just to keep them neat.
+		And then for the libraries open the downloaded library
+		<b>.zip</b> file and extract it named as <span class="mono">lib</span>.
+		Now you must be having two folders namely
+		<span class="mono">upbge</span> and <span class="mono">lib</span>.
+		Open CMake (cmake-gui), select where your UPBGE source code is
+		and where you want the binaries to be built.
+	</p>
+	<style type="text/css">
+		#src img{
+			display: none;
+			left: inherit;
+			position: absolute;
+		}
+		#src:hover img{
+			display: block;
+			box-shadow: 0px 10px 20px black;
+		}
+	</style>
+	<figure>
+		<img src="https://i.ibb.co/ZWdQG9P/image.png" alt="CMake GUI" loading="lazy">
+		<figcaption>CMake asking for folders</figcaption>
+	</figure>
+	<p>
+		After choosing the folders, click on configure.
+		If you have specified a folder that doesn't exit, it may ask if you want to create one.
+		Then specify the generator for our project which is
+		<b>Visual Studio 16 2019</b>. Now CMake will be making the solution project
+		and wait until it finishes, takes under 5 min. Then click generate,
+		it will be generating the .sln file for you and after 2 min its done.
+	</p>
+	<p>
+		Now go to "upbge" folder and you'll find bunch of files,
+		but only one .sln file, which is <span class="mono">UPBGE.sln</span>
+		if you've downloaded <b>2.5b</b> and <span class="mono">UPBGE2.x.sln</span>
+		if <b>2.6+</b>. Open Visual Studio, drag the file and open it and there
+		is where you can edit source code of UPBGE
+	</p>
+	<p>
+		Finally to compile it, make sure
+		<span class="mono">CMakePredefinedTargets</span> is selected,
+		go to <u>Build -> Build -> 2 INSTALL</u>. Now it must be compiling.
+	</p>
+	<figure>
+		<img src="https://u.cubeupload.com/ropap66508/OyWWsK.gif" loading="lazy">
+		<figcaption>Compiling upbge by <a href="https://kitsuystudio.itch.io/">Kitsuy</a></figcaption>
+	</figure>
+	<div class="note">
+		<p class="what">First time building</p>
+		<p>
+			If you're building UPBGE for the first time,
+			it may take upto 1-2 hours. After you build them,
+			Visual Studio only compiles to file you have made changes to
+			and leaves the rest as it is after the first time.
+		</p>
+	</div>
+	<p>
+		After compiling, go to folder where the solution file is located,
+		goto <u>bin -> Release</u> and there is your <b>blender.exe</b>!
+	</p>
+</body>
+</html>
