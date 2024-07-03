@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Screenshot with Logic Bricks</title>
+	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+</head>
+<body>
+	<h1>Screenshots using Logic Bricks</h1>
+	<p>
+		Ayo we'll be taking screenshots with Logic Bricks and saving them
+		to our desired directories, without further ado let's get started.
+	</p>
+	<h3>Creating A Scene</h3>
+	<p>
+		Let's create a simple scene by adding some lights, some cubes adding some
+		mist to the scene, etc.
+		I added:
+		<ul>
+			<li>A cube with a python code that helps the cube to move</li>
+			<li>Sun with a bigger shadow frustum size of 40.0</li>
+			<li>Mist with start at 5.0 and depth at 30.0</li>
+		</ul>
+	</p>
+	<p>
+		I know the scene looks absolute crap, but we just wanna make sure how
+		to perform screenshots with the engine.
+	</p>
+	<h3>The Logic</h3>
+	<p>
+		 Alright, now let's add logic bricks. Now select our camera and add a keyboard
+		 sensor with any button assiged to it, add a <b>Game</b> actuator, set the
+		 type to <b>Screenshot</b> and connect the logic bricks. Before you play the game
+		 and take tons of screenshots, you need to specify the path and name
+		 of your screenshot. So the name goes like this:
+		 <span class="mono">C:/path/to/yo/folder/ur-name</span>.
+		 Now try running the game and take screenshots.
+	</p>
+	<h5>Single sceenshots only appears?</h5>
+	<p>
+		So, you would've triggered your keyboard sensors mulitple times and wondered why
+		you get only a single image. The reason is its getting overwritten and
+		to prevent that you need to put
+		<span class="mono">#</span> so it looks like this:
+		<span class="mono">C:/path/to/yo/folder/ur-name#</span>.
+		Now try running the game again and voila! The <b>#</b> helps to take mulitple
+		screenshots as much as you want which replace by incremental index without
+		overwriting by previous ones.
+	</p>
+	<div class="note">
+		<p class="what">Avoiding low-res screenshots</p>
+		<p>
+			The screenshots are taken respective to the screensize your game is running
+			in. If your game size is 1920x1080 your screenshots will be in that
+			dimensions.
+		</p>
+	</div>
+	<p>
+		If your screenshot is having the debug profiler included, it can be solved
+		by turning it off.
+		<a href="https://drive.google.com/file/d/1Qjz7dk6wkgCGsr-3T1zfJ88THXQTme5M/view?usp=sharing" target="_blank">Here is the project file for this tutorial</a>
+	</p>
+</body>
+</html>

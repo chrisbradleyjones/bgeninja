@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Screenshot with Logic Bricks</title>
+	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+	<script type="text/javascript" src="../../code/run_prettify.js"></script>
+</head>
+<body>
+	<h1>Screenshots using Python</h1>
+	<p>
+		We'll be taking screenshots with Python and saving them
+		to our desired directories and preventing screenshots from being overwritten,
+		let's get started/
+	</p>
+	<h3>Creating A Scene</h3>
+	<p>
+		Let's create a simple scene by adding some lights, some cubes adding some
+		mist to the scene, etc.
+		I added:
+		<ul>
+			<li>A cube with a python code that helps the cube to move</li>
+			<li>Sun with a bigger shadow frustum size of 40.0</li>
+			<li>Mist with start at 5.0 and depth at 30.0</li>
+		</ul>
+	</p>
+	<p>
+		Just a rough scene, we just want know how the screenshot is taking with
+		python.
+	</p>
+	<h3>The Code</h3>
+	<p>
+		We'll working without the keyboard logic brick this time.
+		Let's import our main module which is <span class="mono">Range</span>
+		if it is Range Engine and <span class="mono">bge</span> if its UPBGE
+		and we'll specify our directory with <span class="mono">logic.expandPath()</span>
+		like so.
+	</p>
+	<pre class="prettyprint"><code class="language-python">try:
+    import bge
+except:
+    import Range
+from os import path
+
+user_name = path.expanduser("~") # Get user's directory
+dir = bge.logic.expandPath(user_name+"\\Documents") # Join with Documents folder
+
+cont = bge.logic.getCurrentController()
+def scrnsht(cont):
+    keysdown = bge.logic.keyboard.activeInputs
+    space = bge.events.SPACEKEY
+
+    if space in keysdown:
+        print(dir)</code></pre>
+    <p>
+    	The code might look complicated but lemme break it down for you:
+    	<ul>
+    		<li>Try importing bge module, if failed import Range</li>
+    		<p>
+    			Because Range developers has changed the <b>bge</b> name
+    			as <b>Range</b>.
+    		</p>
+    		<li>Get the user's name and directory</li>
+    		<li>Join the user's directory with <span class="mono">\Documents</span></li>
+    		<p>
+    			So when the print the <span class="mono">dir</span> from the python code
+    			its prints your user name with the documents folder.
+    		</p>
+    		<li>To make the code shorter we've defined "keysdown" and "space".</li>
+    		<li>If the user has triggered <span class="mono">space</span> the we print the <span class="mono">dir</span>.</li>
+    	</ul>
+    <p>
+    	This help us to execute the code a lot easier without the need of changing the
+    	user name when the path has another user's name and shared with others.
+    	If you've gotten the directories printed more than one time, we need to setup
+    	a property that only triggers the <b>print(dir)</b> once.<br/>We add a property "once" and use
+    	it to prevent from triggering thr print() more than once. Here's the code.
+    </p>
+    <pre class="prettyprint"><code class="language-python">try:
+    import bge
+except:
+    import Range
+from os import path
+
+user_name = path.expanduser("~") # Get user's directory
+dir = bge.logic.expandPath(user_name+"\\Documents") # Join with Documents folder
+
+cont = bge.logic.getCurrentController()
+
+def scrnsht(cont):
+    own = cont.owner
+    
+    if "once" not in own: # Add "once" property if it doesn't exist
+        own["once"] = True # Set it as TRUE
+    
+    keysdown = bge.logic.keyboard.activeInputs
+    space = bge.events.SPACEKEY
+
+    if space in keysdown and own["once"] == True: #If user pressed and once is true
+        print(dir) # print our "dir"
+        own["once"] = False #set "once" as FALSE, prevents from running again.
+    if space not in keysdown: # If "space" is not pressed
+        own["once"] = True # Set "once" to True</code></pre>
+    <p>
+    	Nice, now for the screenshot part we need to add
+    	<span class="mono">bge.render.makeScreenshot()</span> and inside the function
+    	parenthesis, we'll add our "dir" which holds our directory data
+    	and our image name which looks like this.
+    </p>
+<pre class="prettyprint"><code class="language-python">try:
+    import bge
+except:
+    import Range
+from os import path
+
+user_name = path.expanduser("~") # Get user's directory
+dir = bge.logic.expandPath(user_name+"\\Documents\\bro#") # Join with Documents folder
+# and take multiple shots without overwriting the image
+
+cont = bge.logic.getCurrentController()
+
+def scrnsht(cont):
+    own = cont.owner
+    
+    if "once" not in own: # Add "once" property if it doesn't exist
+        own["once"] = True # Set it as TRUE
+    
+    keysdown = bge.logic.keyboard.activeInputs
+    space = bge.events.SPACEKEY
+
+    if space in keysdown and own["once"] == True: #If user pressed and once is true
+        bge.render.makeScreenshot(dir) # Take screenshots
+        own["once"] = False #set "once" as FALSE, prevents from running again.
+    if space not in keysdown: # If "space" is not pressed
+        own["once"] = True # Set "once" to True</code></pre>
+	<p>
+		nice, it works here and it must be working for you too.
+	</p>
+    </p>
+	<div class="note">
+		<p class="what">Avoiding low-res screenshots</p>
+		<p>
+			The screenshots are taken respective to the screensize your game is running
+			in. If your game size is 1920x1080 your screenshots will be in that
+			dimensions.
+		</p>
+	</div>
+	<p>
+		<a href="https://drive.google.com/file/d/1Qjz7dk6wkgCGsr-3T1zfJ88THXQTme5M/view?usp=sharing" target="_blank">Download the project file here.</a>
+	</p>
+</body>
+</html>
