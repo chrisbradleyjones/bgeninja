@@ -250,8 +250,7 @@ button:active{
 
 .rec-round{
 	background: orange;
-	border: clamp(0, 0, 0);
-	border-color: orangered;
+	border: 2px orangered;
 	border-style: solid;
 	border-radius: 100px;
 	margin-right: auto;
@@ -529,9 +528,7 @@ pre::-webkit-scrollbar-track{
 }
 
 #join-discord img{
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
+	-webkit-user-drag: none;
 	-webkit-user-select: none;
 	width: 12.5vw;
 }
@@ -550,6 +547,15 @@ pre::-webkit-scrollbar-track{
 
 /*makes site RESPONISVE*/
 @media screen and (orientation: portrait) and (max-width: 1080px){
+	#heading{
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+	#join-discord{
+		display: block;
+		margin-left: 20%;
+		margin-right: 20%;
+	}
 	.recc{
 		margin: 20px;
 		padding: 20px;
@@ -626,7 +632,6 @@ pre::-webkit-scrollbar-track{
 		position: fixed;
 		z-index: 99;
 		box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
-	}
 	h1{
 		margin-left: 20px !important;
 		margin-right: 20px !important;

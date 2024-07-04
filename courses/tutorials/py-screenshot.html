@@ -41,7 +41,7 @@
 	<pre class="prettyprint"><code class="language-python">try:
     import bge
 except:
-    import Range
+    import Range as bge
 from os import path
 
 user_name = path.expanduser("~") # Get user's directory
@@ -57,10 +57,11 @@ def scrnsht(cont):
     <p>
     	The code might look complicated but lemme break it down for you:
     	<ul>
-    		<li>Try importing bge module, if failed import Range</li>
+    		<li>Try importing bge module, if failed import Range as bge</li>
     		<p>
     			Because Range developers has changed the <b>bge</b> name
-    			as <b>Range</b>.
+    			as <b>Range</b>. So we import the module, as bge so our code
+    			is easy to edit.
     		</p>
     		<li>Get the user's name and directory</li>
     		<li>Join the user's directory with <span class="mono">\Documents</span></li>
@@ -81,7 +82,7 @@ def scrnsht(cont):
     <pre class="prettyprint"><code class="language-python">try:
     import bge
 except:
-    import Range
+    import Range as bge
 from os import path
 
 user_name = path.expanduser("~") # Get user's directory
@@ -112,7 +113,7 @@ def scrnsht(cont):
 <pre class="prettyprint"><code class="language-python">try:
     import bge
 except:
-    import Range
+    import Range as bge
 from os import path
 
 user_name = path.expanduser("~") # Get user's directory

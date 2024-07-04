@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+	<script type="text/javascript" src="../../code/run_prettify.js"></script>
+	<title>Pixelate Textures</title>
+</head>
+<body>
+	<h1>Pixelate Textures Properly</h1>
+	<p>
+		Pixelating textures is easy, but we need to write a 5-10 lines of code.<br/>
+		We put the texture in the objects which represents the pixelated texture and
+		now we're going to write code. The reason the textures are not pixelated is
+		the mipmapping method is linear if you've guessed it, we should set the mipmapping
+		to none.
+		Import the game engine module and we use the
+		<span class="mono">render</span> class. From that class we should set
+		<span class="mono">setMipmapping()</span> to <b>0</b> or
+		<b>bge.render.RAS_MIPMAP_NONE</b>. So the code looks like this.
+	</p>
+	<pre class="prettyprint"><code class="language-python">try:
+    import bge
+except:
+    import Range as bge
+
+cont = bge.logic.getCurrentController()
+own = cont.owner
+def main(cont):
+    bge.render.setMipmapping(0)</code></pre>
+    <figure>
+    	<img src="https://u.cubeupload.com/ropap66508/4s2xz4.gif" loading="lazy">
+    	<figcaption>Demonstration of mipmapping set to linear and none</figcaption>
+    </figure>
+    <p>
+    	In the image you can see the black lines when the mipmapping is set to linear
+    	and the the artifacts goes away when set to none.
+    </p>
+    <p>
+    	Here we put the mipmap method inside <span class="mono">main</span> function.
+    	And our "always" sensor triggers this function only once, you can enable "Tap" too.<br/>
+    	<a href="https://drive.google.com/file/d/1YWsIU5tMsXjAtiFRxVJLK1_ERLQOzjDn/view?usp=sharing" target="_blank">Here is the project file for this tutorial</a>,
+    	Download now.
+	</p>
+</body>
+</html>

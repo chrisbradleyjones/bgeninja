@@ -122,6 +122,21 @@ h1, h3, h5, p, ul{
 	margin-right: 10%;
 }
 
+ul p{
+	margin-left:  40px;
+	margin-right: 40px;
+	margin-top:    3px;
+	margin-bottom: 3px;
+	transition:   0.2s;
+	line-height:  2rem;
+	color: rgb(255, 255, 255, 0.9);
+}
+
+ul p:hover{
+	margin-left: 45px;
+	color: whitesmoke;
+}
+
 p{
 	line-height: 1.5rem;
 }
@@ -274,6 +289,11 @@ a:hover{
 	content: "❗ ";
 }
 
+iframe{
+	width: -webkit-fill-available;
+	height: -webkit-fill-available;
+}
+
 /*Making the site more responsive almost on any device*/
 @media only screen and (width >= 2560px){
 	body{
@@ -310,7 +330,7 @@ a:hover{
 	}
 }
 
-@media only screen and (width <= 1024px){
+@media screen and (orientation: portrait) and (max-width: 1080px){
 	figure{
 		max-width: 75%;
 	}
@@ -327,9 +347,24 @@ a:hover{
 		margin-right: 10%;
 		margin-left: 10%;
 	}
+	ul{
+		padding-right: 50px;
+		padding-left: 50px;
+		padding-top: 25px;
+		padding-bottom: 25px;
+		box-shadow: 0px 0px 20px black inset;
+		background: rgba(137, 80, 80, 0.1);
+		overflow-x: scroll;
+		line-height: 1.2rem;
+		list-style-type: binary;
+	}
+	ul p:hover{
+		margin-left: 40px;
+		color: rgb(255, 255, 255, 0.9);
+	}
 }
 
-@media only screen and (width <= 412px){
+/*@media only screen and (width <= 412px){
 	h1{
 		font-size: 2.25rem;
 	}
@@ -358,4 +393,4 @@ a:hover{
 	.mono{
 		border-radius: 2.5px;
 	}
-}
+}*/
