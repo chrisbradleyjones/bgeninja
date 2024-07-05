@@ -18,7 +18,7 @@
 </head>
 <body>
 	<h1>Brotips</h1>
-	<p>Random protips on the go! Yes, the list is randomized too.</p>
+	<p id="desc">Random protips on the go!</p>
 	<section>
 		<ul style="list-style: none; margin: 0px;" id="brotips">
 			<li id="1">
@@ -64,7 +64,7 @@
 					Instead put all the stuff that runs in a loop inside a looping function
 					and put stuff the runs once in a function that runs once as a <b>single file</b> like this.
 				</p>
-				<pre class="prettyprint"><code class="language-python">def init(cont):
+				<pre><code class="language-python">def init(cont):
     if "init" not in own or own["init"] != True: #If init property exists or if it's not true
     	own["init"] = True
     	#your stuff that must be added once goes here
@@ -76,7 +76,7 @@ def loop(cont):
 				<p>
 					Or you can run the whole code in a loop and put the stuff that runs once under an <span class="mono">if</span> condition like this.
 				</p>
-				<pre class="prettyprint"><code class="language-python">def loop(cont):
+				<pre><code class="language-python">def loop(cont):
 	if "init" not in own or own["init"] == False:
 		#put stuff that runs once, intend for if condition.
 	#put stuff that runs in a loop here, intend for function.</code></pre>
@@ -114,8 +114,69 @@ def loop(cont):
 					And also set the collision to <span class="mono">No Collision</span>.
 				</p>
 			</li>
+			<li id="9">
+				<h3>Brotip #9</h3>
+				<p>
+					When changing an object's color with
+					<span class="mono">KX_GameObject.color</span>, enable <b>Object Color</b>
+					in the Materials menu -> Options. You also need to have a material
+					assigned to that object.
+				</p>
+				<figure>
+					<img src="" loading="lazy">
+					<figcaption>Object Color enabled</figcaption>
+				</figure>
+			</li>
+			<li>
+				<h3>Brotip #10</h3>
+				<p>
+					You can access every objects in the scene without using
+					<span class="mono">bge.logic.getCurrentScene()</span> by
+					using <span class="mono">owner.scene.object</span>
+				</p>
+			</li>
 		</ul>
 	</section>
+	<style type="text/css">
+		#desc{
+			line-height: 2em;
+		}
+		#brotips h3{
+			line-height: 2em;
+		}
+		#brotips h3, p{
+			margin-top:    0px;
+			margin-bottom: 0px;
+			margin-left:   10% !important; /*there is some issue here*/
+			margin-right:  10% !important;
+		}
+		#brotips li{
+			transition:    0.2s;
+			padding:       5px;
+			margin-left:   10%;
+			margin-right:  10%;
+			border:        2px solid transparent;
+			border-radius: 10px;
+		}
+		#brotips li:hover{
+			background: rgba(255, 255, 255, 0.01);
+		}
+		#brotips figure{
+			width: inherit;
+		}
+		@media screen and (orientation: portrait) and (max-width: 1080px){
+			#brotips{
+				box-shadow: none;
+				background: inherit;
+			}
+			#brotips h3{
+				line-height: 2em;
+			}
+		}
+	</style>
 	<script type="text/javascript" src="code/randomize_list.js"></script>
+	<script src="code/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="code/syntax.js"></script>
 </body>
 </html>

@@ -4,11 +4,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../../style3.css">
-	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
 	<title>Python - 1</title>
 </head>
 <body>
-	<script src="../../code/run_prettify.js"></script>
 	<h1>Lesson 1 of BGE Python</h1>
 	<h3>Intro</h3>
 	<p>
@@ -31,7 +29,7 @@
 	<p>
 		This is an example of a simple python script used to activate an actuator.
 	</p>
-	<pre class="prettyprint"><code class="language-python">import Range # for blender game engine -> import bge
+	<pre><code class="language-python">import Range # for blender game engine -> import bge
 cont = Range.logic.getCurrentController() # again, for bge -> bge.logic.getCurrentController()
 own = cont.owner
 
@@ -70,5 +68,8 @@ def yourFunc(cont):
 		<u>cont.activate(own.actuators['your_actuator'])</u> Here we are activating our actuator <span class="mono">your_actuator</span>
 		which is in the <span class="mono">actuators</span> list.
 	</p>
+	<script src="../../code/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="../../code/syntax.js"></script>
 </body>
 </html>

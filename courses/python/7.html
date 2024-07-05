@@ -4,7 +4,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../../style3.css">
-	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
 	<title>Python - 7</title>
 </head>
 <body>
@@ -23,7 +22,7 @@
 		<span class="mono">Range.logic.getAverageFrameRate()</span> whose return type is a <b>float</b>.
 		And then the code looks like this.
 	</p>
-	<pre class="prettyprint"><code class="language-python">import Range
+	<pre><code class="language-python">import Range
 cont = Range.logic.getCurrentController()
 own = cont.owner
 
@@ -32,7 +31,7 @@ FPS = Range.logic.getAverageFrameRate()</code></pre>
 		Here we've defined <b>FPS</b> as that <span title="which is Range.logic.getAverageFrameRate()">function</span>.
 		Now to get the fps and put it on the text, the code looks like this.
 	</p>
-	<pre class="prettyprint"><code class="language-python">import Range
+	<pre><code class="language-python">import Range
 cont = Range.logic.getCurrentController()
 own = cont.owner
 
@@ -56,7 +55,7 @@ own["Text"] = str(FPS)</code></pre>
 		which is used to show a part of the string. On the line <u>own["Text"] = str(FPS)</u>
 		put <span class="mono">[:5]</span>. The code looks like this.
 	</p>
-	<pre class="prettyprint"><code class="language-python">import Range
+	<pre><code class="language-python">import Range
 cont = Range.logic.getCurrentController()
 own = cont.owner
 
@@ -72,7 +71,7 @@ own["Text"] = str(FPS)[:5]</code></pre>
 	<p>
 		The code looks like this.
 	</p>
-<pre class="prettyprint"><code class="language-python">a = 1
+<pre><code class="language-python">a = 1
 if FPS <= 60.1:
     own.color = 0,1,0,a
 elif FPS <= 30:
@@ -107,7 +106,7 @@ else:
     <p>
     	Back to our stuff, the full code looks like this.
     </p>
-<pre class="prettyprint"><code class="language-python">import Range
+<pre><code class="language-python">import Range
 cont = Range.logic.getCurrentController()
 own = cont.owner
 
@@ -128,5 +127,8 @@ else:
     <p>
     	Download the project file. <a href="" target="_blank">l7-python.blend</a>
     </p>
+    <script src="../../code/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="../../code/syntax.js"></script>
 </head>
 <body>

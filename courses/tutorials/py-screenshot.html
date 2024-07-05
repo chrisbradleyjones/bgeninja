@@ -3,10 +3,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Screenshot with Logic Bricks</title>
-	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
 	<link rel="stylesheet" type="text/css" href="../../style3.css">
-	<script type="text/javascript" src="../../code/run_prettify.js"></script>
+	<title>Screenshot with Logic Bricks</title>
 </head>
 <body>
 	<h1>Screenshots using Python</h1>
@@ -38,7 +36,7 @@
 		and we'll specify our directory with <span class="mono">logic.expandPath()</span>
 		like so.
 	</p>
-	<pre class="prettyprint"><code class="language-python">try:
+	<pre><code class="language-python">try:
     import bge
 except:
     import Range as bge
@@ -79,7 +77,7 @@ def scrnsht(cont):
     	a property that only triggers the <b>print(dir)</b> once.<br/>We add a property "once" and use
     	it to prevent from triggering thr print() more than once. Here's the code.
     </p>
-    <pre class="prettyprint"><code class="language-python">try:
+    <pre><code class="language-python">try:
     import bge
 except:
     import Range as bge
@@ -110,7 +108,7 @@ def scrnsht(cont):
     	parenthesis, we'll add our "dir" which holds our directory data
     	and our image name which looks like this.
     </p>
-<pre class="prettyprint"><code class="language-python">try:
+<pre><code class="language-python">try:
     import bge
 except:
     import Range as bge
@@ -151,5 +149,8 @@ def scrnsht(cont):
 	<p>
 		<a href="https://drive.google.com/file/d/1Qjz7dk6wkgCGsr-3T1zfJ88THXQTme5M/view?usp=sharing" target="_blank">Download the project file here.</a>
 	</p>
+	<script src="../../code/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="../../code/syntax.js"></script>
 </body>
 </html>

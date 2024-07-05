@@ -4,11 +4,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../../style3.css">
-	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
 	<title>Python - 3</title>
 </head>
 <body>
-	<script src="../../code/run_prettify.js"></script>
 	<h1>3 - Object Mass</h1>
 	<h3>Requirements</h3>
 	<p>
@@ -29,7 +27,7 @@
 		We'll be getting the default cube's mass and setting it to <span title="30 blender units">30 units</span>,
 		if the mass was not 2. So the code looks like this.
 	</p>
-	<pre class="prettyprint"><code class="language-python">import Range
+	<pre><code class="language-python">import Range
 own = Range.logic.getCurrentController().owner
 if own.mass != 2:
 	own.mass = 2</code></pre>
@@ -64,5 +62,8 @@ if own.mass != 2:
 	<p>
 		<a href="https://drive.google.com/file/d/1y4CHGzqyChV0EkXI0gtz46NfX8h9aALD/view?usp=sharing" target="_blank">Here</a> is the project file, was written with Range 1.5a 
 	</p>
+	<script src="../../code/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="../../code/syntax.js"></script>
 </body>
 </html>

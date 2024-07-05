@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="../../style3.css">
+	<title>Mathutils Lerp</title>
+</head>
+<body>
+	<h1>Lerping Transformations</h1>
+	<p>
+		Lerp also known as linear interpolation is used to smoothen the
+		objects' transformations. In this tutorial we'll be lerping the
+		location and rotation.
+	</p>
+	<p>
+		Fire up the engine, we create a cube, leave it as it is, create a plane
+		scale it to 5-10 and move the cube away from the plane to like 2-3 units.
+		Now were going to write the code. We import our game engine module, define
+		the controller and owner outside of the function which were wrapping it under
+		the sensor which runs every frame.
+	</p>
+	<pre><code class="language-python">try:
+    import bge
+except:
+    import Range as bge
+cont = bge.logic.getCurrentController()
+own = cont.owner</code></pre>
+	<p>
+		Were going to copy the position and rotation of our plane and set it to our
+		cube. For this we're going to use <span class="mono">localPosition</span> and
+		<span class="mono">localOrientation</span>, which helps us to copy the
+		location and rotation.<br>
+		Were going to access our cube whose name is <b>Cube</b> and
+		our plane whose name is <b>Plane</b> by default and put them under a function.
+		So the code below will be like this (not full code).
+	</p>
+	<pre><code class="language-python">def main(cont):
+    cube = own.scene.objects["Cube"]
+    plane = own.scene.objects["Plane"]</code></pre>
+	<p>
+		Here we're accessing the name of "Cube" and "Plane" and define them as
+		<span class="mono">cube</span> and <span class="mono">plane</span> repectively.
+		then we set our cube's position equal to plane's position.
+	</p>
+	<pre><code class="language-python">try:
+    import bge
+except:
+    import Range as bge
+cont = bge.logic.getCurrentController()
+own = cont.owner
+
+def main(cont):
+    cube = own.scene.objects["Cube"]
+    plane = own.scene.objects["Plane"]
+    cube.localPosition = plane.localPosition</code></pre>
+    <div class="know">
+    	<p class="what">Accessing everything in the scene with <span class="mono">owner</span></p>
+    	<p>
+    		You can access every objects in the scene
+    		using "owner" attribute like in the previous example code.
+    		With this, you can connect the sensor to any object and access other objects.
+    		There is no need to use <span class="mono">bge.logic.getCurrentScene()</span>
+    		list.
+    	</p>
+    </div>
+    <p>
+    	Before running the game set the cube's collision to
+    	<span class="mono">No Collision</span>, or the cube may spawn under the plane.
+    	Your cube must look something like this.
+    </p>
+    <figure>
+    	<img src="">
+    	<figcaption>Cube's position same as the plane</figcaption>
+    </figure>
+    <p>
+    	After setting the cube's position we set its rotation as:
+    </p>
+    <pre><code class="language-python">cube.localOrientation = plane.localOrientation</code></pre>
+    <p>
+    	To test if this is working, rotate the plane.
+    </p>
+    <figure>
+    	<img src="">
+    	<figcaption>Cube's orientation same as the plane</figcaption>
+    </figure>
+    <p>
+    	Now here comes the lerp method, unlike setting the cube's transformation equal to
+    	plane's transformation, we set the cube's transformation equal to itself,
+    	use the lerp function and then put the plane's transformation inside the function.
+    	Here is an example.
+    </p>
+    <pre><code class="language-python">cube.localPosition = cube.localPosition.lerp(plane.localPosition, 0.1)</code></pre>
+    <p>
+    	Now we comment (or delete) the line that copies the plane's position and write
+    	the above code.
+    </p>
+    <pre><code class="language-python">#cube.localPosition = plane.localPosition
+cube.localPosition = cube.localPosition.lerp(plane.localPosition, 0.1)</code></pre>
+	<p>
+		Now try running the game and your cube smoothly goes it assigned position.
+		The above step applies to our cube's rotation too.
+	</p>
+	<pre><code class="language-python">#cube.localOrientation = plane.localOrientation
+cube.localOrientation = cube.localOrientation.lerp(plane.localOrientation, 0.1)</code></pre>
+	<p>
+		the value <span class="mono">0.1</span> after our plane's position is the
+		interpolation factor. It accepts between 0-1 as float. The greater the number, the faster
+		it goes to it's assigned position.<br>
+		Now your cube's rotation must be smooth <span title="right now">rn</span>.
+		If you're still wondering how the code looks, here it is.
+	</p>
+	<pre><code class="language-python">try:
+    import bge
+except:
+    import Range as bge
+cont = bge.logic.getCurrentController()
+own = cont.owner
+
+def main(cont):
+    cube = own.scene.objects["Cube"]
+    plane = own.scene.objects["Plane"]
+
+    #cube.localPosition = plane.localPosition
+    cube.localPosition = cube.localPosition.lerp(plane.localPosition, 0.1)
+    #cube.localOrientation = plane.localOrientation
+    cube.localOrientation = cube.localOrientation.lerp(plane.localOrientation, 0.1)</code></pre>
+    <p>
+    	<a href="" title="download now">Here is the project file.</a>
+    </p>
+    <script src="../../code/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="../../code/syntax.js"></script>
+</body>
+</html>

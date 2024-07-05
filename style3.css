@@ -65,6 +65,14 @@ figcaption{
 }
 
 pre{
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;
+	font-size: 0.9rem;
+	box-shadow: 0px 0px 5px black;
+}
+
+/*pre{
 	background: whitesmoke;
 	font-size: 1rem;
 	display: flex;
@@ -75,8 +83,8 @@ pre{
 	padding: 2rem;
 	color: black;
 	box-shadow: 0px 0px 10px inset;
-}
-
+}*/
+/*
 pre.prettyprint{
 	border: 0px;
 	padding: 2rem !important;
@@ -97,7 +105,7 @@ pre:hover::-webkit-scrollbar-thumb{
 
 pre::-webkit-scrollbar-track{
 	color: transparent;
-}
+}*/
 
 h1{
 	position: relative;
@@ -361,6 +369,16 @@ iframe{
 	ul p:hover{
 		margin-left: 40px;
 		color: rgb(255, 255, 255, 0.9);
+	}
+	.know, .note, .warning{
+		width: 80%;
+	}
+	#brotips{
+		box-shadow: none;
+		background: inherit;
+	}
+	#brotips h3{
+		line-height: 2em;
 	}
 }
 
