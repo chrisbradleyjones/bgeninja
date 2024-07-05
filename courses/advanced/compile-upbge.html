@@ -4,8 +4,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="../../style3.css">
-	<link rel="icon" type="image/x-icon" href="../../img/bgeninja.ico">
-	<script type="text/javascript" src="../../code/run_prettify.js"></script>
 	<title>Compile UPBGE for Windows</title>
 </head>
 <body>
@@ -42,7 +40,7 @@
 		After the installation has been completed, Open Visual Studio.
 		To make sure everything is working, we need some smol c++ code.
 	</p>
-	<pre class="prettyprint"><code class="language-python">#include &ltwindows.h&gt
+	<pre><code class="language-cpp">#include &ltwindows.h&gt
 #include &ltiostream&gt
 int main()
 {
@@ -158,5 +156,8 @@ int main()
 		After compiling, go to folder where the solution file is located,
 		goto <u>bin -> Release</u> and there is your <b>blender.exe</b>!
 	</p>
+	<script src="../../code/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="../../code/syntax.js"></script>
 </body>
 </html>
