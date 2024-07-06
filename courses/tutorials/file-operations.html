@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>File Operations</title>
+</head>
+<body>
+	<h1>File Operations</h1>
+	<h3>1 - logic.expandPath</h3>
+	<p>
+		Saving files and loading files in relative path and custom path without specifying
+		user's name manually. We'll be saving some game data and loading that data.
+		The data we'll be saving is the player's location.
+	</p>
+	<h5>Logic Bricks Setup</h5>
+	<p>
+		Fire up the engine, add two keyboard sensor, bind them as
+		<span class="mono">F1</span> and <span class="mono">F2</span>
+		repectively, add two python controllers set their script type to module
+		and name them. First one's module will be written as <b>save</b> and second as
+		<b>load</b>.
+	</p>
+	<figure>
+		<img src="https://i.postimg.cc/fLSG0LMc/lmao.jpg" loading="lazy">
+		<figcaption>Logic Bricks setup for loading and saving</figcaption>
+	</figure>
+	<p>
+		Create a text data-block and name it as whatever you want,
+		I've named it as <span class="mono">mycode.py</span>,
+		import our game engine module,
+		get our current controller, get the owner data and create a function that does
+		nothing.
+	</p>
+	<pre><code>try:
+    import bge
+except:
+    import Range as bge
+
+cont = bge.logic.getCurrentController()
+own = cont.owner
+
+def save(cont):
+    pass</code></pre>
+    <h5>Saving</h5>
+    <p>
+    	Now we need to get our player object's name and position. We can keep this
+    	outside the function, so there won't be any need to define them two times.
+    </p>
+    <pre><code>cube = own.scene.objects["Cube"]
+cube_pos = cube.worldPosition</code></pre>
+	<p>
+		Now we need to save our player's position as a file. It can be any file,
+		we will be saving as <span class="mono">.mysave</span> file,
+		and define the relative path. So we do the
+		following
+	</p>
+	<pre><code># Relative path
+rel_path = bge.logic.expandPath("//")
+
+with open(rel_path+".mysave", "w") as f:
+    f.write(str(cube_pos)) # !!! NOT YET DEFINED !!!
+    f.close()</code></pre>
+    <p>
+    	Here we get the relative path and do the in-built python file writing
+    	operation using <span class="mono">with</span>.
+    	Altough <span class="mono">f.close()</span> is automatically called,
+    	its a good practice to do so.<br> And note, we have not defined the cube's
+    	position. We need to save it as a <span class="mono">dict</span>.
+    </p>
+    <pre><code>x = cube.localPosition[0]
+y = cube.localPosition[1]
+z = cube.localPosition[2]
+
+cube_pos={
+"X":x,
+"Y":y,
+"Z":z
+}</code></pre>
+	<p>
+		The above code might look tricky,
+		the <span class="mono">localPosition</span> returns
+		us as <b>Vector</b>, which might be difficult to load the position.
+		We get the X, Y, Z data seperatly by accessing element by key 
+		and store them as a dictionary. So now the full save function and other
+		defenitions above looks like this.
+	</p>
+	<pre><code>try:
+    import bge
+except:
+    import Range as bge
+
+cont = bge.logic.getCurrentController()
+own = cont.owner
+rel_path = bge.logic.expandPath("//")
+cube = own.scene.objects["Cube"]
+
+x = cube.localPosition[0]
+y = cube.localPosition[1]
+z = cube.localPosition[2]
+
+cube_pos={
+"X":x,
+"Y":y,
+"Z":z
+}
+
+def save(cont):
+    with open(rel_path+".mysave", "w") as f:
+        f.write(str(cube_pos))
+        f.close()
+        print("File Saved.")</code></pre>
+    <h5>Loading</h5>
+    <p>
+    	Now to load the the saved data, we need to use the <span class="mono">with</span>
+    	like before, but instead of writing we're gonna read file. Passing the argument
+    	<span class="mono">"r"</span> to the second parameter of
+    	<span class="mono">open(rel_path, mode='r')</span> is optional, but for your
+    	comfort you can set it.
+    </p>
+    <pre><code># This code wont work
+with open(rel_path+".mysave") as f:
+    read = (f.read())
+    print(type(read))
+    cube.localPosition[0] = read["X"]
+    cube.localPosition[1] = read["Y"]
+    cube.localPosition[2] = read["Z"]</code></pre>
+    <p>
+    	If you try running the game, you'll be encountering an error like below.
+    </p>
+    <pre><code>Error: Python.002 (Cube), Python script error Traceback (most recent call last):
+File "C:\Users\[user name]\Downloads\[file name].blend\mycode.py", load
+line 31, in
+ValueError: dictionary update sequence element #0 has length 1; 2 is required</code></pre>
+	<p>
+		For some reason you can't convert string from a file to a dict,
+		and to solve this problem we use <span class="mono">ast.literal_eval()</span>
+		function. So in the code we do something like this.
+	</p>
+	<pre><code>with open(rel_path+".mysave") as f:
+        read = ast.literal_eval(f.read())
+        print(type(read))
+        cube.localPosition[0] = read["X"]
+        cube.localPosition[1] = read["Y"]
+        cube.localPosition[2] = read["Z"]</code></pre>
+    <p>
+    	And this must be working for you. So far we created a relative dir
+    	with <b>logic.expandPath</b>, created a <b>.mysave</b> file saved it
+    	and loaded it. Here is the full working code.
+    </p>
+	<pre><code>try:
+    import bge
+except:
+    import Range as bge
+    
+import ast # Can't convert str to dict directly, so we need ast
+
+cont = bge.logic.getCurrentController()
+own = cont.owner
+rel_path = bge.logic.expandPath("//") # Get relative path
+cube = own.scene.objects["Cube"]
+
+# Split the coordinates as X,Y,Z
+x = cube.localPosition[0]
+y = cube.localPosition[1]
+z = cube.localPosition[2]
+
+#Cube Position as dict
+cube_pos={
+"X":x,
+"Y":y,
+"Z":z
+}
+
+def save(cont):
+    with open(rel_path+".mysave", "w") as f:
+        f.write(str(cube_pos))
+        f.close()
+        print("File Saved.") # Just making sure its saved
+        
+def load(cont):
+    with open(rel_path+".mysave") as f:
+        read = ast.literal_eval(f.read())
+        print(type(read)) # Just making sure its a dict
+
+        # Assign the position
+        cube.localPosition[0] = read["X"]
+        cube.localPosition[1] = read["Y"]
+        cube.localPosition[2] = read["Z"]
+        print("File Loaded.") # Making sure its loaded</code></pre>
+    <p>
+    	<a href="https://drive.google.com/file/d/1EU2Xknz79UVrfLdFcd83faxB7-vVhNeq/view?usp=sharing" target="_blank">Download the project file.</a>
+    </p>
+    <h3>2 - os.path.expanduser("~")</h3>
+    <p>
+    	coming soon...
+    </p>
+    <!-- SCRIPTS -->
+    <script src="../../code/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="../../code/syntax.js"></script>
+</body>
+</html>

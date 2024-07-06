@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Blurred Pause Menu</title>
+</head>
+<body>
+	<h1>Blurred Menu</h1>
+	<p>
+		In <a href="../logic-bricks/11.html">Logic Bricks, Lesson 11</a> there's a
+		<a href="../logic-bricks/11.html#project-file">project file for pause menu</a>,
+		we can use it for the pause mechanism if you'd like to make it without creating
+		buttons and stuff. Open up the project file, navigate to the game scene.
+		Select the camera and add a "2D Filter" actuator and connect it with the "Keyboard"
+		sensor which brings the "pause" scene,
+		the sensor doesn't need to have true level triggering turned on. Because
+		we want our filter to be applied on our game scene and not on our pause scene.
+	</p>
+	<p>
+		Set the "Filter 2D Type" to Blur. Run the game, if you're not
+		satified with the filter here is you can use this blur filter. 
+		Pase the code in the text editor, set the filter type to <b>Custom Filter</b>
+		and choose your code.<br>
+		Add an always sensor and another 2D Filter actuator which removes the custom filter.
+		connect them both and turn on true level triggering in the always sensor.
+		The way this works is, <u>when the game is running it checks for the blur filter
+		and if it find the filter running it removes it. When the keyboard is pressed,
+		the filter turns on for an instant and the game is paused with the filter in the
+		game</u>.<br>
+		<a href="">Here is the project file.</a>
+	</p>
+	<figure>
+		<img src="">
+		<figcaption>Blurred Pause Menu</figcaption>
+	</figure>
+	<!-- scripts -->
+	<script src="../../code/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="../../code/syntax.js"></script>
+</body>
+</html>
