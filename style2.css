@@ -4,14 +4,16 @@
 }
 
 body{
-	background: #333;
+	background: #111;
 	font-family: 'merri', sans-serif;
 	color: whitesmoke;
 	margin: 0px;
+	overflow-x: hidden;
+	height: 100%;
+
 }
 
-
-body::-webkit-scrollbar{
+/*body::-webkit-scrollbar{
 	width: 1rem;
 }
 
@@ -23,16 +25,10 @@ body::-webkit-scrollbar-thumb{
 body:hover::-webkit-scrollbar-thumb{
 	background: aqua;
 	border-radius: 5px;
-}
+}*/
 
 *::selection{
-	background-color: dodgerblue;
-}
-
-section{
-	padding: 10px 20px 10px 20px;
-	background: #111;
-	transition: 0.25s;
+	background-color: rgb(50, 100, 255, 1.0);
 }
 
 .container-cl{
