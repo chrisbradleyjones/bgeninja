@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Toggle Buttons</title>
+</head>
+<body>
+	<h1>Toggle Buttons</h1>
+	<p>
+		We'll be doing on/off stuff with logic bricks!<br>
+		Fire up the game engine and open up the logic editor.
+		Select the cube (or any object), add a new property and name it as "toggle".
+		Set it's type as "Boolean",
+		this helps us to do the toggle stuff and enable "print debug information" which
+		helps us to debug the property.
+	</p>
+	<figure>
+		<img src="https://i.postimg.cc/1RnT5F4h/image.png" loading="lazy">
+		<figcaption>Debug Information</figcaption>
+	</figure>
+	<p>
+		Now add a "Keyboard" sensor if you haven't, a property actuator and connect them.
+		Before running the game, we need to make sure the toggle stuff actually works,
+		so go ahead and enable
+		<span class="mono">Show Debug Properties</span> by going to
+		<u>Play -> Show Debug -> Show Debug Properties</u> or by going to
+		<u>Render -> Debug -> <span title="naming can differ">Properties</span></u>.
+	</p>
+	<figure>
+		<img src="https://i.postimg.cc/X700RLLD/image.jpg" loading="lazy">
+		<!-- <img src="https://i.postimg.cc/pdVjqK3m/image.png" loading="lazy"> -->
+		<figcaption>Show Debug Properties in Range Engine</figcaption>
+	</figure>
+	<p>
+		Now lets trigger our keyboard to see if it works, you'll see your "toggle"
+		property going to <span class="mono">TRUE</span> and
+		<span class="mono">FALSE</span>.
+	</p>
+	<h5>Object Visibility</h5>
+	<p>
+		Now to implement object visibility we're gonna add two property sensors and
+		two visiblity actuators, the first property sensor will be checking
+		the <b>toggle</b>'s value, in the field type it as
+		<span class="mono">TRUE</span> connect it with the first visibility actuator.
+		For the second <span title="that is, the property sensor">prop sensor</span>, 
+		type in the field as <span class="mono">FALSE</span> and connect it with the
+		second visibility actuator which must have it's visibililty <b>turned off</b>.
+	</p>
+	<figure>
+		<img src="https://i.postimg.cc/HnTCF41y/image.png" loading="lazy">
+		<figcaption>Final logic brick setup</figcaption>
+	</figure>
+	<p>
+		<a target="_blank" href="https://drive.google.com/file/d/1mxJ8rkxP7MuPVPPbza63kmjGI0c49xir/view?usp=sharing">Download the project file.</a>
+	</p>
+	<!-- SCRIPT -->
+	<script src="../../code/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="../../code/syntax.js"></script>
+</body>
+</html>
