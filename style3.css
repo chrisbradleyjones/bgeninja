@@ -46,7 +46,7 @@ figure img{
 	border-radius: 0px;
 	position: relative;
 	display: flex;
-	opacity: 0;
+	opacity: 1;
 	width: 100%;
 	object-fit: contain;
 }
