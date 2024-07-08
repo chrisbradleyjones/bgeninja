@@ -25,19 +25,11 @@ body::-webkit-scrollbar-track{
 
 figure{
 	position: relative;
-	display: flex;
-	flex-direction: column;
 	max-width: 50%;
-	margin-left: auto;
-	margin-right: auto;
+	overflow: hidden;
+	margin: auto;
 	border: 1px solid;
 	padding: 5px;
-/*	margin-top: auto;*/
-/*	margin: auto;*/
-}
-
-figure img{
-	border-radius: 0px;
 }
 
 figure .smol{
@@ -48,6 +40,15 @@ figure audio{
 	display: flex;
 	flex-wrap: nowrap;
 	align-self: center;
+}
+
+figure img{
+	border-radius: 0px;
+	position: relative;
+	display: flex;
+	opacity: 0;
+	width: 100%;
+	object-fit: contain;
 }
 
 audio{
