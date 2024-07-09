@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Set Resolution</title>
+</head>
+<body>
+	<h1>Set Resolution</h1>
+	<p>
+		In this tutorial, we will get and set screen resolution of our game,
+		let's get started.<br>
+		<!-- We'll be doing:
+		<ul>
+			<li>Centering the mouse</li>
+			<li>Recalculate the UI position</li>
+			<li>Save the settings</li>
+		</ul> -->
+	</p>
+	<p>
+		Fire up the game engine, create a new text file, save it as
+		<span class="mono">reso.py</span>, import the game engine module
+		and necessary stuff
+	</p>
+	<pre><code>try:
+    import Range as bge
+except:
+    import bge
+
+cont = bge.logic.getCurrentController()
+own = cont.owner
+
+def reso(cont):
+    pass</code></pre>
+	<p>
+		Now we get the screen resolution and print it on a property.
+		I am a lazy guy, i dont create property by going to logic bricks,
+		create a property, create a new one, blah blah blah...<br id="debug-prop-in-py">
+		No, I got a new method for you where u can create a property inside python and
+		debug without touching logic bricks! For that, we create two new properties named
+		as "X" and "Y" which will be inside a <span class="mono">init</span> function.
+	</p>
+	<pre><code>def init(cont):
+    if "init" not in own or own["init"] != True:
+        own["init"] = True
+        # List of properties goes here.</code></pre>
+    <p>
+    	So we've created an "init" function that must run only once, it only runs once
+    	even if true level triggering was enabled in a sensor. Let's add some properties
+    	and debug them.
+    </p>
+    <pre><code>def init(cont):
+    if "init" not in own or own["init"] != True:
+        own["init"] = True
+        own["X"] = 0.0 # There's a ".", so it's a float
+        own["Y"] = 0.0 # Float type</code></pre>
+    <p>
+    	Here we've added two properties and its value is not <span class="mono">0</span>
+    	but <span class="mono">0.0</span> which means, its a floating point integers.
+    	If you assign a <span class="mono">True</span> or <span class="mono">False</span>,
+    	the list would be a boolean type property.<br>
+    	Now let's debug the property.
+    </p>
+    <pre><code>def init(cont):
+    if "init" not in own or own["init"] != True:
+        own["init"] = True
+        own["X"] = 0.0 # There's a ".", so it's a float
+        own["Y"] = 0.0 # Float type
+        own.addDebugProperty("X", True)
+        own.addDebugProperty("Y", True)</code></pre>
+    <p>
+    	To check if this works, add an always sensor, two python controller with
+    	script type set as <b>Module</b>, name the first one as
+    	<span class="mono">reso.init</span>, the second one as 
+    	<span class="mono">reso.reso</span> and connect them.
+    </p>
+    <figure>
+    	<img src="https://i.postimg.cc/GmtLv9n9/image.png" loading="lazy">
+    	<figcaption>Logic bricks setup</figcaption>
+    </figure>
+    <p>
+    	Now we'll move to the <span title="which is reso.reso">looping function</span>,
+    	we'll get the screen width and height.
+    </p>
+    <pre><code>def reso(cont):
+    own["X"] = bge.render.getWindowWidth()
+    own["Y"] = bge.render.getWindowHeight()</code></pre>
+    <p>
+    	Now we got our info, now we need to set the resolution. We can either
+    	set the resolution either with a property or just be defining them,
+    	We'll go to our <span class="mono">init</span> function and create two
+    	new properties that sets the resolution.
+    </p>
+    <pre><code>def init(cont):
+    if "init" not in own or own["init"] != True:
+        own["init"] = True
+        own["X"] = 0.0 # There's a ".", so it's a float
+        own["Y"] = 0.0 # Float type
+        own.addDebugProperty("X", True)
+        own.addDebugProperty("Y", True)
+        if "width" or "height" not in own:
+            own["width"] = 640 # Integer type
+            own["height"] = 480 # Integer type</code></pre>
+    <p>
+    	In this code we check that if the property <span class="mono">width</span>
+    	or <span class="mono">height</span> doesn't exist, we create them
+    	and set their values as <b>640x480</b>.<br>
+    	Now let's jump to the looping function, and write the code that set the
+    	resolution we need. We should not be keep setting the resolution, so we need
+    	a keyboard sensor that does the job <b>once</b>. Add a keyboard sensor,
+    	enable <b>Tap</b>,
+    	connect it with the <span class="mono">reso.reso</span> controller.
+    </p>
+    <pre><code>def reso(cont):
+    own["X"] = bge.render.getWindowWidth()
+    own["Y"] = bge.render.getWindowHeight()
+    if cont.sensors["Keyboard"].positive:
+        bge.render.setWindowSize(own["width"], own["height"])</code></pre>
+    <div class="note">
+    	<p class="what">Note</p>
+    	<p>
+    		<span class="mono">render.setWindowSize()</span> only works
+    		in the standalone player mode, not in the in-built embedded player.
+    	</p>
+    <p>
+    	Now launch the game in standalone player mode and trigger the keyboard,
+    	it must set the window size to the values we've set.<br>
+    	<a href="https://drive.google.com/file/d/1wp3WYglz0u1ORo7taPGHjWHpeRGT5wd4/view?usp=sharing" target="_blank">Download the project file</a>.
+    </p>
+    <figure>
+        <img src="https://u.cubeupload.com/ropap66508/lxA1mE.gif" loading="lazy">
+        <figcaption>Working setup of changing resolution</figcaption>
+    </figure>
+    </div>
+	<!-- SCRIPT -->
+	<script src="../../code/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="../../code/syntax.js"></script>
+</body>
+</html>
