@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<h1>Cheats</h1>
+	<p>
+		In this tutorial, we're going to implement cheat codes inside our game project.<br>
+		Without any further ado, let's get started.
+	</p>
+	<figure title="ngl this was one of my most favourite games of all time,&#010;I love playing this game so much and this tutorial was inspiered by this game lol">
+		<img src="https://i.postimg.cc/fTmZJS17/c9gr0vb1zkca1.jpg" loading="lazy">
+		<figcaption>Cheat activated in GTA San Andreas</figcaption>
+	</figure>
+	<h3>Keyboard</h3>
+	<h5>Logic Bricks Setup</h5>
+	<p>
+		Open up the logic bricks, add an always sensor,
+		a keyboard sensor which is going to record
+		our keystrokes and a python controller having it's script type to
+		<b>Module</b>. Create a new property, name it as <span class="mono">record</span>
+		whose data type will be <b>boolean</b> and another property named as
+		<span class="mono">cheats</span> whose type will be <b>string</b>.<br>
+		Moving to the keyboard sensor we've just added, we need to record the keys we're
+		pressing so enable <b>All Keys</b>. The <b>Log Toggle</b> field asks for a property
+		which let's us to record the keystrokes, if the property is false we
+		<u>can't</u> record our keystrokes,
+		so go ahead select our property <span class="mono">record</span>
+		in that field and set it True (just enable it lol). The <b>Target</b> field asks
+		for a property with which we record our keystrokes, so select our
+		<span class="mono">cheats</span> property in that field.<br>
+	</p>
+	<figure>
+		<img src="" loading="lazy">
+		<figcaption>Logic Bricks Setup</figcaption>
+	</figure>
+	<p>
+		If you run the game, you can that our keystrokes are being recorded.
+	</p>
+	<figure>
+		<img src="" loading="lazy">
+		<figcaption>Logic Bricks Setup Working</figcaption>
+	</figure>
+	<h5>Python Setup</h5>
+	<p>
+		Create a new file, name it as <span class="mono">cheats.py</span>,
+		define the necessary like below.
+	</p>
+	<pre><code>try:
+    import Range # I'm using Range Engine
+except:
+    import bge as Range
+
+cont = Range.logic.getCurrentController()
+own = cont.owner
+
+def main(cont):
+    pass</code></pre>
+    <p>
+    	Now the <span class="mono">main</span> runs in a continuos loop, we need to check
+    	our <u>cheat code</u>. Before that I'd like to create some code for our cheats.
+    	<ul>
+    		<li><u>nogravity</u> - sets the world gravity to 0</li>
+    		<li><u>iamspeed</u> - player moves very fast</li>
+    		<li><u>abigcube</u> - spawns a big cube</li>
+    	</ul>
+    </p>
+    <p>
+    	Here are some cheats, the first two cheats changes the default value. If
+    	we type the same cheat again, we must be able to get it back to normal mode.<br>
+    	Now to implementing it, we check the if any of the above cheats was typed
+    	we trigger what must be triggered.
+    </p>
+    <pre><code>def main(cont):
+    if "nogravity" in own["cheats"] and own.scene.gravity != 0:
+        own.scene.gravity = (0,0,0)
+    elif "nogravity" in own["cheats"] and own.scene.gravity == 0:
+        own.scene.graivty = (0,0,-9.8)</code></pre>
+    <!-- ALWYAS SENSOR IS NOT ADDED LMAOOO -->
+	<!-- SCRTIPS -->
+	<script src="../../code/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="../../code/syntax.js"></script>
+</body>
+</html>

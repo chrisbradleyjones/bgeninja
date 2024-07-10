@@ -41,6 +41,8 @@ body:hover::-webkit-scrollbar-thumb{
 	justify-content: space-evenly;
 	align-content: center;
 	grid-gap: 50px;
+	margin-left: 5%;
+	margin-right: 5%;
 /*	flex-direction: row;*/
 /*	flex-wrap: wrap;*/
 }
@@ -123,7 +125,8 @@ h3:hover::after{
 
 h4{
 	font-size: 1.7rem;
-	margin-left: 50px;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 /*Numer thing*/
