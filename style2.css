@@ -17,7 +17,7 @@ body{
 
 }
 
-/*body::-webkit-scrollbar{
+body::-webkit-scrollbar{
 	width: 1rem;
 }
 
@@ -29,7 +29,7 @@ body::-webkit-scrollbar-thumb{
 body:hover::-webkit-scrollbar-thumb{
 	background: aqua;
 	border-radius: 5px;
-}*/
+}
 
 *::selection{
 	background-color: rgb(50, 100, 255, 1.0);
