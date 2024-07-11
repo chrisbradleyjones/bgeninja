@@ -34,14 +34,14 @@
 		<span class="mono">cheats</span> property in that field.<br>
 	</p>
 	<figure>
-		<img src="" loading="lazy">
+		<img src="https://i.postimg.cc/DyyrPPkn/keys-setup.jpg" loading="lazy">
 		<figcaption>Logic Bricks Setup</figcaption>
 	</figure>
 	<p>
 		If you run the game, you can that our keystrokes are being recorded.
 	</p>
 	<figure>
-		<img src="" loading="lazy">
+		<img src="https://u.cubeupload.com/ropap66508/DJiXVy.gif" loading="lazy">
 		<figcaption>Logic Bricks Setup Working</figcaption>
 	</figure>
 	<h5>Python Setup</h5>
@@ -55,9 +55,9 @@ except:
     import bge as Range
 
 cont = Range.logic.getCurrentController()
-own = cont.owner
+own = cont.owner # define owner
 
-def main(cont):
+def main(): # got the owner, so no need of using "main(cont)"
     pass</code></pre>
     <p>
     	Now the <span class="mono">main</span> runs in a continuos loop, we need to check
@@ -71,16 +71,209 @@ def main(cont):
     <p>
     	Here are some cheats, the first two cheats changes the default value. If
     	we type the same cheat again, we must be able to get it back to normal mode.<br>
-    	Now to implementing it, we check the if any of the above cheats was typed
+    	Now to implement it, we check the if any of the above cheats was typed
     	we trigger what must be triggered.
     </p>
-    <pre><code>def main(cont):
-    if "nogravity" in own["cheats"] and own.scene.gravity != 0:
-        own.scene.gravity = (0,0,0)
-    elif "nogravity" in own["cheats"] and own.scene.gravity == 0:
-        own.scene.graivty = (0,0,-9.8)</code></pre>
+    <pre><code>def main():
+    if "nogravity" in own["cheats"].lower() and own.scene.gravity.z != 0.0:
+        own.scene.gravity = 0,0,0
+    elif "nogravity" in own["cheats"].lower() and own.scene.gravity.z == 0.0:
+        own.scene.gravity = (0,0,-9.80)</code></pre>
+    <p>
+    	Here our cube floats when the cheat is enabled but when you type again,
+    	gravity doesn't go back to normal. So we need to clear the text field by doing so.
+    </p>
+    <pre><code>def main():
+    if "nogravity" in own["cheats"].lower() and own.scene.gravity.z != 0.0:
+        own.scene.gravity = 0,0,0
+        own["cheats"] = ""
+    elif "nogravity" in own["cheats"].lower() and own.scene.gravity.z == 0.0:
+        own.scene.gravity = (0,0,-9.80)
+        own["cheats"] = ""</code></pre>
+    <p>
+    	If this was hard to understand, let me break it down for ya:
+    	<ul>
+    		<li>We have a function that runs in a loop.</li>
+    		<li>Checks if the user typed that certain cheat.</li>
+    		<p>
+    			Checks if the user typed <span class="mono">nogravity</span> and
+    			if the gravity's Z axis was not equal to zero.<br>
+    			<span class="mono">.lower()</span> converts any letters that
+    			are randomly in capital to lower.
+    		</p>
+    		<li>we set the gravity to zero in Vector form as (0,0,0).</li>
+    		<li>Clear the <span class="mono">cheats</span> property's texts.</li>
+    		<li>Checks if user typed the same cheat.</li>
+    		<p>
+    			We check if the user typed the same cheat again and the gravity's Z axis
+    			is equal to zero.
+    		</p>
+    		<li>
+    			Then we set gravity back to <span class="mono">-9.80</span>.
+    		</li>
+    		<li>Clear the texts.</li>
+    	</ul>
+    </p>
+    <p>
+    	And then we need to implement two more cheats, which are <b>iamspeed</b> that
+    	changes the player's speed and <b>abigcube</b> that spawns a big cube in front
+    	of the player. But we haven't created the player's movement, so we'll make one.
+    	You can <a href="#skip">skip to this part</a> if you're not interested making the movement
+    	code.
+    </p>
+    <pre><code>if "speed" not in own:
+    own["speed"] = 1/8 # int type, this is important
+
+def move():
+    keysdown = Range.logic.keyboard.activeInputs
+    x = 0
+    z = 0
+
+    if 45 in keysdown: # 45 = W key
+        y = speed
+    else:
+        y = 0.0
+    
+    if 23 in keysdown and not 26 in keysdown:
+        zt = speed
+    elif 26 in keysdown and not 23 in keysdown:
+        zt = -speed
+    else:
+        zt = 0.0
+    
+    own.applyMovement((x, y, z), True)
+    own.applyRotation((0.0, 0.0, zt), True)</code></pre>
+    <p>
+    	The code might look complicated but lemme break it down for you.
+    	<ul>
+    		<li>W.I.P.</li>
+    	</ul>
+    </p>
+    <p>
+    	For part you need an always sensor that runs in a loop, enable true
+    	level triggering.
+    </p>
+    <p id="skip">
+    	Now we've created the player movement, now we check if the player typed
+    	"iamspeed"
+    </p>
+    <pre><code>def main():
+    cheats = own["cheats"].lower() # Defined to avoid lengthy lines
+
+    if "nogravity" in cheats and own.scene.gravity.z != 0.0:
+        own.scene.gravity = (0, 0, 0)
+        own["cheats"] = ""
+    elif "nogravity" in cheats and own.scene.gravity.z == 0.0:
+        own.scene.gravity = (0, 0, -9.80)
+        own["cheats"] = ""
+
+    # "iamspeed" Part here
+    elif "iamspeed" in cheats and own["speed"] == 1/8:
+        own["speed"] = 1
+        own["cheats"] = ""
+    elif "iamspeed" in cheats and own["speed"] == 1:
+        own["speed"] = 1/8
+        own["cheats"] = ""
+    else:
+        pass</code></pre>
+    <p>
+    	The main reason <span class="mono">own["speed"] = 1/8</span> is it results in
+    	shorter float whose value will be <span class="mono">0.128</span>. If you have
+    	defined it <b>speed</b> property as 0.1 the float be will something like
+    	<b>0.100000022912</b> or so, which can be frustrating to
+    	check that cheat for the second time.<br>
+    	And if you have defined <b>speed</b> instead of
+    	<span class="mono">own["speed"]</span> you might enounter
+    	<span class="mono">UnboundLocalError</span>.
+    </p>
+    <p>
+    	Now for the final part, we're going to spawn a big cube infront of the player.
+    	For that we need to copy the orientation and position of the player. Instead
+    	of writing code that need to deal with <span class="mono">Vector</span>, we can
+    	simply parent an <b>Empty</b> to the player. Must be looking something like this.
+    </p>
+    <figure>
+    	<img src="https://i.postimg.cc/4xfSt9w9/image.png" loading="lazy">
+    	<figcaption>Example setup for spawing objects</figcaption>
+    </figure>
+    <p>
+    	Now we need to add the code that spawns the object...
+    </p>
+    <pre><code># Spawn object mechanism
+elif "abigcube" in cheats:
+    own.scene.addObject("dacube", "spawn", 0)
+    own["cheats"] = ""</code></pre>
+    <p>
+    	In the <span class="mono">addObject()</span>, we put the name of our object
+    	we're going to spawn as string and name of spawning object as string which is
+    	used to copy the position, rotation and scale to spawn "dacube".
+    </p>
+    <pre id="full-src"><code>try:
+    import Range
+except:
+    import bge as Range
+
+from mathutils import Vector
+
+cont = Range.logic.getCurrentController()
+own = cont.owner
+
+if "speed" not in own:
+    own["speed"] = 1/8
+    own.addDebugProperty("speed", True)
+
+def main():
+    cheats = own["cheats"].lower()
+
+    if "nogravity" in cheats and own.scene.gravity.z != 0.0:
+        own.scene.gravity = (0, 0, 0)
+        own["cheats"] = ""
+    elif "nogravity" in cheats and own.scene.gravity.z == 0.0:
+        own.scene.gravity = (0, 0, -9.80)
+        own["cheats"] = ""
+    elif "iamspeed" in cheats and own["speed"] == 1/8:
+        own["speed"] = 1
+        own["cheats"] = ""
+    elif "iamspeed" in cheats and own["speed"] == 1:
+        own["speed"] = 1/8
+        own["cheats"] = ""
+    elif "abigcube" in cheats:
+        spawn = own.scene.objects["spawn"]
+        own.scene.addObject("dacube", spawn, 0)
+        own["cheats"] = ""
+    else:
+        pass
+
+def move():
+    keysdown = Range.logic.keyboard.activeInputs
+    x = 0
+    z = 0
+
+    if 45 in keysdown: # 45 = W key
+        y = own["speed"]
+    else:
+        y = 0.0
+    
+    if 23 in keysdown and not 26 in keysdown:
+        zt = own["speed"]
+    elif 26 in keysdown and not 23 in keysdown:
+        zt = -own["speed"]
+    else:
+        zt = 0.0
+    
+    own.applyMovement((x, y, z), True)
+    own.applyRotation((0.0, 0.0, zt), True)</code></pre>
+    <figure>
+    	<img src="https://i.postimg.cc/FzfJwD9L/Record-2024-07-11-22-09-55-7.gif" loading="lazy">
+    	<figcaption>Final Result</figcaption>
+    </figure>
+    <p>
+    	Must be working....
+    	<a href="https://drive.google.com/file/d/1NsN_T2JbNls_HGFBs33cNg-DQX1lLzT8/view?usp=sharing">Download project file here</a>.
+    </p>
     <!-- ALWYAS SENSOR IS NOT ADDED LMAOOO -->
 	<!-- SCRTIPS -->
+	<script src="../../code/smooth_criminal.js"></script>
 	<script src="../../code/highlight.min.js"></script>
 	<script>hljs.highlightAll();</script>
 	<script type="text/javascript" src="../../code/syntax.js"></script>
