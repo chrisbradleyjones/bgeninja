@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Saving and Loding files in relative paths and absolute paths with custom file extension.">
+	<meta property="og:url" content="https://chrisbradleyjones.github.io/bgeninja/courses/tutorials/py-toggle-buttons.html">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Toggle Buttons">
+	<meta property="og:description" content="Toggle mechansim using python to turn on and off values.">
+	<meta property="og:image" content="https://u.cubeupload.com/ropap66508/H7tbEk.png">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="chrisbradleyjones.github.io">
+	<meta property="twitter:url" content="https://chrisbradleyjones.github.io/bgeninja/courses/tutorials/file-operations.html">
+	<meta name="twitter:title" content="Toggle Buttons">
+	<meta name="twitter:description" content="Toggle mechansim using python to turn on and off values.">
+	<meta name="twitter:image" content="https://u.cubeupload.com/ropap66508/H7tbEk.png">
+	<title>Toggle Buttons</title>
+</head>
+<body>
+	<h1>Toggle Buttons</h1>
+	<p>
+		In this tutorial website, we'll be creating the toggle mechanism using python.
+		We will turn on and off a light.
+	</p>
+	<h3>Scene Setup</h3>
+	<p>
+		Create a dark environment and add a spot lamp, creating a dark environment
+		is simple as pie! Delete everything in the scene, set the horizon and zenith
+		colors to some dark color, add a plane and scale it to 10, add a spot lamp
+		and bring it on Z axis to something around 10. Should be looking something like
+		this.
+	</p>
+	<figure>
+		<img src="https://i.postimg.cc/nccYLvnj/Screenshot-811.png" loading="lazy">
+		<figcaption>Dark Environment</figcaption>
+	</figure>
+	<h3>Coding</h3>
+	<p>
+		Let's import our module, define the current controller, get the owner and create
+		a function that runs in a loop named as <span class="mono">main()</span>.
+	</p>
+	<pre><code>try:
+    import Range
+except:
+    import bge as Range
+    
+cont = Range.logic.getCurrentController()
+own = cont.owner
+
+def main():
+    pass</code></pre>
+    <p>
+    	We need to get our object's name which is a lamp and in python, its type will be
+    	<span class="mono">KX_LightObject</span> which is a subclass of
+    	<span class="mono">KX_GameObject</span>.
+    </p>
+    <pre><code>def init():
+    if "init" not in own or own["init"] == False:
+        own["init"] = True
+        own["toggle"] = True</code></pre>
+    <p>
+    	We create a function that runs once even though its wrapped with a sensor
+    	that runs in a loop. We also created a property that controls the light.<br>
+    	Now let's code the toggle mechanism, let's work on the looping function.
+    	We check for the user's input and if that certain input was triggered,
+    	we turn on the light.<br>
+    	Let's add an always and a keyboard sensor to the controllers.
+    	It looks something like this.
+    </p>
+    <figure>
+    	<img src="https://i.postimg.cc/Yqp8m5zS/image.png" loading="lazy">
+    	<figcaption>Logic Bricks Setup</figcaption>
+    </figure>
+    <pre><code>def main():
+    if own.sensors["Keyboard"].positive and own["toggle"] == False:
+        own["toggle"] = True
+    elif own.sensors["Keyboard"].positive and own["toggle"] == True:
+        own["toggle"] = False</code></pre>
+    <p>
+    	Here, we check that if the keyboard sensor is triggered and if the property
+    	<span class="mono">toggle</span> was False, we set it to True and
+    	<span title="if the keyboard sensor is triggered and if the property
+was True, we set it to False">vice versa</span>.
+    </p>
+    <pre><code>def main():
+    if own.sensors["Keyboard"].positive and own["toggle"] == False:
+        own["toggle"] = True
+    elif own.sensors["Keyboard"].positive and own["toggle"] == True:
+        own["toggle"] = False
+
+    # Light toggle part goes below
+    elif own["toggle"] == True:
+        own.scene.objects["Spot"].energy = 1.0
+    elif own["toggle"] == False:
+        own.scene.objects["Spot"].energy = 0.0
+    else:
+        pass</code></pre>
+    <p>
+    	Here we check that if the <span title="own['toggle']">property</span> was True
+    	we set the light's energy to 1.0, <span class="mono">light</span> attribute
+    	needs a float when pass the value to it. Then on the third <b>elif</b> it happens
+    	vice versa. Finally if none of them takes place, we do nothing.<br>
+    	Here is the full code.
+    </p>
+    <pre><code>try:
+    import Range
+except:
+    import bge as Range
+    
+cont = Range.logic.getCurrentController()
+own = cont.owner
+
+def init():
+    if "init" not in own or own["init"] == False:
+        own["init"] = True
+        own["toggle"] = True
+
+def main():
+    if own.sensors["Keyboard"].positive and own["toggle"] == False:
+        own["toggle"] = True
+    elif own.sensors["Keyboard"].positive and own["toggle"] == True:
+        own["toggle"] = False
+    elif own["toggle"] == True:
+        own.scene.objects["Spot"].energy = 1.0
+    elif own["toggle"] == False:
+        own.scene.objects["Spot"].energy = 0.0
+    else:
+        pass</code></pre>
+    <p>
+    	The final result should look something like this.
+    </p>
+    <figure>
+    	<img src="https://u.cubeupload.com/ropap66508/HeN6ds.gif" loading="lazy">
+    	<figcaption>Final Result</figcaption>
+    </figure>
+    <p>
+    	<a href="https://drive.google.com/file/d/15rJgbgkhcHU2zl-cKycIGci5eJh-k3pm/view?usp=sharing" target="_blank">Download the project file.</a>
+    </p>
+	<!-- SCRIPT -->
+	<script src="../../code/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="../../code/syntax.js"></script>
+</body>
+</html>
