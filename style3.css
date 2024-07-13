@@ -291,21 +291,21 @@ a:hover{
 	background: linear-gradient(to right, forestgreen, darkgreen);
 }
 .know .what::before{
-	content: "❓ ";
+	content: "❓ Know";
 }
 
 .note .what{
 	background: linear-gradient(to right, midnightblue, royalblue);
 }
 .note .what::before{
-	content: "📝 ";
+	content: "📝 Note";
 }
 
 .warning .what{
 	background: orangered;
 }
 .warning .what::before{
-	content: "❗ ";
+	content: "❗ Warning";
 }
 
 iframe{

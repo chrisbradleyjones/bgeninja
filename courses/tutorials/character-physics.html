@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Making character physics wrapper, moving character, control number of jump, etc.">
+	<meta property="og:url" content="https://bge.ninja">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="BGENinja">
+	<meta property="og:description" content="Making character physics wrapper, moving character, control number of jump, etc.">
+	<!-- <meta property="og:image" content="https://rangeengine.tech//img/ogp_splash.jpg"> -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="bge.ninja">
+	<meta property="twitter:url" content="https://bge.ninja">
+	<meta name="twitter:title" content="BGENinja">
+	<meta name="twitter:description" content="Making character physics wrapper, moving character, control number of jump, etc.">
+	<!-- <meta name="twitter:image" content="https://rangeengine.tech//img/ogp_splash.jpg"> -->
+	<title>Character Control</title>
+</head>
+<body>
+	<h1>Character Control</h1>
+	<p>
+		We will make character physics controller which is
+		<span class="mono">KX_CharacterWrapper</span> type.
+		This allows us to check if the character has landed,
+		control number of jumps it can do, etc.
+	</p>
+	<h3>Setup</h3>
+	<p>
+		Select the cube, change it's physics type to Character, drag it up on the
+		Z axis to around 3-4.<br>
+	</p>
+	<h3>Logic Bricks</h5>
+	<p>
+		To setup the logic bricks, we need to know how the player will
+		be controller. My guess is something like this.
+	</p>
+	<figure>
+		<img src="https://i.postimg.cc/rmVKTrx2/image.png" loading="lazy" alt="logic bricks setup">
+		<figcaption>Logic Bricks Setup</figcaption>
+	</figure>
+	<p>
+		The keyboard keys will be controlled with python.
+	</p>
+	<h3>Coding</h3>
+	<p>
+		Import the game engine module, define our python controller and owner.
+	</p>
+	<pre><code>try:
+    import Range
+except:
+    import bge as Range
+
+cont = Range.logic.getCurrentController()
+own = cont.owner
+
+def move():
+    pass</code></pre>
+    <p>
+    	The <span class="mono">move</span> function will run in a loop.
+    	Next we need to move our character when the keyboard sensors is triggered.
+    </p>
+    <pre><code>def move():
+    keyboard = cont.sensors["Keyboard"] # Get sensor as "keyboard"
+    y = 0 # Forward / Backward
+    z = 0 # Turn
+    jump = (0,0,0) # Jump Direction
+    if keyboard.positive: # If keyboard is triggered
+        if 45 in keyboard.inputs: # W key
+            y = 1/8
+        if 23 in keyboard.inputs: # A key
+            z = 1/8
+        if 41 in keyboard.inputs: # S key
+            y = -1/8
+        if 26 in keyboard.inputs: # D key
+            z = -1/8
+        if 8 in keyboard.inputs:  # SPACE key
+            pass # Do nothing, will be implemented later
+        else: # Reset everything
+        	x = 0
+        	z = 0
+        	jump = 0</code></pre>
+    <p>
+    	Here, we've setup the movement when the keyboard is pressed.
+    	Now we need to get the character ID.
+    </p>
+    <div class="note">
+    	<p class="what"></p>
+    	<p>
+    		Getting the character ID is mandatory or the character you control becomes
+    		<span class="mono">KX_GameObject</span>.
+    	</p>
+    </div>
+    <pre class="language-python"><code>player = Range.constraints.getCharacter(own)</code></pre>
+    <p>
+    	We got our character ID, now we need to implement the player movement.
+    </p>
+    <pre class="language-python"><code>def move():
+    keyboard = cont.sensors["Keyboard"]
+    y = 0
+    z = 0
+    jump = (0,0,0)
+    if keyboard.positive:
+        if 45 in keyboard.inputs:
+            y = 1/8
+        if 23 in keyboard.inputs:
+            z = 1/8
+        if 41 in keyboard.inputs:
+            y = -1/8
+        if 26 in keyboard.inputs:
+            z = -1/8
+        if 8 in keyboard.inputs:
+            player.jump() # The proper jump
+    else:
+        x = 0
+        z = 0
+        jump = 0
+                    
+    player.walkDirection = (0,y,0) # Movement but in world coordinates
+    own.applyRotation((0,0,z), True) # Turn left and right</code></pre>
+    <p>
+    	If you run the script, the character moves in world coordinates,
+    	to solve this we multiply <span class="mono">worldOrientation</span>
+    	that returns us Matrix with the tuple <span class="mono">(0,y,0)</span>
+    	which will be converted into a Vector with <b>mathutils</b> module.
+    </p>
+    <pre class="language-python"><code>player.walkDirection = own.worldOrientation * Vector((0,y,0))</code></pre>
+    <p>
+    	And we create a property that returns us the
+    	<span class="mono">KX_CharacterWrapper.onGround</span> as True or False.
+    </p>
+    <pre><code>own["landed"] = player.onGround</code></pre>
+    <p>
+    	And the final code looks like this.
+    </p>
+    <pre id="full-src"><code>try:
+    import Range
+except:
+    import bge as Range
+
+from mathutils import Vector
+    
+cont = Range.logic.getCurrentController()
+own = cont.owner
+player = Range.constraints.getCharacter(own)
+
+def move():
+    keyboard = cont.sensors["Keyboard"]
+    y = 0
+    z = 0
+    jump = (0,0,0)
+    if keyboard.positive:
+        if 45 in keyboard.inputs:
+            y = 1/8
+        if 23 in keyboard.inputs:
+            z = 1/8
+        if 41 in keyboard.inputs:
+            y = -1/8
+        if 26 in keyboard.inputs:
+            z = -1/8
+        if 8 in keyboard.inputs:
+            player.jump()
+    else:
+        x = 0
+        z = 0
+        jump = 0
+                    
+    player.walkDirection = own.worldOrientation * Vector((0,y,0))
+    own.applyRotation((0,0,z), True)
+    own["landed"] = player.onGround</code></pre>
+    <p>
+    	<a href="" target="_blank">Download the project file.</a>
+    </p>
+	<!-- SCRIPTS -->
+	<script src="../../code/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="../../code/syntax.js"></script>
+</body>
+</html>
