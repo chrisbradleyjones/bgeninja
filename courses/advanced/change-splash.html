@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Custom UPBGE splash screen and avoiding crashes">
+	<!-- Facebook Meta Tags -->
+	<!-- <meta property="og:url" content="https://chrisbradleyjones.github.io/bgeninja/"> -->
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Custom UPBGE Splash">
+	<meta property="og:description" content="This fly website's got some sick tuts for UPBGE and Range, yo!">
+	<meta property="og:image" content="https://i.postimg.cc/cJwxY8bn/image.png">
+	<!-- Twitter Meta Tags -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta property="twitter:domain" content="chrisbradleyjones.github.io">
+	<meta property="twitter:url" content="https://chrisbradleyjones.github.io/bgeninja/">
+	<meta name="twitter:title" content="Custom UPBGE Splash">
+	<meta name="twitter:description" content="Custom UPBGE splash screen and avoiding crashes">
+	<meta name="twitter:image" content="https://i.postimg.cc/cJwxY8bn/image.png">
+	<title>Custom UPBGE Splash</title>
+</head>
+<body>
+	<h1>Custom UPBGE Splash</h1>
+	<p>
+		Yo in this tutorial we'll see how to change our game engine's splash screen.
+		If you have some experience compiling UPBGE you must find these steps easy.<br>
+		If this is your first time compiling the engine,
+		<a href="compile-upbge.html">you must check this page</a> or
+		its going to be very difficult to setup.
+	</p>
+	<h3>Requirements</h3>
+	<p>
+		You'll need:
+		<ul>
+			<li><a href="https://files01.tchspt.com/down/vs_Community2019.exe" target="_blank">Visual Studio 2019</a>+</li>
+			<li><a href="https://gimp.org" target="_blank">GIMP</a>
+				/
+				<a href="https://www.photopea.com/" target="_blank">Photopea</a>
+				/
+				or any editor that can resize images.</li>
+			<li><a href="https://en.wikipedia.org/wiki/Microsoft_Paint" target="_blank">MSPaint</a>, dw its pre-installed.</li>
+		</ul>
+	</p>
+	<h3>Setting Up</h3>
+	<p>
+		Go to the path where the source code is located.
+		Goto <u id="dir">release -> datafiles</u> and you'll find
+		<span class="mono">splash.png</span> with a size of <b>500x282</b>
+		and <span class="mono">splash_2x.png</span> with a size of <b>1000x563</b>.
+		The first splash file is for regualar sized 1080p monitors and another <b>2x</b> sized splash
+		is for big 4k monitors. Those images don't need to be same.
+	</p>
+	<h3>Edit and export the image</h3>
+	<p>
+		We'll get some image from the internet and replace it with 1st and 2nd splash.
+		After downloading go to your favourite image editor and for the first image
+		set the canvas size's <u>width to 500</u> and <u>height to 282</u>.
+		We need to set our image precision to <span class="mono">unint8.png</span> and
+		if you don't know how to set it, export the image.<br>
+		Open <span title="Super key + R and type 'mspaint' without the quotes">MSPaint</span>,
+		open the image and save it. It must set the precision mode to 8 bit unsigned integer.<br>
+		Same applies to the <b>splash_2x.png</b> file but make sure the image width is 1000
+		and height is 563.
+	</p>
+	<div class="warning">
+		<p class="what"></p>
+		<p>
+			Setting the image precision to <span class="mono">unint8.png</span> is necessary
+			or your build will crash. You also need to have your images in
+			<span class="mono">.png</span> format.
+		</p>
+	</div>
+	<p>
+		If you haven't put the files <a href="#dir">in this directory</a>,
+		rename the original as something so
+		your's don't overwrite them and paste the files there.
+	</p>
+	<h3>Building</h3>
+	<p>
+		Now for the last step, open up Visual Studio and build by
+		setting the build type from <span class="mono">Debug</span> to
+		<span class="mono">Release</span>, <b>select</b>
+		<span class="mono">CMakePredefinedTargets</span> and go to
+		<u>Build -> Build -> 3 INSTALL</u>.<br>
+		If you're building for the first time, it might take up to 1½ hour and
+		if you've built more than once it should take a few moments.
+	</p>
+	<figure>
+		<img src="https://i.postimg.cc/cJwxY8bn/image.png" loading="lazy">
+		<figcaption>Splash Screen Replaced</figcaption>
+	</figure>
+	<p>
+		Have fun!
+	</p>
+	<!-- Script -->
+	<!-- <script type="text/javascript" src="../../code/smooth_criminal.js"></script> -->
+	<script src="../../code/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
+	<script type="text/javascript" src="../../code/syntax.js"></script>
+</body>
+</html>

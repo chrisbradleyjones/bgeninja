@@ -291,21 +291,21 @@ a:hover{
 	background: linear-gradient(to right, forestgreen, darkgreen);
 }
 .know .what::before{
-	content: "❓ Know";
+	content: "Know ❓";
 }
 
 .note .what{
 	background: linear-gradient(to right, midnightblue, royalblue);
 }
 .note .what::before{
-	content: "📝 Note";
+	content: "Note 📝";
 }
 
 .warning .what{
-	background: orangered;
+	background: linear-gradient(to right, orangered, #b82c1a);
 }
 .warning .what::before{
-	content: "❗ Warning";
+	content: "Warning ❗";
 }
 
 iframe{
@@ -321,12 +321,20 @@ iframe{
 @keyframes target_{
 	0%{
 		background: transparent;
+		color: inherit;
+	}
+	25%{
+		color: black;
 	}
 	50%{
-		background: rgba(255, 255, 255, 0.2);
+		background: yellow;
+	}
+	75%{
+		color: black;
 	}
 	100%{
 		background: transparent;
+		color: inherit;
 	}
 }
 /*Making the site more responsive almost on any device*/
