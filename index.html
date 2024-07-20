@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -24,16 +24,18 @@
 	<title>BGENinja - Home</title>
 </head>
 <body>
-	<section class="sect-1" id="home">
+	<section id="sect-1" id="home">
 		<button id="toggle-nav">=</button>
 		<nav id="nav-bar">
 		    <ul>
 		        <li><img src="img/bgeninja.svg" alt="Logo" loading="lazy"></li>
-		        <li><a href="index.html">Home</a></li>
-		        <li><a href="#courses">Courses</a></li>
-		        <li><a href="brotips.html">BroTips</a></li>
-		        <li><a href="contribute.html">Contribute</a></li>
-		        <li><a href="about.html">About</a></li>
+		        <div>
+		        	<li><a href="index.html">Home</a></li>
+		        	<li><a href="#courses">Courses</a></li>
+		        	<li><a href="brotips.html">BroTips</a></li>
+		        	<li><a href="contribute.html">Contribute</a></li>
+		        	<li><a href="about.html">About</a></li>
+		        </div>
 		    </ul>
 		</nav>
 		<div id="heading">
@@ -52,19 +54,23 @@
 			</div>
 		</div>
 	</section>
-	<section class="sect-2" id="courses">
+	<section id="sect-2">
 		<h2>Where do I start?</h2>
 		<div class="recc" id="logic-bricks">
 			<div class="rec-round">1</div>
 			<h3>Game Engine basics and Logic Bricks</h3>
 			<p>Learn the basics and the logic bricks.</p>
 			<button onclick="goto('/courses/logic-bricks/intro.html')">Learn Basics</button>
+			<progress value="13" max="15"></progress>
+			<p class="what-prog">Lessons Available: 13/15</p>
 		</div>
 		<div class="recc" id="python">
 			<div class="rec-round">2</div>
 			<h3>Python</h3>
 			<p>You'll learn to do stuff that can be done without logic bricks and have more control over your projects.</p>
 			<button onclick="goto('/courses/python/intro.html')">Learn Python</button>
+			<progress value="7" max="15"></progress>
+			<p class="what-prog">Lessons Available: 7/15</p>
 		</div>
 		<!-- <div class="recc" id="glsl">
 			<div class="rec-round">3</div>
@@ -77,15 +83,19 @@
 			<h3>Tutorials for game engine</h3>
 			<p>Game Engine tutorials with project files!</p>
 			<button onclick="goto('/courses/tutorials/intro.html')">Get Tutorials</button>
+			<progress value="13" max="15"></progress>
+			<p class="what-prog">Lessons Available: 22/37</p>
 		</div>
 		<div class="recc" id="source-code">
 			<div class="rec-round">4</div>
 			<h3>Advanced Stuff</h3>
 			<p>Game engine source code related stuff.</p>
 			<button onclick="goto('/courses/advanced/intro.html')">Learn Source Code</button>
+			<progress value="22" max="37"></progress>
+			<p class="what-prog">Lessons Available: 2/2</p>
 		</div>
 	</section>
-	<section class="sect-3">
+	<section id="sect-3">
 		<div>
 			<h2>What is this all about?</h2>
 			<p>
@@ -105,7 +115,7 @@
 			</p>
 		</div>
 	</section>
-	<section class="sect-4">
+	<section id="sect-4">
 		<h2>Join the game engine's community at Discord</h2>
 		<div id="join-discord">
 			<div>

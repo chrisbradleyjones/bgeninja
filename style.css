@@ -23,9 +23,8 @@
 }
 
 #nav-bar ul {
+    display: contents;
     list-style: none;
-    display: flex;
-    align-items: center;
     margin: 0;
     padding: 0;
 }
@@ -33,7 +32,8 @@
 #nav-bar li {
 	font-weight: bolder;
 	font-variant-caps: all-petite-caps;
-    margin-right: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 #nav-bar img {
@@ -45,6 +45,10 @@
 #nav-bar a{
 	text-decoration: none;
 	color: whitesmoke;
+}
+
+#nav-bar div{
+	display: flex;
 }
 
 #nav-bar.scrolled {
@@ -81,7 +85,7 @@ body::-webkit-scrollbar-track{
 	background: rgb(.1, .1, .1	, 1.0);
 }
 
-.sect-1{
+#sect-1{
 	padding-top: 150px;
 	padding-bottom: 100px;
 	transition: 0.25s;
@@ -94,8 +98,26 @@ body::-webkit-scrollbar-track{
 	text-align: center;
 }
 
-.sect-2 h3{
+#sect-2 h3{
 	line-height: 2rem;
+}
+
+#sect-2 progress{
+	width: 50%;
+	margin-top: 50px;
+	padding-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#sect-2 .what-prog{
+	margin: auto;
+}
+
+#sect-2 p{
+	margin-left: 0;
+	margin-top: 0;
+	padding: 0;
 }
 
 h1{
@@ -138,6 +160,10 @@ h1{
 #rng-txt:hover{
 	color: #E02323;
 	background: #fff;
+}
+
+#up-txt::selection, #rng-txt::selection{
+	background: transparent;
 }
 
 #up-txt, #rng-txt{
@@ -270,31 +296,31 @@ section h2{
 	margin-top: 6px;
 }
 
-.sect-1 h1{
+#sect-1 h1{
 	font-size: 5rem;
 	margin: 0px;
 }
 
-.sect-3{
+#sect-3{
 	background-image: radial-gradient(#702f00 10%, #321200 100%);
 }
 
-.sect-3 p{
+#sect-3 p{
 	text-align: center;
 	margin-right: 10rem;
 	margin-left: 10rem;
 }
 
-/*.sect-4{
+/*#sect-4{
 	background-image: radial-gradient(#0B0B13 0%, #ffff 100%);
 	background-attachment: fixed;
 }*/
 
-.sect-4:hover{
+#sect-4:hover{
 	background-image: none;
 }
 
-.sect-4 h2{
+#sect-4 h2{
 	margin-right: 10%;
 	margin-left: 10%;
 }
@@ -374,16 +400,16 @@ pre::-webkit-scrollbar-track{
 	border-left: 20px solid;
 }
 
-.sect-1_contr h1, h3, ul{
+/*#sect-1_contr h1, h3, ul{
 	margin-right: 2.5%;
 	margin-left: 2.5%;
 	position: relative;
 }
 
-.sect-1_contr ul{
+#sect-1_contr ul{
 	list-style: decimal;
 
-}
+}*/
 
 .dingus{
 	transition: 0.25s;
@@ -524,8 +550,10 @@ pre::-webkit-scrollbar-track{
 	margin-bottom: 20px;
 }
 
-#join-discord p{
+#join-discord p, a{
 	margin: 0px;
+	color: whitesmoke;
+	text-decoration: none;
 }
 
 #join-discord img{
@@ -577,15 +605,15 @@ pre::-webkit-scrollbar-track{
 	.recc h3{
 		line-height: 2.5rem;
 	}
-	.sect-1{
+	#sect-1{
 		padding-top: 75px;
 		padding-bottom: 30px;
 	}
-	.sect-3 h2{
+	#sect-3 h2{
 		margin-right: 10%;
 		margin-left: 10%;
 	}
-	.sect-3 p{
+	#sect-3 p{
 		margin-right: 1.25rem;
 		margin-left: 1.25rem;
 		text-align: left;
@@ -593,10 +621,10 @@ pre::-webkit-scrollbar-track{
 	body{
 		width: auto;
 	}
-	.sect-1 .landing-text{
+	#sect-1 .landing-text{
 		line-height: 1.75rem;
 	}
-	.sect-1 h1{
+	#sect-1 h1{
 		font-size: 3rem;
 		margin: 0px;
 	}
@@ -613,12 +641,19 @@ pre::-webkit-scrollbar-track{
 		max-width: 50%;
 	}
 	#nav-bar ul{
-		display: block;
+		display: inline;
 		line-height: 7vh;
 		font-size: 2rem;
 	}
+	#nav-bar li{
+		margin: 0;
+		padding: 0;
+	}
+	#nav-bar div{
+		display: block;
+	}
 	#nav-bar.visible {
-		background: black	;
+		background: black;
     	opacity: 1;
     	pointer-events: auto;
 	}
@@ -657,5 +692,8 @@ pre::-webkit-scrollbar-track{
 	}
 	.dingus{
 		color: whitesmoke;
+	}
+	#sect-2 progress{
+		width: 80%;
 	}
 }
